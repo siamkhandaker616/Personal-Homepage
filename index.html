@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siam's Pastel Paradise - Home</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- HEADER & NAVIGATION -->
+        <div class="header">
+            <h1>🌸 Siam's Pastel Paradise 🌸</h1>
+            <p class="italic">Welcome to my little pastel gothic corner of the internet!</p>
+            
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+                <div>
+                    <button type="button" id="mode-toggle" class="mode-toggle-btn">🌙 Dark Mode</button>
+                </div>
+            </div>
+            
+            <div class="nav-container" style="border-top: 1px dotted var(--border-color); padding-top: 10px; justify-content: center; gap: 20px;">
+                <span class="bold">Jump to:</span>
+                <a href="#about">About Me</a> | 
+                <a href="#education">Education</a> | 
+                <a href="#skills">Skills</a> | 
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <!-- MAIN HOMEPAGE CONTENT -->
+        
+        <!-- ABOUT ME SECTION -->
+        <div class="card" id="about">
+            <h2>🌸 About Me</h2>
+            <div class="about-grid">
+                <div class="profile-container">
+                    <img src="images/profile.png" alt="Siam's Avatar" class="profile-img" />
+                    <p class="italic" style="margin-top: 10px; font-size: 0.9rem;">Me in my natural habitat ✨</p>
+                    <div style="margin-top: 10px;">
+                        <img src="https://img.shields.io/badge/Status-Active%20Senior-ffb7c5?style=flat-square&amp;logo=ghost" alt="Status Badge" />
+                    </div>
+                </div>
+                <div class="about-details">
+                    <p><span class="label-text">Name:</span> <strong class="highlight">Siam Khandaker</strong></p>
+                    <p><span class="label-text">Background:</span> A senior undergraduate student (Student ID: 22299030) pursuing a Bachelor of Science in Computer Science and Engineering. I love writing code, designing web layouts, and blending <span class="bold">cute aesthetics</span> with <span class="italic">gothic themes</span> (skulls, flowers, and lots of pink!).</p>
+                    <p>This website serves as my personal digital hub where I document my academic journey, display my coding projects, and compile my favorite hobbies.</p>
+                </div>
+            </div>
+            
+            <div class="quote-box">
+                <p>"The world is full of magical things, patiently waiting for our wits to grow sharper."</p>
+                <span class="quote-author">— Eden Phillpotts</span>
+            </div>
+        </div>
+
+        <!-- EDUCATION SECTION -->
+        <div class="card" id="education">
+            <h2>🎓 Education</h2>
+            <p>Here is a summary of my educational background:</p>
+            
+            <div style="margin-bottom: 15px; border-bottom: 1px dashed var(--border-color); padding-bottom: 15px;">
+                <h3 style="margin-bottom: 5px;">BRAC University</h3>
+                <p><span class="bold">Degree:</span> Bachelor of Science in Computer Science &amp; Engineering</p>
+                <p><span class="bold">Status:</span> Undergraduate Student (Senior - 4th Year)</p>
+                <p class="italic" style="font-size: 0.9rem;">Advanced coursework includes operating systems, computer graphics, computer networks, automata theory, compiler design, and internet programming.</p>
+            </div>
+            
+            <div>
+                <h3 style="margin-bottom: 5px;">BCIC College</h3>
+                <p><span class="bold">Certification:</span> Higher Secondary Certificate (HSC) — Science Group</p>
+                <p><span class="bold">Grade Recieved:</span> GPA 5.00</p>
+                <p><span class="bold">Graduation Year:</span> 2021</p>
+            </div>
+        </div>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <div class="card" id="skills">
+            <h2>💻 Technical Skills</h2>
+            <p>Below are some of the technical tools and concepts I am currently learning and comfortable with:</p>
+            
+            <ul class="cutesy-list">
+                <li><span class="bold">Front-End Development:</span> Designing semantic pages using <span class="highlight">HTML5</span> / <span class="highlight">XHTML 1.0 Strict</span> and writing bespoke stylesheets using <span class="highlight">Vanilla CSS</span> (including CSS variables and layouts like Flexbox/Grid).</li>
+                <li><span class="bold">Programming Languages:</span> Experienced in coding console applications using <strong class="italic">Python</strong>, <strong class="italic">Java</strong>, and <strong class="italic">C++</strong>.</li>
+                <li><span class="bold">Scripting &amp; Interactivity:</span> Implementing page logic, dark/light mode states, and event handling using pure <span class="bold">JavaScript</span>.</li>
+                <li><span class="bold">Tools &amp; Version Control:</span> Utilizing Git, VS Code, and browser developer consoles for testing and styling.</li>
+            </ul>
+        </div>
+
+        <!-- CONTACT FORM SECTION (Bonus Challenge 1) -->
+        <div class="card" id="contact">
+            <h2>✉️ Get In Touch</h2>
+            <p>If you want to chat about code, aesthetics, or have questions about assignment projects, send me a message! This form sends an email directly upon submission.</p>
+            
+            <form action="https://formspree.io/f/xaqgoyrv" method="post">
+                <fieldset style="border: none; margin: 0; padding: 0;">
+                    <div class="form-group">
+                        <label for="input-name">Name:</label>
+                        <input type="text" name="name" id="input-name" class="form-control" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="input-contact">Contact Info:</label>
+                        <input type="text" name="contact" id="input-contact" class="form-control" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="input-message">Message:</label>
+                        <textarea name="message" id="input-message" rows="5" cols="40" class="form-control"></textarea>
+                    </div>
+                    
+                    <div class="text-center" style="margin-top: 25px;">
+                        <input type="submit" value="🌸 Send Message" class="btn-submit" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p class="bold">&#169; 2026 Siam Khandaker. All rights reserved.</p>
+            <p>Made with love, pastel tones, and code. 💀🌸</p>
+            
+            <div class="footer-meta">
+                <p><strong>Page Location:</strong> <span id="page-location">Retrieving...</span></p>
+                <p><strong>Last Modified:</strong> <span id="last-modified">Retrieving...</span></p>
+                <p style="margin-top: 10px; font-size: 0.75rem;">
+                    Compliance Links: 
+                    <a href="https://www.bracu.ac.bd">BRAC University</a> | 
+                    <a href="https://discord.gg/U7GBm9GVC">CSE 391 Discord</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- BACK TO TOP BUTTON -->
+    <div class="scroll-top-wrapper">
+        <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
+    </div>
+    <!-- CUTESY MODAL NOTIFICATION -->
+    <div id="cutesy-modal" class="cutesy-modal-backdrop">
+        <div class="cutesy-modal-content">
+            <h3 id="cutesy-modal-title">🌸 Notice</h3>
+            <p id="cutesy-modal-message">Please enter your name.</p>
+            <button type="button" id="cutesy-modal-close" class="mode-toggle-btn">OK</button>
+        </div>
+    </div>
+</body>
+</html>
