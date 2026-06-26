@@ -3,15 +3,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siam's Pastel Paradise - Experiences</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Siam's Scrapbook - Experiences</title>
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="components.css" />
+    <link rel="stylesheet" type="text/css" href="doodles.css" />
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div id="wrapper">
+        <!-- NOTEBOOK BINDER SPINE -->
+        <div class="binder-spine">
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+        </div>
+        
+        <!-- LILAC BOOKMARK RIBBON -->
+        <div id="bookmark-ribbon" class="bookmark-experiences"></div>
+
         <!-- HEADER & NAVIGATION -->
-        <div class="header">
-            <h1>🌸 Siam's Pastel Paradise 🌸</h1>
+        <div class="header" style="position: relative;">
+            <!-- Left Header Sakura Blossom Doodle -->
+            <div class="scrapbook-doodle" style="top: -10px; left: -15px;">
+                <img src="images/doodles/left-sakura.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Sakura" />
+            </div>
+            <!-- Right Header Sakura Blossom Doodle -->
+            <div class="scrapbook-doodle" style="top: -10px; right: -15px;">
+                <img src="images/doodles/right-sakura.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Sakura" />
+            </div>
+            <h1>🌸 Siam's Scrapbook 🌸</h1>
             <p class="italic">Welcome to my little pastel gothic corner of the internet!</p>
             
             <div class="nav-container">
@@ -31,6 +57,11 @@
         
         <!-- ACADEMIC & PROJECT TIMELINE (Table Requirement) -->
         <div class="card">
+            <!-- Academic Scroll with flowers -->
+            <div class="scrapbook-doodle" style="top: -25px; right: -35px;">
+                <img src="images/doodles/academic-scroll.svg" style="opacity: 0.85;" width="100" height="100" alt="Academic Scroll" />
+            </div>
+
             <h2>🎓 Coursework &amp; Academic Grades</h2>
             <p>Below is a structured record of select core Computer Science &amp; Engineering courses I have completed at BRAC University. Hover over any course title cell to view the associated project or milestone details.</p>
             
@@ -165,16 +196,29 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Sketch pencil doodle bottom left -->
+            <div class="scrapbook-doodle" style="bottom: 40px; right: -5px;">
+                <img src="images/doodles/sketch-pencil.svg" style="opacity: 0.85;" width="75" height="75" alt="Sketch Pencil" />
+            </div>
         </div>
 
         <!-- ADDITIONAL ACHIEVEMENTS -->
         <div class="card">
+            <!-- Star Ribbon Medallion top right -->
+            <div class="scrapbook-doodle" style="top: -25px; right: -30px;">
+                <img src="images/doodles/ribbon-medallion.svg" style="opacity: 0.85;" width="95" height="95" alt="Ribbon Medallion" />
+            </div>
+
             <h2>🏆 Extracurricular Achievements</h2>
             <ul class="cutesy-list">
                 <li><span class="bold">Excellent Academic Standing:</span> Completed key major programming and mathematics coursework with perfect grade point metrics (4.00 out of 4.00 in major core courses).</li>
                 <li><span class="bold">Hackathons:</span> Participated in local university programming contests, building prototype websites in team environments.</li>
                 <li><span class="bold">Mentorship:</span> Volunteered in peer-tutoring sessions, helping junior students understand loops, lists, and OOP concepts in Java.</li>
             </ul>
+            <!-- Trophy cup bottom left -->
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -25px;">
+                <img src="images/doodles/trophy-cup.svg" style="opacity: 0.85;" width="80" height="80" alt="Trophy Cup" />
+            </div>
         </div>
 
         <!-- FOOTER -->

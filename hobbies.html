@@ -3,15 +3,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siam's Pastel Paradise - Hobbies</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Siam's Scrapbook - Hobbies</title>
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="components.css" />
+    <link rel="stylesheet" type="text/css" href="doodles.css" />
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div id="wrapper">
+        <!-- NOTEBOOK BINDER SPINE -->
+        <div class="binder-spine">
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+        </div>
+        
+        <!-- LILAC BOOKMARK RIBBON -->
+        <div id="bookmark-ribbon" class="bookmark-hobbies"></div>
+
         <!-- HEADER & NAVIGATION -->
-        <div class="header">
-            <h1>🌸 Siam's Pastel Paradise 🌸</h1>
+        <div class="header" style="position: relative;">
+            <!-- Left Header Sakura Blossom Doodle -->
+            <div class="scrapbook-doodle" style="top: -10px; left: -15px;">
+                <img src="images/doodles/left-sakura.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Sakura" />
+            </div>
+            <!-- Right Header Sakura Blossom Doodle -->
+            <div class="scrapbook-doodle" style="top: -10px; right: -15px;">
+                <img src="images/doodles/right-sakura.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Sakura" />
+            </div>
+            <h1>🌸 Siam's Scrapbook 🌸</h1>
             <p class="italic">Welcome to my little pastel gothic corner of the internet!</p>
             
             <div class="nav-container">
@@ -37,6 +63,19 @@
         <!-- MAIN HOBBIES CONTENT -->
         <!-- CATEGORIZED HOBBIES -->
         <div class="card" id="interests">
+            <!-- Pressed flower leaf petal sticker -->
+            <div class="pressed-petal" style="top: 350px; right: 380px; transform: rotate(45deg); "></div>
+
+            <!-- Chi Cat interactive doodle (outside source: i.ibb.co) replacing skull -->
+            <div class="scrapbook-doodle chi-cat-doodle" style="top: -45px; right: -50px;">
+            </div>
+
+            <!-- Polaroid scrapbook clipping -->
+            <div class="polaroid-frame tape-polaroid" style="float: right; margin-left: 20px; --polaroid-rotate: 3deg;">
+                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=300" alt="Silent Hill 2" />
+                <div class="polaroid-caption">Silent Hill 2</div>
+            </div>
+
             <h2>🌸 Categorized Activities &amp; Interests</h2>
             <p>I believe in pursuing what truly inspires me. Here is how I divide my core activities, creative pursuits, and media interests. You can also explore my code repositories directly on my <a href="https://github.com/siamkhandaker616">GitHub profile page</a> to see my work.</p>
             
@@ -64,13 +103,27 @@
                     <li><span class="bold">Visual Kei (VK):</span> I am a huge fan of VK music, appreciating its unique fusion of theatrical rock, gothic fashion, and expressive melodies. My personal playlist spans over 1,200 tracks and includes bands like lynch., DADAROMA, JILUKA, Versailles, DIAURA, and DazzlingBAD.</li>
                 </ul>
             </div>
+            <!-- Retro audio cassette tape doodle -->
+            <div class="scrapbook-doodle" style="bottom: -45px; left: -30px;">
+                <img src="images/doodles/cassette-tape.svg" style="opacity: 0.85;" width="80" height="80" alt="Cassette Tape" />
+            </div>
         </div>
 
         <!-- SEPARATE TOP 10 LISTS -->
         <div class="card" id="top10">
+            <!-- Film roll spool top right -->
+            <div class="scrapbook-doodle" style="top: -40px; right: -30px;">
+                <img src="images/doodles/film-spool.svg" style="opacity: 0.85;" width="90" height="90" alt="Film Spool" />
+            </div>
+
             <h2>🌸 My Top 10 Lists</h2>
             <p>To give you a better idea of the specific niches I live for, here are my separate top ten lists for anime, survival horror video games, and psychological/indie horror movies:</p>
             
+            <!-- Game controller middle left -->
+            <div class="scrapbook-doodle" style="top: 650px; right: -15px;">
+                <img src="images/doodles/game-controller.svg" style="opacity: 0.85;" width="85" height="85" alt="Game Controller" />
+            </div>
+
             <div style="margin-top: 20px;">
                 <h3 class="highlight">🎬 Top 10 Favorite Anime Series &amp; Movies</h3>
                 <ol class="cutesy-list">
@@ -88,19 +141,110 @@
             </div>
             
             <div style="margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
-                <h3 class="highlight">🎮 Top 10 Favorite Horror Video Games</h3>
-                <ol class="cutesy-list">
-                    <li><span class="bold">Silent Hill 2 (OG)</span> — The absolute peak of psychological horror and melancholic atmosphere.</li>
-                    <li><span class="bold">Obscure</span> — Nostalgic, co-op survival horror with a distinct high-school slasher vibe.</li>
-                    <li><span class="bold">Deadly Premonition</span> — Quirky, janky Twin Peaks-inspired gem with legendary cheesy acting.</li>
-                    <li><span class="bold">Tormented Souls</span> — Fantastic modern callback to classic fixed-camera survival horror.</li>
-                    <li><span class="bold">Silent Hill 3</span> — Terrifying industrial decay aesthetics and stellar sound design.</li>
-                    <li><span class="bold">Rule of Rose</span> — Cruel, psychological gothic narrative with incredibly eerie atmosphere.</li>
-                    <li><span class="bold">Fatal Frame II: Crimson Butterfly</span> — Haunting Japanese folklore horror and camera-based gameplay.</li>
-                    <li><span class="bold">Siren (Forbidden Siren)</span> — Highly atmospheric, challenging, multi-perspective stealth horror.</li>
-                    <li><span class="bold">Kuon</span> — Rare Heian-period Japanese survival horror by FromSoftware.</li>
-                    <li><span class="bold">Cry of Fear</span> — Gritty, psychological source-engine mod with terrifying claustrophobia.</li>
-                </ol>
+                <h3 class="highlight">🎮 My Horror Video Games Recommendation List</h3>
+                <div class="table-container" style="margin-top: 15px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category / Era</th>
+                                <th>Game Title</th>
+                                <th>Release Details</th>
+                                <th>Core Aesthetic &amp; Description (Multi-line)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Classic PS2 Era -->
+                            <tr>
+                                <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.1);">
+                                    Classic PS2 Era<br />(Golden Age)
+                                </td>
+                                <td class="bold">Silent Hill 2 (OG)</td>
+                                <td>2001 / Konami</td>
+                                <td>
+                                    The absolute peak of psychological horror and melancholic atmosphere. 
+                                    It explores heavy themes of guilt, grief, and punishment, set against the backdrop of a foggy town 
+                                    that manifests the protagonist's deepest traumas into physical monstrosities.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Silent Hill 3</td>
+                                <td>2003 / Konami</td>
+                                <td>
+                                    A terrifying industrial decay masterpiece with stellar sound design by Akira Yamaoka. 
+                                    It features intense physiological horror and psychological tension, following a teenager's 
+                                    surreal journey through rust, blood, and cult symbols.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Rule of Rose</td>
+                                <td>2006 / Sony</td>
+                                <td>
+                                    A cruel, psychological gothic narrative set in a surreal orphanage ruled by children. 
+                                    It is widely known for its hauntingly beautiful soundtrack, highly disturbing themes, 
+                                    and incredibly eerie, dream-like fairy tale atmosphere.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Fatal Frame II</td>
+                                <td>2003 / Tecmo</td>
+                                <td>
+                                    Also known as <em>Crimson Butterfly</em>, this haunting J-horror classic features a camera-based 
+                                    combat system. It follows twin sisters lost in an abandoned village overrun by malevolent spirits, 
+                                    drawing on deep Japanese folklore.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Siren (Forbidden)</td>
+                                <td>2003 / Sony</td>
+                                <td>
+                                    A highly atmospheric, challenging, multi-perspective stealth horror game. 
+                                    It requires players to 'sightjack' (see through the eyes of) the undead shibito to survive 
+                                    a perpetual red rain curse in a rural village.
+                                </td>
+                            </tr>
+
+                            <!-- Modern Retro / Indie -->
+                            <tr>
+                                <td class="bold" rowspan="3" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.15);">
+                                    Modern Retro &amp;<br />Indie Gems
+                                </td>
+                                <td class="bold">Tormented Souls</td>
+                                <td>2021 / PQube</td>
+                                <td>
+                                    A fantastic modern callback to classic fixed-camera survival horror. 
+                                    It blends old-school tank controls and item-combining puzzles with modern graphics, set inside 
+                                    a creepy, mansion-like hospital.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Cry of Fear</td>
+                                <td>2012 / Team Psyksallar</td>
+                                <td>
+                                    A gritty, psychological source-engine mod turned standalone game. 
+                                    It depicts a young man's journey through a cold Scandinavian city, using claustrophobia and 
+                                    disturbing monster designs to represent mental illness.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Deadly Premonition</td>
+                                <td>2010 / Access Games</td>
+                                <td>
+                                    A quirky, janky, Twin Peaks-inspired open-world cult classic. 
+                                    It follows FBI Agent Francis York Morgan (and his split personality Zach) as they solve 
+                                    a serial killer mystery in a sleepy American town.
+                                </td>
+                            </tr>
+
+                            <!-- Footer summary row -->
+                            <tr>
+                                <td colspan="3" class="bold text-center">Overall Gaming Recommendation</td>
+                                <td class="highlight italic">
+                                    Play in a dark room with high-quality headphones to fully experience the rich soundscapes and atmospheric dread!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <div style="margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
@@ -118,10 +262,19 @@
                     <li><span class="bold">Cure (1997)</span> — A hypnotic, philosophical J-horror mystery about suggestion, memory, and murder.</li>
                 </ol>
             </div>
+            <!-- Anime/Gothic eyes bottom right -->
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -30px;">
+                <img src="images/doodles/gothic-eyes.svg" style="opacity: 0.85;" width="80" height="80" alt="Gothic Eyes" />
+            </div>
         </div>
 
         <!-- VISUAL KEI MUSIC CORNER -->
         <div class="card" id="vk-corner">
+            <!-- Guitar doodle top right -->
+            <div class="scrapbook-doodle" style="top: -25px; right: -35px;">
+                <img src="images/doodles/guitar.svg" style="opacity: 0.85; transform: rotate(-15deg);" width="95" height="95" alt="Guitar" />
+            </div>
+
             <h2>🖤 My Visual Kei Music Corner</h2>
             <p>Visual Kei is more than just music to me; it's a major aesthetic inspiration for my game development concepts and dark, theatrical style. Here is a curated selection from <a href="https://www.youtube.com/playlist?list=PL1BtatRchq2bOOzsJ4Jvbhb9COORA7N_p">my personal playlist</a> of 1,200+ tracks:</p>
             
@@ -146,7 +299,12 @@
                     </ul>
                 </div>
             </div>
+            
             <p class="italic text-center" style="margin-top: 15px; font-size: 0.9rem;">From classic symphonic goth-rock to modern breakdown-heavy metalcore, my playlist is a deep dive into the beautiful, dark world of Japanese rock.</p>
+            <!-- Single Rose bottom left -->
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -25px;">
+                <img src="images/doodles/single-rose.svg" style="opacity: 0.85;" width="65" height="65" alt="Single Rose" />
+            </div>
         </div>
 
         <!-- FOOTER -->

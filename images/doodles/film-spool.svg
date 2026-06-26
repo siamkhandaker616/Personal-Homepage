@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="90" height="90" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Outer circle -->
+                    <circle cx="50" cy="50" r="32" style="fill: #be9ecb;" />
+                    <circle cx="50" cy="50" r="28" style="fill: #fffdf5;" />
+                    <!-- Spool holes -->
+                    <circle cx="50" cy="50" r="10" style="fill: #19161c;" />
+                    <circle cx="50" cy="32" r="5" style="fill: #19161c;" />
+                    <circle cx="50" cy="68" r="5" style="fill: #19161c;" />
+                    <circle cx="32" cy="50" r="5" style="fill: #19161c;" />
+                    <circle cx="68" cy="50" r="5" style="fill: #19161c;" />
+                    <!-- Film strip coming out -->
+                    <path d="M 78,35 C 90,25 95,45 82,55" style="stroke-width: 3;" />
+                    <line x1="82" y1="40" x2="88" y2="38" />
+                    <line x1="84" y1="46" x2="90" y2="44" />
+                    <!-- Blossom -->
+                    <g style="transform: translate(12px, 12px) scale(0.6);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

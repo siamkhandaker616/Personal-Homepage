@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <path d="M 30,45 C 15,50 10,65 25,60 C 35,56 35,48 30,45 Z" style="fill: #ffccd5;" />
+                    <path d="M 70,35 C 55,40 50,55 65,50 C 75,46 75,38 70,35 Z" style="fill: #ffe5ec;" />
+                </svg>

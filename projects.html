@@ -3,15 +3,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siam's Pastel Paradise - Projects</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Siam's Scrapbook - Projects</title>
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="components.css" />
+    <link rel="stylesheet" type="text/css" href="doodles.css" />
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div id="wrapper">
+        <!-- NOTEBOOK BINDER SPINE -->
+        <div class="binder-spine">
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+        </div>
+        
+        <!-- LILAC BOOKMARK RIBBON -->
+        <div id="bookmark-ribbon" class="bookmark-projects"></div>
+
         <!-- HEADER & NAVIGATION -->
-        <div class="header">
-            <h1>🌸 Siam's Pastel Paradise 🌸</h1>
+        <div class="header" style="position: relative;">
+            <!-- Left Header Sakura Blossom Doodle -->
+            <div class="scrapbook-doodle" style="top: -10px; left: -15px;">
+                <img src="images/doodles/left-sakura.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Sakura" />
+            </div>
+            <!-- Right Header Sakura Blossom Doodle -->
+            <div class="scrapbook-doodle" style="top: -10px; right: -15px;">
+                <img src="images/doodles/right-sakura.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Sakura" />
+            </div>
+            <h1>🌸 Siam's Scrapbook 🌸</h1>
             <p class="italic">Welcome to my little pastel gothic corner of the internet!</p>
             
             <div class="nav-container">
@@ -31,6 +57,11 @@
         
         <!-- PROJECT GALLERY -->
         <div class="card">
+            <!-- Retro Monitor Screen with flowers -->
+            <div class="scrapbook-doodle" style="top: -25px; right: -35px;">
+                <img src="images/doodles/monitor-screen.svg" style="opacity: 0.85;" width="100" height="100" alt="Monitor Screen" />
+            </div>
+
             <h2>🌸 Code &amp; Design Showcase</h2>
             <p>Here are some of the programming and design projects I have worked on during my academic terms and free time. I enjoy designing interfaces that are clean, interactive, and visually unique.</p>
             
@@ -81,10 +112,19 @@
                 </div>
 
             </div>
+            <!-- Folder with code and flowers bottom left -->
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -25px;">
+                <img src="images/doodles/folder-code.svg" style="opacity: 0.85;" width="75" height="75" alt="Folder Code" />
+            </div>
         </div>
 
         <!-- FUTURE PROJECT PLANS -->
         <div class="card">
+            <!-- Crystal ball top right -->
+            <div class="scrapbook-doodle" style="top: -20px; right: -30px;">
+                <img src="images/doodles/crystal-ball.svg" style="opacity: 0.85;" width="90" height="90" alt="Crystal Ball" />
+            </div>
+
             <h2>🌸 What's Next?</h2>
             <p>I plan to expand my skills in these areas over the coming months:</p>
             <ul class="cutesy-list">
@@ -92,6 +132,10 @@
                 <li><span class="bold">Canvas Animations:</span> Drawing interactive graphics that react to cursor movements.</li>
                 <li><span class="bold">Database APIs:</span> Designing REST interfaces to connect my database systems to frontend layouts.</li>
             </ul>
+            <!-- Key bottom left -->
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -25px;">
+                <img src="images/doodles/brass-key.svg" style="opacity: 0.85; transform: rotate(-30deg);" width="80" height="80" alt="Brass Key" />
+            </div>
         </div>
 
         <!-- FOOTER -->

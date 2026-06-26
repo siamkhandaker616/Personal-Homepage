@@ -205,4 +205,51 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // ==========================================
+    // --- 3D PAGE FLIP TRANSITION SYSTEM ---
+    // ==========================================
+    var wrapperEl = document.getElementById('wrapper');
+    var navLinks = document.querySelectorAll('.nav-links a');
+    
+    if (navLinks.length > 0) {
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var targetUrl = link.getAttribute('href');
+                
+                // Only intercept local page links (avoiding anchors and external sites)
+                if (targetUrl && !targetUrl.startsWith('#') && !targetUrl.startsWith('http') && !link.classList.contains('active')) {
+                    e.preventDefault();
+                    
+                    if (wrapperEl) {
+                        // Trigger exit 3D turn flip
+                        wrapperEl.classList.add('page-flip-exit');
+                        
+                        // Navigate after animation completes (480ms)
+                        setTimeout(function() {
+                            window.location.href = targetUrl;
+                        }, 480);
+                    } else {
+                        window.location.href = targetUrl;
+                    }
+                }
+            });
+        });
+    }
+
+    // --- BOOKMARK RIBBON RETRACTION ---
+    var bookmark = document.getElementById('bookmark-ribbon');
+    if (bookmark) {
+        // Read saved bookmark state
+        var isRetracted = localStorage.getItem('bookmarkRetracted') === 'true';
+        if (isRetracted) {
+            bookmark.classList.add('bookmark-retracted');
+        }
+        
+        bookmark.addEventListener('click', function() {
+            var retracted = bookmark.classList.toggle('bookmark-retracted');
+            localStorage.setItem('bookmarkRetracted', retracted);
+        });
+    }
 });
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="105" height="105" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Leaves behind the skull/crown -->
+                    <path d="M 35,30 C 25,25 20,15 32,18 Z" style="fill: #c7f9cc;" />
+                    <path d="M 80,30 C 90,25 95,15 83,18 Z" style="fill: #c7f9cc;" />
+                    <!-- Skull Body -->
+                    <path d="M 40,60 C 40,35 75,35 75,60 C 75,69 70,73 66,73 L 66,84 C 66,86 64,88 62,88 L 53,88 C 51,88 49,86 49,84 L 49,73 C 45,73 40,69 40,60 Z" style="fill: #fffcf2;" />
+                    <line x1="53" y1="78" x2="53" y2="88" />
+                    <line x1="61" y1="78" x2="61" y2="88" />
+                    <line x1="49" y1="78" x2="66" y2="78" />
+                    <circle cx="50" cy="58" r="6" style="fill: #3b204c;" />
+                    <circle cx="65" cy="58" r="6" style="fill: #3b204c;" />
+                    <polygon points="57,66 54,70 60,70" style="fill: #3b204c;" />
+                    <!-- Left-mid flower -->
+                    <g style="transform: translate(20px, 10px);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                        <circle cx="22" cy="26" r="2" style="fill: #ffb7c5; stroke: #3b204c; stroke-width: 0.8;" />
+                    </g>
+                    <!-- Right-mid flower -->
+                    <g style="transform: translate(42px, 10px);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                        <circle cx="22" cy="26" r="2" style="fill: #ffb7c5; stroke: #3b204c; stroke-width: 0.8;" />
+                    </g>
+                    <!-- Far-left flower -->
+                    <g style="transform: translate(12px, 22px);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffe5ec; stroke-width: 1.5;" />
+                        <circle cx="22" cy="26" r="2" style="fill: #ffb7c5; stroke: #3b204c; stroke-width: 0.8;" />
+                    </g>
+                    <!-- Far-right flower -->
+                    <g style="transform: translate(52px, 20px);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffe5ec; stroke-width: 1.5;" />
+                        <circle cx="22" cy="26" r="2" style="fill: #ffb7c5; stroke: #3b204c; stroke-width: 0.8;" />
+                    </g>
+                    <!-- Cheek Flowers -->
+                    <g style="transform: translate(10px, 50px);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                    <g style="transform: translate(56px, 50px);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

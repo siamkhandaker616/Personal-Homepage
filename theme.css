@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* --- DESIGN VARIABLES --- */
+@font-face {
+    font-family: "Cheveuxdange";
+    src: url("./fonts/Cheveuxdange.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Disturbed";
+    src: url("./fonts/Disturbed-zrRGD.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --bg-image: url('images/bg-light.png');
+    --paper-bg: #f8e599; /* Rich, vintage notebook yellow */
+    --paper-line: #d8c278; /* ruling lines matching the rich yellow paper */
+    --margin-line: #ff9999; /* soft margin line */
+    --stacked-page-color: #ecdca5; /* stacked pages highlight */
+    --cover-edge-color: #2e1732; /* leather cover edge */
+    --text-color: #3b204c;
+    --text-muted: #6e4e7d;
+    --border-color: #ebb6e2;
+    --card-bg: rgba(238, 230, 184, 0.45); /* translucent cream-yellow scrap cards */
+    --footer-bg: rgba(245, 235, 200, 0.6); /* slightly denser paper tint for footer */
+    --bookmark-color: #a26c9e;
+    --accent-color: #db4d94;
+    --accent-hover: #773251;
+    --shadow-color: #ffd8e6;
+    --overlay-blur: 3px;
+    --font-heading: 'Cheveuxdange', 'Fredoka', cursive, sans-serif;
+    --font-body: 'Nunito', 'Fredoka', sans-serif;
+    --font-disturbed: 'Disturbed';
+}
+
+body.dark-mode {
+    --bg-image: url('images/bg-dark.png');
+    --paper-bg: #19161c; /* Logical dark charcoal-black construction paper */
+    --paper-line: rgba(255, 204, 213, 0.08); /* faint pastel pink ruling pen lines */
+    --margin-line: rgba(255, 153, 153, 0.25); /* faint red margin pen line */
+    --stacked-page-color: #2b232f; /* dark stacked pages highlight */
+    --cover-edge-color: #0c090f; /* dark cover border edge */
+    --text-color: #ffd8e6; /* pastel pink gel-pen ink */
+    --text-muted: #d8a2bf;
+    --border-color: rgba(217, 169, 232, 0.4);
+    --card-bg: rgba(35, 25, 40, 0.55); /* dark scrapbook paper snippets */
+    --footer-bg: rgba(25, 18, 30, 0.7); /* dark footer tint */
+    --bookmark-color: #8c5d95;
+    --accent-color: #ffb7c5;
+    --accent-hover: #ffd8e6;
+    --shadow-color: rgba(30, 4, 30, 0.85);
+}
+
+/* --- CORE ELEMENTS --- */
+body {
+    background-image: var(--bg-image);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ad7da7;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* NOTE: perspective removed from body — setting it here breaks position:fixed.
+       The 3D flip effect is achieved via perspective() inside the keyframe transforms. */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 0px var(--shadow-color);
+    margin-top: 0;
+}
+
+h2:hover, h3:hover {
+    animation: zineWiggle 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes zineWiggle {
+    0% { transform: rotate(-1deg); }
+    100% { transform: rotate(1deg); }
+}
+
+header, .header, footer, .footer {
+    font-family: var(--font-disturbed);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* --- UTILITY STYLES --- */
+.text-center { text-align: center; }
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.highlight { color: var(--accent-color); font-weight: bold; }
+/* .placeholder-style applied dynamically by script.js for form polyfill */
+.placeholder-style {
+    color: var(--text-muted) !important;
+    opacity: 0.65;
+}

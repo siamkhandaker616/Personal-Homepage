@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="70" height="70" xml:space="preserve" style="opacity: 0.9; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transform: rotate(45deg) scaleX(-1);">
+                    <path d="M 25,50 C 15,45 10,25 22,28 C 30,30 30,42 25,50 Z" style="fill: #c7f9cc;" />
+                    <path d="M 65,35 C 75,25 90,20 85,32 C 80,40 72,40 65,35 Z" style="fill: #c7f9cc;" />
+                    <g style="transform: translate(25px, 20px) scale(0.65);">
+                        <path d="M 50,50 C 45,35 35,35 40,48 C 30,40 25,48 38,52 C 25,58 30,68 40,58 C 45,70 55,70 50,58 C 60,68 65,58 52,52 C 65,48 60,40 50,48 Z" style="fill: #ffe5ec;" />
+                        <circle cx="45" cy="52" r="3.5" style="fill: #ffb7c5; stroke: #3b204c; stroke-width: 1.2;" />
+                    </g>
+                    <g>
+                        <path d="M 50,50 C 45,35 35,35 40,48 C 30,40 25,48 38,52 C 25,58 30,68 40,58 C 45,70 55,70 50,58 C 60,68 65,58 52,52 C 65,48 60,40 50,48 Z" style="fill: #ffccd5;" />
+                        <circle cx="45" cy="52" r="3.5" style="fill: #ffb7c5; stroke: #3b204c; stroke-width: 1.2;" />
+                        <line x1="45" y1="52" x2="41" y2="42" style="stroke-width: 1.2;" />
+                        <line x1="45" y1="52" x2="52" y2="43" style="stroke-width: 1.2;" />
+                        <line x1="45" y1="52" x2="52" y2="57" style="stroke-width: 1.2;" />
+                        <line x1="45" y1="52" x2="43" y2="61" style="stroke-width: 1.2;" />
+                        <line x1="45" y1="52" x2="36" y2="53" style="stroke-width: 1.2;" />
+                        <circle cx="41" cy="42" r="1.5" style="fill: #ffd8e6; stroke-width: 0.8;" />
+                        <circle cx="52" cy="43" r="1.5" style="fill: #ffd8e6; stroke-width: 0.8;" />
+                        <circle cx="52" cy="57" r="1.5" style="fill: #ffd8e6; stroke-width: 0.8;" />
+                        <circle cx="43" cy="61" r="1.5" style="fill: #ffd8e6; stroke-width: 0.8;" />
+                        <circle cx="36" cy="53" r="1.5" style="fill: #ffd8e6; stroke-width: 0.8;" />
+                    </g>
+                </svg>
