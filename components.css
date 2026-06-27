@@ -1,4 +1,4 @@
-/* --- CARDS & Snippets --- */
+/* --- CARDS --- */
 .card {
     background-color: var(--card-bg);
     border: 2px dashed var(--border-color);
@@ -11,28 +11,21 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Alternating slants to look hand-taped */
-.card:nth-of-type(odd) {
-    --card-rotate: -0.5deg;
-}
-
-.card:nth-of-type(even) {
-    --card-rotate: 0.5deg;
-}
+.card:nth-of-type(odd)  { --card-rotate: -1deg; }
+.card:nth-of-type(even) { --card-rotate:  1deg; }
 
 .card:hover {
     transform: translateY(-2px) rotate(0deg);
     box-shadow: 3px 8px 18px rgba(82, 4, 82, 0.08);
 }
 
-/* Washi Tape Strip at top-center of each sticker card */
 .card::before {
     content: "";
     position: absolute;
     top: -10px;
     left: 50%;
-    transform: translateX(-50%) rotate(-3deg);
-    width: 80px;
+    transform: translateX(-50%) rotate(var(--tape-rotate, 0deg));
+    width: 100px;
     height: 18px;
     background-color: rgba(231, 164, 185, 0.65);
     border-left: 2px dotted rgba(0,0,0,0.08);
@@ -41,13 +34,16 @@
     z-index: 10;
 }
 
+.card:nth-of-type(odd)::before  { --tape-rotate:   3deg; }
+.card:nth-of-type(even)::before { --tape-rotate:  -4deg; }
+
 body.dark-mode .card::before {
-    background-color: rgba(255, 183, 197, 0.45); /* translucent neon-pastel pink tape */
+    background-color: rgba(255, 183, 197, 0.45);
     border-left: 2px dotted rgba(255,255,255,0.15);
     border-right: 2px dotted rgba(255,255,255,0.15);
 }
 
-/* --- PROFILE & ABOUT SECTION --- */
+/* --- ABOUT SECTION --- */
 .about-grid {
     display: flex;
     align-items: center;
@@ -76,7 +72,7 @@ body.dark-mode .card::before {
     min-width: 280px;
 }
 
-/* --- TEXT FORMATTING & LABELS --- */
+/* --- TEXT LABELS --- */
 .label-text {
     font-weight: bold;
     color: var(--accent-color);
@@ -139,7 +135,7 @@ ol.cutesy-list li {
     font-weight: bold;
 }
 
-/* --- TABLE STYLING --- */
+/* --- TABLE --- */
 .table-container {
     position: relative;
     width: 100%;
@@ -153,7 +149,6 @@ ol.cutesy-list li {
     background-color: var(--paper-bg);
 }
 
-/* Notebook hole margin overlay on left edge */
 .table-container::before {
     content: "";
     position: absolute;
@@ -162,12 +157,10 @@ ol.cutesy-list li {
     width: 35px;
     height: 100%;
     background-color: var(--paper-bg);
-    background-image: 
-        /* Vertical red/pink margin line */
+    background-image:
         linear-gradient(to right, transparent 28px, var(--margin-line) 28px, var(--margin-line) 30px, transparent 30px),
-        /* Punched holes */
         radial-gradient(circle, #2e1732 4px, transparent 5px);
-    background-size: 100% 100%, 100% 32px; /* repeat holes vertically every 32px */
+    background-size: 100% 100%, 100% 32px;
     background-position: 0 0, 12px 12px;
     background-repeat: no-repeat, repeat-y;
     z-index: 5;
@@ -175,7 +168,7 @@ ol.cutesy-list li {
 }
 
 body.dark-mode .table-container::before {
-    background-image: 
+    background-image:
         linear-gradient(to right, transparent 28px, var(--margin-line) 28px, var(--margin-line) 30px, transparent 30px),
         radial-gradient(circle, #08060a 4px, transparent 5px);
 }
@@ -214,22 +207,14 @@ td:last-child, th:last-child {
     border-right: none;
 }
 
-tr:nth-child(even) {
-    background-color: rgba(255, 198, 216, 0.15);
-}
+tr:nth-child(even)  { background-color: rgba(255, 198, 216, 0.15); }
+tr:nth-child(odd)   { background-color: transparent; }
 
 body.dark-mode tr:nth-child(even) {
     background-color: rgba(140, 82, 125, 0.15);
 }
 
-tr:nth-child(odd) {
-    background-color: transparent;
-}
-
-tr:hover {
-    background-color: rgba(255, 198, 216, 0.35) !important;
-    transition: background-color 0.2s ease;
-}
+tr:hover { background-color: rgba(255, 198, 216, 0.35) !important; transition: background-color 0.2s ease; }
 
 body.dark-mode tr:hover {
     background-color: rgba(140, 82, 125, 0.35) !important;
@@ -251,7 +236,7 @@ body.dark-mode tr:hover {
     width: 100%;
     box-sizing: border-box;
     border: 2px dashed var(--border-color);
-    background-color: rgba(236, 223, 151, 0.35);
+    background-color: rgba(245, 236, 183, 0.25);
     border-radius: 12px;
     padding: 12px;
     font-family: var(--font-body);
@@ -261,14 +246,14 @@ body.dark-mode tr:hover {
 }
 
 body.dark-mode .form-control {
-    background-color: rgba(64, 36, 79, 0.35);
+    background-color: rgba(30, 20, 35, 0.6);
     color: #ffd8e6;
 }
 
 .form-control:focus {
     outline: none;
     border-color: var(--accent-color);
-    background-color: rgba(236, 223, 151, 0.85);
+    background-color: rgba(245, 236, 183, 0.95);
     box-shadow: 0 0 10px rgba(239, 187, 221, 0.5);
 }
 
@@ -297,6 +282,7 @@ body.dark-mode .form-control:focus {
     box-shadow: 0 4px 15px rgba(239, 187, 221, 0.6);
 }
 
+/* --- FOOTER --- */
 footer, .footer {
     background-color: var(--footer-bg);
     border: 3px dashed var(--border-color);
@@ -352,7 +338,7 @@ footer p, .footer p {
     margin-bottom: 15px;
 }
 
-/* --- POLAROID SCRAPBOOK DESIGN --- */
+/* --- POLAROID --- */
 .polaroid-frame {
     background-color: #fffdf6;
     border: 1px solid #e2dac2;
@@ -369,7 +355,7 @@ footer p, .footer p {
 }
 
 body.dark-mode .polaroid-frame {
-    background-color: #fcfaf2; /* Off-white cardstock remains off-white */
+    background-color: #fcfaf2;
     border-color: #dcd4bd;
     box-shadow: 4px 6px 16px rgba(0, 0, 0, 0.45);
 }
@@ -384,7 +370,7 @@ body.dark-mode .polaroid-frame {
 
 body.dark-mode .polaroid-frame img {
     border-color: #dcd4bd;
-    filter: brightness(0.75) contrast(1.05); /* dim photo for dark mode reading */
+    filter: brightness(0.75) contrast(1.05);
 }
 
 .polaroid-caption {
@@ -394,7 +380,6 @@ body.dark-mode .polaroid-frame img {
     letter-spacing: 0.5px;
 }
 
-/* Polaroid masking tape sticker overlays */
 .tape-polaroid::before {
     content: "";
     position: absolute;
@@ -402,7 +387,7 @@ body.dark-mode .polaroid-frame img {
     left: 30px;
     width: 60px;
     height: 16px;
-    background-color: rgba(255, 230, 240, 0.6); /* Semi-transparent pink tape */
+    background-color: rgba(255, 230, 240, 0.6);
     border-left: 2px dashed rgba(0,0,0,0.06);
     border-right: 2px dashed rgba(0,0,0,0.06);
     transform: rotate(-6deg);
@@ -411,19 +396,18 @@ body.dark-mode .polaroid-frame img {
 }
 
 body.dark-mode .tape-polaroid::before {
-    background-color: rgba(255, 183, 197, 0.45); /* soft pink tape overlay */
+    background-color: rgba(255, 183, 197, 0.45);
     border-left: 2px dashed rgba(255, 255, 255, 0.15);
     border-right: 2px dashed rgba(255, 255, 255, 0.15);
 }
 
-/* --- BACK TO TOP BUTTON --- */
+/* --- SCROLL TO TOP BUTTON --- */
 .scroll-top-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 58px;
     height: 58px;
-    /* Bold hot-pink gradient so it pops against any background */
     background: linear-gradient(135deg, #db4d94 0%, #ff85c1 60%, #ffc1de 100%);
     border: 3px solid rgba(255, 255, 255, 0.55);
     border-radius: 50%;
@@ -440,8 +424,6 @@ body.dark-mode .tape-polaroid::before {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* Hidden by default — pops in with a scale bounce */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -454,7 +436,6 @@ body.dark-mode .tape-polaroid::before {
     visibility: visible;
     pointer-events: auto;
     transform: scale(1) translateY(0);
-    /* Continuous gentle bounce to draw the eye */
     animation: scrollBtnFloat 2.2s ease-in-out infinite, scrollBtnPulseRing 2.2s ease-out infinite;
 }
 
@@ -465,7 +446,7 @@ body.dark-mode .tape-polaroid::before {
     box-shadow:
         0 10px 28px rgba(219, 77, 148, 0.75),
         0 0 0 6px rgba(219, 77, 148, 0.2);
-    animation: none !important; /* Pause float while hovering */
+    animation: none !important;
 }
 
 body.dark-mode .scroll-top-btn {
@@ -489,7 +470,7 @@ body.dark-mode .scroll-top-btn {
     100% { box-shadow: 0 6px 20px rgba(219, 77, 148, 0.55), 0 0 0 0   rgba(219, 77, 148, 0); }
 }
 
-/* --- COURSE TITLE POPUP --- */
+/* --- COURSE POPUP TOOLTIP --- */
 .course-title-cell {
     position: relative;
     cursor: help;
@@ -519,7 +500,6 @@ body.dark-mode .scroll-top-btn {
     line-height: 1.4;
 }
 
-/* Tooltip triangle indicator pointing down (default) */
 .course-popup::after {
     content: "";
     position: absolute;
@@ -531,13 +511,11 @@ body.dark-mode .scroll-top-btn {
     border-color: var(--border-color) transparent transparent transparent;
 }
 
-/* Downward popup modifications for top half of table */
 .course-popup.popup-down {
     bottom: auto;
     top: 115%;
 }
 
-/* Tooltip triangle pointing up for downward popup */
 .course-popup.popup-down::after {
     top: auto;
     bottom: 100%;
@@ -554,15 +532,15 @@ body.dark-mode .scroll-top-btn {
     transform: translateX(-50%) translateY(2px);
 }
 
-/* --- CUTESY MODAL NOTIFICATION --- */
+/* --- MODAL --- */
 .cutesy-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(61, 45, 68, 0.55); /* Translucent dark purple */
-    backdrop-filter: none; /* No background blur per user preference */
+    background-color: rgba(61, 45, 68, 0.55);
+    backdrop-filter: none;
     z-index: 2000;
     display: flex;
     align-items: center;
@@ -586,8 +564,6 @@ body.dark-mode .scroll-top-btn {
     box-shadow: 0 12px 36px rgba(139, 69, 121, 0.4);
     transform: scale(0.85);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    
-    /* Bulletproof centering using flex */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -624,9 +600,8 @@ body.dark-mode .scroll-top-btn {
     align-self: center;
 }
 
-/* Disabled styling during email sending */
 .cutesy-modal-content button.disabled-btn {
-    background-color: #d8c2ce !important; /* Greyish pink */
+    background-color: #d8c2ce !important;
     border-color: #bfaab5 !important;
     color: var(--text-muted) !important;
     cursor: not-allowed !important;
@@ -634,20 +609,20 @@ body.dark-mode .scroll-top-btn {
     opacity: 0.8;
 }
 
-/* --- KEYFRAME ANIMATIONS --- */
+/* --- KEYFRAMES --- */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-5px); }
     100% { transform: translateY(0px); }
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(239, 134, 186, 0.5); }
-    70% { box-shadow: 0 0 0 10px rgba(239, 134, 186, 0); }
+    0%   { box-shadow: 0 0 0 0 rgba(239, 134, 186, 0.5); }
+    70%  { box-shadow: 0 0 0 10px rgba(239, 134, 186, 0); }
     100% { box-shadow: 0 0 0 0 rgba(239, 134, 186, 0); }
 }
 
-/* Responsive adjustments */
+/* --- RESPONSIVE --- */
 @media (max-width: 600px) {
     header h1 {
         font-size: 2rem;

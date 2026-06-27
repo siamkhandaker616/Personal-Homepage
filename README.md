@@ -1,1 +1,1 @@
-A customized homepage that lists out my interests and credentials that can be used as a portfolio
+A customized homepage that lists out my interests and credentials that can be used as a portfolio The pages list out my personal info and interests, as well as my technical skills, experiences and previous projects I've worked on, all while adding a touch of my personal aesthetics

@@ -1,58 +1,107 @@
-/* --- LAYOUT STRUCTURE (THE OPEN NOTEBOOK) --- */
+/* --- LAYOUT --- */
 #wrapper {
-    max-width: 1000px;
+    max-width: 1180px;
     margin: 40px auto;
-    padding: 40px 40px 40px 100px; /* Left padding leaves room for binder spine */
+    padding: 40px 190px 40px 130px;
     box-sizing: border-box;
     position: relative;
+    border: 40px solid transparent;
+    border-radius: 35px 20px 25px 40px;
     
-    /* Notebook paper background style */
-    background-color: var(--paper-bg);
-    background-image: 
-        /* Red margin line */
-        linear-gradient(90deg, transparent 79px, var(--margin-line) 79px, var(--margin-line) 81px, transparent 81px),
-        /* Grey/plum notebook ruling lines */
-        linear-gradient(var(--paper-line) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 28px;
+    background-image:
+        linear-gradient(to left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05) 30%, transparent),
+        linear-gradient(90deg, transparent 110px, var(--margin-line) 110px, var(--margin-line) 112px, transparent 112px),
+        linear-gradient(90deg, transparent 114px, var(--margin-line) 114px, var(--margin-line) 116px, transparent 116px),
+        linear-gradient(var(--paper-line) 1px, transparent 1px),
+        linear-gradient(var(--paper-bg), var(--paper-bg)),
+        radial-gradient(rgba(255,255,255,0.08) 1.2px, transparent 1.2px),
+        radial-gradient(rgba(0,0,0,0.24) 1.2px, transparent 1.2px),
+        radial-gradient(rgba(60,20,5,0.25) 1px, transparent 1px);
+        
+    background-size:
+        40px 100%,
+        100% 100%,
+        100% 100%,
+        100% 28px,
+        100% 100%,
+        7px 7px,
+        7px 7px,
+        11px 11px;
     
-    /* Deep purple leather book cover border */
-    border: 15px solid var(--cover-edge-color);
-    border-radius: 20px 6px 6px 20px;
+    background-position:
+        right 50px top 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        3.5px 3.5px,
+        0 0;
     
-    /* Stacked paper sheet simulation with drop shadow */
-    box-shadow: 
-        1px 1px 0 var(--stacked-page-color), 
-        2px 2px 0 var(--stacked-page-color), 
-        3px 3px 0 var(--stacked-page-color), 
-        4px 4px 0 var(--cover-edge-color), 
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat,
+        no-repeat,
+        repeat,
+        repeat,
+        repeat;
+    
+    background-clip:
+        padding-box,
+        padding-box,
+        padding-box,
+        padding-box,
+        padding-box,
+        border-box,
+        border-box,
+        border-box;
+    
+    background-origin:
+        padding-box,
+        padding-box,
+        padding-box,
+        padding-box,
+        padding-box,
+        border-box,
+        border-box,
+        border-box;
+        
+    background-color: var(--cover-edge-color);
+    box-shadow:
+        inset 0 0 35px rgba(0, 0, 0, 0.35),
+        inset 0 0 12px rgba(255, 220, 180, 0.08),
+        inset 0 0 0 2px rgba(0,0,0,0.25),
+        inset 0 0 0 5px var(--stacked-page-color),
+        inset 0 0 0 7px var(--paper-line),
+        inset 0 0 0 10px var(--stacked-page-color),
         0 12px 35px rgba(0, 0, 0, 0.3);
-    
-    /* Page flip transition animations */
-    transform-origin: left center;
+    transform-origin: right center;
     animation: pageFlipEnter 0.5s ease-out forwards;
 }
 
-/* Page Fold Crease Shadow for Book Depth */
 #wrapper::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 50px; /* aligns right after the binder spine width of 50px */
-    width: 40px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05) 30%, transparent);
+    top: -20px;
+    bottom: -20px;
+    left: -20px;
+    right: -20px;
+    border: 2px dashed var(--stitch-color);
+    border-right: none;
+    border-radius: 15px 0 0 20px;
     pointer-events: none;
     z-index: 10;
 }
 
-/* Exit animation triggered by JS on link clicks */
 #wrapper.page-flip-exit {
     animation: pageFlipExit 0.5s ease-in-out forwards;
 }
 
 @keyframes pageFlipEnter {
     0% {
-        transform: perspective(1500px) rotateY(90deg);
+        transform: perspective(1500px) rotateY(-90deg);
         opacity: 0;
     }
     100% {
@@ -67,25 +116,69 @@
         opacity: 1;
     }
     100% {
-        transform: perspective(1500px) rotateY(-90deg);
+        transform: perspective(1500px) rotateY(90deg);
         opacity: 0;
     }
 }
 
-/* Stacked Right Page Underlay (Half-visible behind left page) */
 #wrapper::after {
     content: "";
     position: absolute;
-    top: 5px;
+    top: -36px;
     left: 100%;
-    width: 120px; /* Only half visible */
-    height: calc(100% - 10px);
-    background-color: var(--paper-bg);
-    background-image: linear-gradient(var(--paper-line) 1px, transparent 1px);
-    background-size: 100% 28px;
-    border: 10px solid #2e1732;
+    right: auto;
+    width: 140px;
+    height: calc(100% + 72px);
+    box-sizing: border-box;
+    
+    /* 24px border representing the right cover frame edge */
+    border: 24px solid transparent;
     border-left: none;
-    border-radius: 0 16px 16px 0;
+    border-radius: 0 20px 20px 0;
+    clip-path: inset(0 0 0 16px);
+    
+    /* Stitching thread centered in the underlay border */
+    outline: 2px dashed var(--stitch-color);
+    outline-offset: -12px;
+    
+    /* Layered paper + pebbled leather cover backgrounds */
+    background-image:
+        linear-gradient(var(--paper-line) 1px, transparent 1px),
+        linear-gradient(var(--paper-bg), var(--paper-bg)),
+        radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px),
+        radial-gradient(rgba(0, 0, 0, 0.24) 1.2px, transparent 1.2px);
+        
+    background-size:
+        100% 28px,
+        100% 100%,
+        7px 7px,
+        7px 7px;
+        
+    background-position:
+        0 0,
+        0 0,
+        0 0,
+        3.5px 3.5px;
+        
+    background-repeat:
+        repeat,
+        no-repeat,
+        repeat,
+        repeat;
+        
+    background-clip:
+        padding-box,
+        padding-box,
+        border-box,
+        border-box;
+        
+    background-origin:
+        padding-box,
+        padding-box,
+        border-box,
+        border-box;
+        
+    background-color: var(--cover-edge-color);
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.25);
     z-index: -10;
     transform: perspective(1500px) rotateY(18deg);
@@ -98,15 +191,17 @@
     }
 }
 
-/* --- THE SPIRAL BINDER SPINE --- */
+/* --- BINDER SPINE --- */
 .binder-spine {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    left: auto;
     width: 50px;
     height: 100%;
-    border-right: 1px solid var(--paper-line);
-    background: linear-gradient(to right, rgba(0,0,0,0.1), transparent 80%, rgba(0,0,0,0.08));
+    border-left: 1px solid var(--paper-line);
+    border-right: none;
+    background: linear-gradient(to left, rgba(0,0,0,0.1), transparent 80%, rgba(0,0,0,0.08));
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -119,7 +214,6 @@
 .binder-ring {
     width: 44px;
     height: 6px;
-    /* Twisted cord effect using repeating linear gradient */
     background: repeating-linear-gradient(
         -45deg,
         #be9ecb,
@@ -130,9 +224,10 @@
     border: 1px solid rgba(139, 90, 150, 0.3);
     border-radius: 3px;
     position: relative;
-    left: 20px;
-    transform: rotate(-4deg);
-    box-shadow: -2px 3px 4px rgba(0, 0, 0, 0.18);
+    right: 20px;
+    left: auto;
+    transform: rotate(4deg);
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.18);
 }
 
 body.dark-mode .binder-ring {
@@ -144,10 +239,25 @@ body.dark-mode .binder-ring {
         #ffd8e6 6px
     );
     border-color: rgba(255, 183, 197, 0.4);
-    box-shadow: -2px 3px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
+/* Punch holes on both ends of the rings */
 .binder-ring::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -5px;
+    right: auto;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #08060a 30%, #2e1732 100%);
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+.binder-ring::after {
     content: "";
     position: absolute;
     top: -3px;
@@ -160,20 +270,17 @@ body.dark-mode .binder-ring {
     z-index: 10;
 }
 
-.binder-ring::after {
-    /* Hide second hole for horizontal side-stitch binding style */
-    display: none;
-}
-
-body.dark-mode .binder-ring::before {
+body.dark-mode .binder-ring::before,
+body.dark-mode .binder-ring::after {
     background: radial-gradient(circle, #020103 30%, #0c090f 100%);
 }
 
-/* --- THE LILAC BOOKMARK RIBBON --- */
+/* --- BOOKMARK RIBBON --- */
 #bookmark-ribbon {
     position: absolute;
-    top: -15px;
-    left: 90px;
+    top: -45px;
+    left: 122px;
+    right: auto;
     width: 60px;
     height: 250px;
     background-color: var(--bookmark-color);
@@ -196,12 +303,11 @@ body.dark-mode .binder-ring::before {
     pointer-events: none;
 }
 
-/* Animated toggle class */
 #bookmark-ribbon.bookmark-retracted {
     transform: translateY(-200px);
 }
 
-/* Header element background adjustments */
+/* --- HEADER --- */
 header, .header {
     background: transparent;
     border: none;
@@ -218,7 +324,7 @@ header h1, .header h1 {
     margin-bottom: 5px;
 }
 
-/* --- NAVIGATION MENU --- */
+/* --- NAVIGATION --- */
 .nav-container {
     display: flex;
     justify-content: center;
@@ -256,17 +362,16 @@ header h1, .header h1 {
     transform: scale(1.05);
 }
 
-/* Circled active navigation (hand-drawn circle outline) */
 .nav-links a.active {
     border: 3px solid var(--accent-color);
-    border-radius: 50% 48% 52% 48% / 60% 55% 45% 40%; /* Organic wobbly circle/oval */
+    border-radius: 50% 48% 52% 48% / 60% 55% 45% 40%;
     background: transparent;
     color: var(--accent-color);
     transform: rotate(-2deg);
-    padding: 4px 16px; /* Extra side padding for oval space */
+    padding: 4px 16px;
 }
 
-/* --- TOGGLE BUTTON --- */
+/* --- MODE TOGGLE BUTTON --- */
 .mode-toggle-btn {
     font-family: var(--font-heading);
     background-color: var(--card-bg);
