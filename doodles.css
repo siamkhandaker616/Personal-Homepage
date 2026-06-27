@@ -111,3 +111,62 @@ body.dark-mode .chi-cat-doodle::after {
     80%  { transform: scale(0.9) translateX(4px);  }
     100% { transform: scale(0.9) translateX(0);    }
 }
+
+@media (max-width: 1180px), (hover: none) and (pointer: coarse) {
+    .card > .scrapbook-doodle {
+        display: block;
+        opacity: 0.58;
+        pointer-events: none;
+        z-index: 8;
+    }
+
+    .card > .scrapbook-doodle {
+        max-width: 68px;
+        transform: scale(0.62);
+        transform-origin: center;
+    }
+
+    .card > .scrapbook-doodle img {
+        max-width: 68px;
+        height: auto;
+    }
+
+    .card > .scrapbook-doodle[style*="left"] {
+        left: 4px !important;
+        right: auto !important;
+    }
+
+    .card > .scrapbook-doodle[style*="right"] {
+        right: 4px !important;
+        left: auto !important;
+    }
+
+    .card > .scrapbook-doodle[style*="top"] {
+        top: -14px !important;
+        bottom: auto !important;
+    }
+
+    .card > .scrapbook-doodle[style*="bottom"] {
+        top: auto !important;
+        bottom: -14px !important;
+    }
+
+    .card > .pressed-petal {
+        display: none;
+    }
+
+    .chi-cat-doodle {
+        display: block;
+        position: absolute;
+        opacity: 0.8;
+        transform: scale(0.74);
+        top: -22px !important;
+        right: 4px !important;
+        left: auto !important;
+        bottom: auto !important;
+        width: 82px;
+        height: 82px;
+        max-width: none;
+        margin: 0;
+    }
+}

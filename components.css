@@ -642,3 +642,154 @@ body.dark-mode .scroll-top-btn {
         font-size: 1.4rem;
     }
 }
+
+@media (max-width: 1180px), (hover: none) and (pointer: coarse) {
+    .card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 18px 10px;
+        margin: 0 0 24px 0;
+        transform: none;
+    }
+
+    .card:hover {
+        transform: translateY(-1px);
+    }
+
+    .card::before {
+        width: 76px;
+        height: 14px;
+        top: -8px;
+    }
+
+    .about-grid {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .about-details {
+        min-width: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .quote-box {
+        padding: 18px;
+        font-size: 1rem;
+        transform: none;
+    }
+
+    .table-container {
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        min-width: 0;
+        padding-left: 0;
+        margin: 18px 0 18px 50%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 6px;
+        transform: translateX(-50%);
+    }
+
+    .table-container::before {
+        display: none;
+    }
+
+    body.dark-mode .table-container::before {
+        display: none;
+    }
+
+    table {
+        width: max-content;
+        min-width: 720px;
+    }
+
+    th,
+    td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .course-popup,
+    .course-popup.popup-down {
+        position: static;
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        width: auto;
+        margin-top: 6px;
+        padding: 8px 10px;
+        transform: none;
+        font-size: 0.82rem;
+    }
+
+    .course-popup::after,
+    .course-popup.popup-down::after {
+        display: none;
+    }
+
+    .course-title-cell:hover .course-popup,
+    .course-title-cell:hover .course-popup.popup-down {
+        transform: none;
+    }
+
+    .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .project-card {
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 16px;
+    }
+
+    .polaroid-frame {
+        float: none !important;
+        max-width: 165px;
+        margin: 14px auto 20px auto !important;
+    }
+
+    .footer {
+        padding: 16px 12px;
+        overflow-wrap: anywhere;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .scroll-top-btn {
+        bottom: 14px;
+        right: 12px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .card {
+        padding: 16px 8px;
+    }
+
+    table {
+        min-width: 680px;
+    }
+
+    th,
+    td {
+        padding: 9px 10px;
+        font-size: 0.86rem;
+    }
+
+    .cutesy-modal-content {
+        width: calc(100% - 48px);
+        padding: 22px;
+    }
+}
