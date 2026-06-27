@@ -8,6 +8,42 @@
     <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="stylesheet" type="text/css" href="components.css" />
     <link rel="stylesheet" type="text/css" href="doodles.css" />
+    <style type="text/css">
+        .home-jump-nav {
+            border-top: 1px dotted var(--border-color);
+            padding-top: 10px;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .profile-caption {
+            display: block;
+            width: 150px;
+            min-height: 2.8em;
+            margin: 10px auto 0 auto;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+        .profile-badge { margin-top: 10px; }
+        .education-entry {
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 15px;
+        }
+        .compact-heading { margin-bottom: 5px; }
+        .small-note { font-size: 0.9rem; }
+        .form-reset {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .submit-row { margin-top: 25px; }
+        .footer-compliance {
+            margin-top: 10px;
+            font-size: 0.75rem;
+        }
+    </style>
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
@@ -31,11 +67,11 @@
         <div class="header" style="position: relative;">
 
             <div class="scrapbook-doodle" style="top: -10px; left: -15px;">
-                <img src="images/doodles/left-sakura.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Sakura" />
+                <img src="images/doodles/left-flower.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Flower" />
             </div>
 
             <div class="scrapbook-doodle" style="top: -10px; right: -15px;">
-                <img src="images/doodles/right-sakura.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Sakura" />
+                <img src="images/doodles/right-flower.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Flower" />
             </div>
 
             <h1>🌸 Siam's Scrapbook 🌸</h1>
@@ -53,7 +89,7 @@
                 </div>
             </div>
             
-            <div class="nav-container" style="border-top: 1px dotted var(--border-color); padding-top: 10px; justify-content: center; gap: 20px;">
+            <div class="nav-container home-jump-nav">
                 <span class="bold">Jump to:</span>
                 <a href="#about">About Me</a> | 
                 <a href="#education">Education</a> | 
@@ -67,32 +103,34 @@
         <!-- ABOUT ME SECTION -->
         <div class="card" id="about">
 
-            <div class="pressed-petal" style="top: -15px; left: -15px;"></div>
-
+            <div class="scrapbook-doodle" style="top: -45px; left: -55px;">
+                <img src="images/pressed-petal.png" style="opacity: 0.9;" width="99" height="100" alt="Pressed Flower" />
+            </div>
 
             <div class="scrapbook-doodle" style="top: -40px; right: -50px;">
                 <img src="images/doodles/skull-crown.svg" style="opacity: 0.85;" width="105" height="105" alt="Skull Crown" />
             </div>
 
-            <h2>🌸 About Me</h2>
+            <h2>📝 About Me</h2>
             <div class="about-grid">
                 <div class="profile-container">
                     <img src="images/profile.png" alt="Siam's Avatar" class="profile-img" />
-                    <p class="italic" style="margin-top: 10px; font-size: 0.9rem;">Me in my natural habitat ✨</p>
-                    <div style="margin-top: 10px;">
+                    <p class="italic profile-caption">Student, developer,<br />&amp; visual storyteller ✨</p>
+                    <div class="profile-badge">
                         <img src="https://img.shields.io/badge/Status-Active%20Senior-ffb7c5?style=flat-square&amp;logo=ghost" alt="Status Badge" />
                     </div>
                 </div>
                 <div class="about-details">
                     <p><span class="label-text">Name:</span> <strong class="highlight">Siam Khandaker</strong></p>
-                    <p><span class="label-text">Background:</span> A senior undergraduate student <strong class="highlight">(Student ID: 22299030)</strong> pursuing a Bachelor of Science in Computer Science and Engineering. I love writing code, designing web layouts, and blending <span class="bold">cute aesthetics</span> with <span class="italic">gothic themes</span> (skulls, flowers, and lots of pink!).</p>
-                    <p>This website serves as my personal digital hub where I document my academic journey, display my coding projects, and compile my favorite hobbies.</p>
+                    <p><span class="label-text">Contact:</span> <strong class="highlight">siam.khandaker@g.bracu.ac.bd</strong></p>
+                    <p><span class="label-text">Background:</span> A senior undergraduate student <strong class="highlight">(Student ID: 22299030)</strong> pursuing a Bachelor of Science in Computer Science and Engineering. I love designing web layouts, tinkering with retro video games and learning all sorts of new things regrardless of what field it comes from.</p>
+                    <p>This website serves as my personal digital hub where I document my academic journey, display my coding projects, and compile my favorite hobbies all while trying to implement my personal touches and style on every corner of the pages.</p>
                 </div>
             </div>
             
             <div class="quote-box">
-                <p>"The world is full of magical things, patiently waiting for our wits to grow sharper."</p>
-                <span class="quote-author">— Eden Phillpotts</span>
+                <p>"There's always money in the banana stand."</p>
+                <span class="quote-author">— George Bluth Sr. (<em>Arrested Development</em>)</span>
             </div>
 
             <div class="scrapbook-doodle" style="bottom: -25px; left: -30px;">
@@ -110,15 +148,15 @@
             <h2>🎓 Education</h2>
             <p>Here is a summary of my educational background:</p>
             
-            <div style="margin-bottom: 15px; border-bottom: 1px dashed var(--border-color); padding-bottom: 15px;">
-                <h3 style="margin-bottom: 5px;">BRAC University</h3>
+            <div class="education-entry">
+                <h3 class="compact-heading">BRAC University</h3>
                 <p><span class="bold">Degree:</span> Bachelor of Science in Computer Science &amp; Engineering</p>
                 <p><span class="bold">Status:</span> Undergraduate Student (Senior - 4th Year)</p>
-                <p class="italic" style="font-size: 0.9rem;">Advanced coursework includes operating systems, computer graphics, computer networks, automata theory, compiler design, and internet programming.</p>
+                <p class="italic small-note">Advanced coursework includes operating systems, computer graphics, computer networks, automata theory, compiler design, and internet programming.</p>
             </div>
             
             <div>
-                <h3 style="margin-bottom: 5px;">BCIC College</h3>
+                <h3 class="compact-heading">BCIC College</h3>
                 <p><span class="bold">Certification:</span> Higher Secondary Certificate (HSC) — Science Group</p>
                 <p><span class="bold">Grade Recieved:</span> GPA 5.00</p>
                 <p><span class="bold">Graduation Year:</span> 2021</p>
@@ -140,9 +178,10 @@
             <p>Below are some of the technical tools and concepts I am currently learning and comfortable with:</p>
             
             <ul class="cutesy-list">
-                <li><span class="bold">Front-End Development:</span> Designing semantic pages using <span class="highlight">HTML5</span> / <span class="highlight">XHTML 1.0 Strict</span> and writing bespoke stylesheets using <span class="highlight">Vanilla CSS</span> (including CSS variables and layouts like Flexbox/Grid).</li>
-                <li><span class="bold">Programming Languages:</span> Experienced in coding console applications using <strong class="italic">Python</strong>, <strong class="italic">Java</strong>, and <strong class="italic">C++</strong>.</li>
-                <li><span class="bold">Scripting &amp; Interactivity:</span> Implementing page logic, dark/light mode states, and event handling using pure <span class="bold">JavaScript</span>.</li>
+                <li><span class="bold">Front-End Development:</span> Designing semantic pages using <span class="highlight">HTML5</span>, <span class="highlight">React</span> and writing bespoke stylesheets using <span class="highlight">Vanilla CSS</span>, <span class="highlight">Tailwind</span>.</li>
+                <li><span class="bold">Back-End Development:</span> Knowledgable with <span class="highlight">PostgreSQL</span>, <span class="highlight">MongoDB</span>, <span class="highlight">Prisma ORM</span> as well as <span class="bold">ExpressJS</span>, <span class="bold">Laravel</span>.</li>
+                <li><span class="bold">Programming Languages:</span> Experienced in coding console applications using <strong class="italic">Python</strong>, <strong class="italic">Java</strong>, <strong class="italic">PHP</strong> and <strong class="italic">C++</strong>.</li>
+                <li><span class="bold">Scripting &amp; Interactivity:</span> Implementing page logic, dark/light mode states, and event handling using <span class="bold">JavaScript</span>, <span class="bold">C++</span>.</li>
                 <li><span class="bold">Tools &amp; Version Control:</span> Utilizing Git, VS Code, and browser developer consoles for testing and styling.</li>
             </ul>
 
@@ -162,7 +201,7 @@
             <p>If you want to chat about code, aesthetics, or have questions about assignment projects, send me a message! This form sends an email directly upon submission.</p>
             
             <form action="https://formspree.io/f/xaqgoyrv" method="post">
-                <fieldset style="border: none; margin: 0; padding: 0;">
+                <fieldset class="form-reset">
                     <div class="form-group">
                         <label for="input-name">Name:</label>
                         <input type="text" name="name" id="input-name" class="form-control" />
@@ -178,7 +217,7 @@
                         <textarea name="message" id="input-message" rows="5" cols="40" class="form-control"></textarea>
                     </div>
                     
-                    <div class="text-center" style="margin-top: 25px;">
+                    <div class="text-center submit-row">
                         <input type="submit" value="🌸 Send Message" class="btn-submit" />
                     </div>
                 </fieldset>
@@ -197,7 +236,7 @@
             <div class="footer-meta">
                 <p><strong>Page Location:</strong> <span id="page-location">Retrieving...</span></p>
                 <p><strong>Last Modified:</strong> <span id="last-modified">Retrieving...</span></p>
-                <p style="margin-top: 10px; font-size: 0.75rem;">
+                <p class="footer-compliance">
                     Compliance Links: 
                     <a href="https://www.bracu.ac.bd">BRAC University</a> | 
                     <a href="https://discord.gg/U7GBm9GVC">CSE 391 Discord</a>

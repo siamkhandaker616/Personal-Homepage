@@ -8,6 +8,17 @@
     <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="stylesheet" type="text/css" href="components.css" />
     <link rel="stylesheet" type="text/css" href="doodles.css" />
+    <style type="text/css">
+        .doodle-soft { opacity: 0.85; }
+        .trophy-cup-corner {
+            bottom: -20px;
+            left: -25px;
+        }
+        .footer-compliance {
+            margin-top: 10px;
+            font-size: 0.75rem;
+        }
+    </style>
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
@@ -31,11 +42,11 @@
         <div class="header" style="position: relative;">
 
             <div class="scrapbook-doodle" style="top: -10px; left: -15px;">
-                <img src="images/doodles/left-sakura.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Sakura" />
+                <img src="images/doodles/left-flower.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Flower" />
             </div>
 
             <div class="scrapbook-doodle" style="top: -10px; right: -15px;">
-                <img src="images/doodles/right-sakura.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Sakura" />
+                <img src="images/doodles/right-flower.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Flower" />
             </div>
             <h1>🌸 Siam's Scrapbook 🌸</h1>
             <p class="italic">Welcome to my little pastel gothic corner of the internet!</p>
@@ -59,7 +70,7 @@
         <div class="card">
 
             <div class="scrapbook-doodle" style="top: -25px; right: -35px;">
-                <img src="images/doodles/academic-scroll.svg" style="opacity: 0.85;" width="100" height="100" alt="Academic Scroll" />
+                <img src="images/doodles/academic-scroll.svg" class="doodle-soft" width="100" height="100" alt="Academic Scroll" />
             </div>
 
             <h2>🎓 Coursework &amp; Academic Grades</h2>
@@ -198,26 +209,26 @@
             </div>
 
             <div class="scrapbook-doodle" style="bottom: 40px; right: -5px;">
-                <img src="images/doodles/sketch-pencil.svg" style="opacity: 0.85;" width="75" height="75" alt="Sketch Pencil" />
+                <img src="images/doodles/sketch-pencil.svg" class="doodle-soft" width="75" height="75" alt="Sketch Pencil" />
             </div>
         </div>
 
-        <!-- ADDITIONAL ACHIEVEMENTS -->
+        <!-- ADDITIONAL EXPERIENCE -->
         <div class="card">
 
             <div class="scrapbook-doodle" style="top: -25px; right: -30px;">
-                <img src="images/doodles/ribbon-medallion.svg" style="opacity: 0.85;" width="95" height="95" alt="Ribbon Medallion" />
+                <img src="images/doodles/ribbon-medallion.svg" class="doodle-soft" width="95" height="95" alt="Ribbon Medallion" />
             </div>
 
-            <h2>🏆 Extracurricular Achievements</h2>
+            <h2>🏆 Additional Experience</h2>
             <ul class="cutesy-list">
-                <li><span class="bold">Excellent Academic Standing:</span> Completed key major programming and mathematics coursework with perfect grade point metrics (4.00 out of 4.00 in major core courses).</li>
-                <li><span class="bold">Hackathons:</span> Participated in local university programming contests, building prototype websites in team environments.</li>
-                <li><span class="bold">Mentorship:</span> Volunteered in peer-tutoring sessions, helping junior students understand loops, lists, and OOP concepts in Java.</li>
+                <li><span class="bold">Editorial Feedback:</span> Provided beta-reading support by reviewing structure, readability, pacing, and consistency across creative drafts.</li>
+                <li><span class="bold">Modding &amp; Configuration:</span> Explored game customization workflows through file editing, compatibility testing, and iterative troubleshooting in a modded RPG environment.</li>
+                <li><span class="bold">Personal Web Customization:</span> Tinkered with custom CSS for frequently used websites such as YouTube and Instagram to personalize layouts, reduce visual clutter, and make familiar interfaces feel more comfortable to use.</li>
             </ul>
 
-            <div class="scrapbook-doodle" style="bottom: -20px; left: -25px;">
-                <img src="images/doodles/trophy-cup.svg" style="opacity: 0.85;" width="80" height="80" alt="Trophy Cup" />
+            <div class="scrapbook-doodle trophy-cup-corner">
+                <img src="images/doodles/trophy-cup.svg" class="doodle-soft" width="80" height="80" alt="Trophy Cup" />
             </div>
         </div>
 
@@ -229,7 +240,7 @@
             <div class="footer-meta">
                 <p><strong>Page Location:</strong> <span id="page-location">Retrieving...</span></p>
                 <p><strong>Last Modified:</strong> <span id="last-modified">Retrieving...</span></p>
-                <p style="margin-top: 10px; font-size: 0.75rem;">
+                <p class="footer-compliance">
                     Compliance Links: 
                     <a href="https://www.bracu.ac.bd">BRAC University</a> | 
                     <a href="https://discord.gg/U7GBm9GVC">CSE 391 Discord</a>

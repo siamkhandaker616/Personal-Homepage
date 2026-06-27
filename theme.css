@@ -25,6 +25,8 @@
     --cover-edge-color: #2e1732;
     --text-color: #3b204c;
     --text-muted: #6e4e7d;
+    --tape-color: rgba(231, 164, 185, 0.65);
+    --polaroid-tape: rgba(229, 181, 200, 0.6);
     --border-color: #cd90c3;
     --card-bg: rgba(238, 230, 184, 0.45);
     --footer-bg: rgba(245, 235, 200, 0.6);
@@ -48,6 +50,8 @@ body.dark-mode {
     --cover-edge-color: #c1a245;
     --text-color: #ffd8e6;
     --text-muted: #d8a2bf;
+    --tape-color: rgba(220, 220, 132, 0.65);
+    --polaroid-tape: rgba(213, 207, 116, 0.6);
     --border-color: rgba(217, 169, 232, 0.4);
     --card-bg: rgba(35, 25, 40, 0.55);
     --footer-bg: rgba(25, 18, 30, 0.7);
@@ -55,7 +59,7 @@ body.dark-mode {
     --accent-color: #ffb7c5;
     --accent-hover: #ffd8e6;
     --shadow-color: rgba(30, 4, 30, 0.85);
-    --stitch-color: rgba(255, 183, 197, 0.4);
+    --stitch-color: rgba(88, 76, 79, 0.788);
 }
 
 /* --- CORE ELEMENTS --- */

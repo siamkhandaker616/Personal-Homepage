@@ -99,6 +99,12 @@
     animation: pageFlipExit 0.5s ease-in-out forwards;
 }
 
+html.no-page-flip #wrapper {
+    animation: none;
+    transform: perspective(1500px) rotateY(0deg);
+    opacity: 1;
+}
+
 @keyframes pageFlipEnter {
     0% {
         transform: perspective(1500px) rotateY(-90deg);
@@ -125,23 +131,17 @@
     content: "";
     position: absolute;
     top: -36px;
-    left: 100%;
+    left: calc(100% - 5px);
     right: auto;
-    width: 140px;
+    width: 182px;
     height: calc(100% + 72px);
-    box-sizing: border-box;
-    
-    /* 24px border representing the right cover frame edge */
+    box-sizing: border-box; 
     border: 24px solid transparent;
     border-left: none;
     border-radius: 0 20px 20px 0;
-    clip-path: inset(0 0 0 16px);
-    
-    /* Stitching thread centered in the underlay border */
+    clip-path: inset(0);
     outline: 2px dashed var(--stitch-color);
     outline-offset: -12px;
-    
-    /* Layered paper + pebbled leather cover backgrounds */
     background-image:
         linear-gradient(var(--paper-line) 1px, transparent 1px),
         linear-gradient(var(--paper-bg), var(--paper-bg)),
@@ -374,22 +374,73 @@ header h1, .header h1 {
 /* --- MODE TOGGLE BUTTON --- */
 .mode-toggle-btn {
     font-family: var(--font-heading);
-    background-color: var(--card-bg);
-    border: 2px dashed var(--border-color);
+    position: relative;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.28), transparent 42%),
+        var(--card-bg);
+    border: 2px solid var(--border-color);
     color: var(--text-color);
-    padding: 6px 14px;
+    padding: 7px 16px;
     font-size: 0.85rem;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 50% 48% 52% 46% / 58% 42% 56% 44%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     text-shadow: 0 1px 0px var(--shadow-color);
     display: flex;
     align-items: center;
     gap: 8px;
+    box-shadow:
+        2px 3px 0 var(--paper-line),
+        4px 6px 8px rgba(0, 0, 0, 0.14);
+    transform: rotate(1.5deg);
+    isolation: isolate;
+}
+
+.mode-toggle-btn::before,
+.mode-toggle-btn::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 10px;
+    background: rgba(255, 216, 230, 0.72);
+    border: 1px dashed rgba(119, 50, 81, 0.35);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    z-index: -1;
+}
+
+.mode-toggle-btn::before {
+    top: -7px;
+    left: 10px;
+    transform: rotate(-9deg);
+}
+
+.mode-toggle-btn::after {
+    right: 12px;
+    bottom: -7px;
+    transform: rotate(8deg);
 }
 
 .mode-toggle-btn:hover {
     background-color: var(--accent-color);
-    transform: scale(1.05);
+    color: var(--paper-bg);
+    transform: rotate(-1deg) translateY(-1px);
+    box-shadow:
+        2px 3px 0 var(--accent-hover),
+        5px 8px 10px rgba(0, 0, 0, 0.18);
+}
+
+body.dark-mode .mode-toggle-btn {
+    background:
+        linear-gradient(135deg, rgba(255, 216, 230, 0.18), transparent 42%),
+        rgba(35, 25, 40, 0.82);
+    box-shadow:
+        2px 3px 0 rgba(255, 183, 197, 0.3),
+        4px 6px 10px rgba(0, 0, 0, 0.34);
+}
+
+body.dark-mode .mode-toggle-btn::before,
+body.dark-mode .mode-toggle-btn::after {
+    background: rgba(193, 162, 69, 0.78);
+    border-color: rgba(255, 216, 230, 0.26);
 }

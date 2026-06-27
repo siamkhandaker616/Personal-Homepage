@@ -1,3 +1,8 @@
+if (sessionStorage.getItem('skipPageFlipOnce') === 'true') {
+    document.documentElement.classList.add('no-page-flip');
+    sessionStorage.removeItem('skipPageFlipOnce');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- DARK MODE TOGGLE ---
@@ -75,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (nameInput)    nameInput.value    = '';
                 if (contactInput) contactInput.value = '';
                 if (messageInput) messageInput.value = '';
+                sessionStorage.setItem('skipPageFlipOnce', 'true');
                 setTimeout(function() { window.location.reload(); }, 100);
             }
         });
@@ -164,10 +170,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(payload)
             })
             .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Form submission was not accepted.');
+                }
                 showNotification('🌸 Success!', 'Your message has been sent successfully to Siam! 🌸', true);
             })
             .catch(function(error) {
-                showNotification('🌸 Success!', 'Your message has been sent successfully (Demo Mode)! 🌸', true);
+                showNotification('🌸 Not Sent!', 'Your message could not be confirmed. Please try again in a bit or contact Siam directly. 🌸', false);
             });
         });
     }
