@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- FORM PLACEHOLDER POLYFILL & SUBMISSION ---
+    // --- FORM SUBMISSION ---
     var contactForm  = document.querySelector('#contact form');
     var nameInput    = document.getElementById('input-name');
     var contactInput = document.getElementById('input-contact');

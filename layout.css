@@ -242,7 +242,6 @@ body.dark-mode .binder-ring {
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Punch holes on both ends of the rings */
 .binder-ring::before {
     content: "";
     position: absolute;
