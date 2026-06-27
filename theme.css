@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* --- FONTS --- */
+@font-face {
+    font-family: "Cheveuxdange";
+    src: url("./fonts/Cheveuxdange.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Disturbed";
+    src: url("./fonts/Disturbed-zrRGD.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- VARIABLES --- */
+:root {
+    --bg-image: url('images/bg-light.png');
+    --paper-bg: #f8e599;
+    --paper-line: #d8c278;
+    --margin-line: #ff9999;
+    --stacked-page-color: #ecdca5;
+    --cover-edge-color: #2e1732;
+    --text-color: #3b204c;
+    --text-muted: #6e4e7d;
+    --tape-color: rgba(231, 164, 185, 0.65);
+    --polaroid-tape: rgba(229, 181, 200, 0.6);
+    --border-color: #cd90c3;
+    --card-bg: rgba(238, 230, 184, 0.45);
+    --footer-bg: rgba(245, 235, 200, 0.6);
+    --bookmark-color: #a26c9e;
+    --accent-color: #db4d94;
+    --accent-hover: #773251;
+    --shadow-color: #ffd8e6;
+    --stitch-color: rgba(235, 182, 226, 0.6);
+    --overlay-blur: 3px;
+    --font-heading: 'Cheveuxdange', 'Fredoka', cursive, sans-serif;
+    --font-body: 'Nunito', 'Fredoka', sans-serif;
+    --font-disturbed: 'Disturbed';
+}
+
+body.dark-mode {
+    --bg-image: url('images/bg-dark.png');
+    --paper-bg: #19161c;
+    --paper-line: rgba(255, 204, 213, 0.08);
+    --margin-line: rgba(255, 153, 153, 0.25);
+    --stacked-page-color: #2b232f;
+    --cover-edge-color: #c1a245;
+    --text-color: #ffd8e6;
+    --text-muted: #d8a2bf;
+    --tape-color: rgba(220, 220, 132, 0.65);
+    --polaroid-tape: rgba(213, 207, 116, 0.6);
+    --border-color: rgba(217, 169, 232, 0.4);
+    --card-bg: rgba(35, 25, 40, 0.55);
+    --footer-bg: rgba(25, 18, 30, 0.7);
+    --bookmark-color: #8c5d95;
+    --accent-color: #ffb7c5;
+    --accent-hover: #ffd8e6;
+    --shadow-color: rgba(30, 4, 30, 0.85);
+    --stitch-color: rgba(88, 76, 79, 0.788);
+}
+
+/* --- CORE ELEMENTS --- */
+body {
+    background-image: var(--bg-image);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ad7da7;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 0px var(--shadow-color);
+    margin-top: 0;
+}
+
+h2:hover, h3:hover {
+    animation: zineWiggle 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes zineWiggle {
+    0% { transform: rotate(-1deg); }
+    100% { transform: rotate(1deg); }
+}
+
+header, .header, footer, .footer {
+    font-family: var(--font-disturbed);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* --- UTILITIES --- */
+.text-center { text-align: center; }
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.highlight { color: var(--accent-color); font-weight: bold; }
+.placeholder-style {
+    color: var(--text-muted) !important;
+    opacity: 0.65;
+}

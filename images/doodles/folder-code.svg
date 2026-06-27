@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="75" height="75" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Folder back -->
+                    <path d="M 20,75 L 20,35 C 20,32 23,30 26,30 L 45,30 L 52,38 L 78,38 C 81,38 84,40 84,43 L 84,75 Z" style="fill: #be9ecb;" />
+                    <!-- Paper sticking out -->
+                    <rect x="28" y="22" width="44" height="28" rx="2" style="fill: #fffdf5;" />
+                    <line x1="34" y1="28" x2="66" y2="28" style="stroke-width: 1.2;" />
+                    <line x1="34" y1="36" x2="58" y2="36" style="stroke-width: 1.2;" />
+                    <!-- Folder front -->
+                    <path d="M 20,75 L 20,44 C 20,41 23,39 26,39 L 78,39 C 81,39 84,41 84,44 L 84,75 Z" style="fill: #db4d94;" />
+                    <!-- Flower on folder -->
+                    <g style="transform: translate(62px, 50px) scale(0.65);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

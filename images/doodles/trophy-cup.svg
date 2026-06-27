@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="80" height="80" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Trophy Bowl -->
+                    <path d="M 30,30 L 70,30 L 68,55 C 68,65 32,65 32,55 Z" style="fill: #fffdf5;" />
+                    <!-- Handles -->
+                    <path d="M 30,35 C 18,35 18,48 30,48" />
+                    <path d="M 70,35 C 82,35 82,48 70,48" />
+                    <!-- Stem & Base -->
+                    <path d="M 45,60 L 55,60 L 55,75 L 45,75 Z" style="fill: #be9ecb;" />
+                    <rect x="35" y="75" width="30" height="8" rx="2" style="fill: #db4d94;" />
+                    <!-- Flowers overflowing -->
+                    <g style="transform: translate(32px, 12px) scale(0.65);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

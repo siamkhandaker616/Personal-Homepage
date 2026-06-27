@@ -1,0 +1,113 @@
+/* --- EXTRA SCRAPBOOK COLLAGE ELEMENTS --- */
+.pressed-petal {
+    width: 35px;
+    height: 45px;
+    background: radial-gradient(circle at 30% 30%, rgba(206, 147, 216, 0.75) 0%, rgba(136, 14, 79, 0.5) 100%);
+    border-radius: 50% 10% 50% 50%;
+    transform: rotate(-35deg);
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.15);
+    position: absolute;
+    pointer-events: none;
+    z-index: 15;
+}
+
+.pressed-petal::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    width: 2px;
+    height: 80%;
+    background-color: rgba(106, 27, 154, 0.35);
+    transform: rotate(10deg);
+    border-radius: 50%;
+}
+
+.scrapbook-doodle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* --- CAT INTERACTIVE DOODLE --- */
+.chi-cat-doodle {
+    pointer-events: auto;
+    cursor: pointer;
+    width: 105px;
+    height: 105px;
+    z-index: 20;
+    background-image: url("https://i.ibb.co.com/C3bf1F39/chi-happy.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+    animation: chiFloat 2.8s ease-in-out infinite;
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+                filter 0.2s ease;
+}
+
+.chi-cat-doodle:hover {
+    background-image: url("https://i.ibb.co.com/DD0Vz06K/chi-neutral.png");
+    transform: scale(0.8) translateY(-4px);
+    animation: none;
+    filter: drop-shadow(0 6px 14px rgba(219, 77, 148, 0.45));
+}
+
+.chi-cat-doodle:active {
+    background-image: url("https://i.ibb.co.com/LB0PD4v/chi-angry.png");
+    transform: scale(0.9) translateY(4px);
+    animation: chiShake 0.35s ease-in-out;
+    filter: drop-shadow(0 2px 6px rgba(219, 77, 148, 0.6));
+}
+
+.chi-cat-doodle::after {
+    content: ">:( leave me alone!!";
+    position: absolute;
+    bottom: 108%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    white-space: nowrap;
+    background-color: #fff0f5;
+    color: #3b204c;
+    border: 2px dashed #db4d94;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 30;
+    box-shadow: 0 3px 10px rgba(82, 4, 82, 0.2);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.chi-cat-doodle:active::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+body.dark-mode .chi-cat-doodle::after {
+    background-color: #2a1830;
+    color: #ffd8e6;
+    border-color: #ffb7c5;
+}
+
+.card:has(.chi-cat-doodle) {
+    overflow: visible;
+}
+
+@keyframes chiFloat {
+    0%,  100% { transform: translateY(0px);  }
+    50%        { transform: translateY(-7px); }
+}
+
+@keyframes chiShake {
+    0%   { transform: scale(0.9) translateX(0);    }
+    20%  { transform: scale(0.9) translateX(-5px); }
+    40%  { transform: scale(0.9) translateX(5px);  }
+    60%  { transform: scale(0.9) translateX(-4px); }
+    80%  { transform: scale(0.9) translateX(4px);  }
+    100% { transform: scale(0.9) translateX(0);    }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="80" height="80" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Left Eye outline -->
+                    <path d="M 20,48 Q 35,32 50,48" style="stroke-width: 3;" />
+                    <path d="M 22,50 Q 35,60 48,50" />
+                    <ellipse cx="35" cy="48" rx="6" ry="8" style="fill: #3b204c;" />
+                    <circle cx="33" cy="45" r="2.5" style="fill: #ffffff;" />
+                    <!-- Right Eye outline -->
+                    <path d="M 50,48 Q 65,32 80,48" style="stroke-width: 3;" />
+                    <path d="M 52,50 Q 65,60 78,50" />
+                    <ellipse cx="65" cy="48" rx="6" ry="8" style="fill: #3b204c;" />
+                    <circle cx="63" cy="45" r="2.5" style="fill: #ffffff;" />
+                    <!-- Eyelashes -->
+                    <path d="M 18,44 L 14,40 M 82,44 L 86,40" />
+                    <!-- Cherry blossoms next to eyes -->
+                    <g style="transform: translate(5px, 15px) scale(0.55);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                    <g style="transform: translate(70px, 45px) scale(0.55);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

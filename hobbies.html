@@ -3,15 +3,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siam's Pastel Paradise - Hobbies</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Siam's Scrapbook - Hobbies</title>
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="components.css" />
+    <link rel="stylesheet" type="text/css" href="doodles.css" />
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div id="wrapper">
+
+        <div class="binder-spine">
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+        </div>
+        
+
+        <div id="bookmark-ribbon" class="bookmark-hobbies"></div>
+
         <!-- HEADER & NAVIGATION -->
-        <div class="header">
-            <h1>🌸 Siam's Pastel Paradise 🌸</h1>
+        <div class="header" style="position: relative;">
+
+            <div class="scrapbook-doodle" style="top: -10px; left: -15px;">
+                <img src="images/doodles/left-flower.svg" style="opacity: 0.9;" width="75" height="75" alt="Left Flower" />
+            </div>
+
+            <div class="scrapbook-doodle" style="top: -10px; right: -15px;">
+                <img src="images/doodles/right-flower.svg" style="opacity: 0.9; transform: rotate(45deg) scaleX(-1);" width="70" height="70" alt="Right Flower" />
+            </div>
+            <h1>🌸 Siam's Scrapbook 🌸</h1>
             <p class="italic">Welcome to my little pastel gothic corner of the internet!</p>
             
             <div class="nav-container">
@@ -34,9 +60,21 @@
             </div>
         </div>
 
-        <!-- MAIN HOBBIES CONTENT -->
+
         <!-- CATEGORIZED HOBBIES -->
         <div class="card" id="interests">
+
+            <div class="pressed-petal" style="top: 360px; right: 340px; transform: rotate(45deg); "></div>
+
+            <div class="scrapbook-doodle chi-cat-doodle" style="top: -45px; right: -50px;">
+            </div>
+
+
+            <div class="polaroid-frame tape-polaroid" style="float: right; margin-left: 20px; --polaroid-rotate: 3deg;">
+                <img src="images/Retro-Gaming.png"  style="opacity: 0.75;" alt="Retro gaming corner" />
+                <div class="polaroid-caption">Retro gaming corner</div>
+            </div>
+
             <h2>🌸 Categorized Activities &amp; Interests</h2>
             <p>I believe in pursuing what truly inspires me. Here is how I divide my core activities, creative pursuits, and media interests. You can also explore my code repositories directly on my <a href="https://github.com/siamkhandaker616">GitHub profile page</a> to see my work.</p>
             
@@ -44,7 +82,7 @@
                 <h3 class="highlight">🎮 Game Dev &amp; Modding</h3>
                 <ul class="cutesy-list">
                     <li><span class="bold">Visual Novel / RPG Hybrids:</span> My primary interest is to become a developer creating immersive VN/RPG hybrid games with rich branching narratives.</li>
-                    <li><span class="bold">Engine Customization:</span> Tinkering with retro engine files and writing custom styling code to adjust UI configurations.</li>
+                    <li><span class="bold">Engine Customization:</span> Tinkering with retro engine files and writing custom styling code to adjust everything to my liking that I have recently started doing in <em>The Elder Scrolls V: Skyrim</em>.</li>
                 </ul>
             </div>
             
@@ -53,24 +91,38 @@
                 <ul class="cutesy-list">
                     <li><span class="bold">Atmospheric Classics:</span> I love playing older, highly atmospheric survival horror video games like the original <em>Silent Hill 2</em> and <em>Obscure</em>.</li>
                     <li><span class="bold">Janky Gems:</span> I have a special place in my heart for quirky horror games that aren't technically polished or feature cheesy voice acting, like <em>Deadly Premonition</em> and <em>Tormented Souls</em>.</li>
-                    <li><span class="bold">Niche Horror Movies:</span> Exploring hidden indie horror gems and retro psychological thrillers.</li>
+                    <li><span class="bold">Niche Horror Movies:</span> Exploring hidden indie horror gems and retro psychological thrillers from all over the world.</li>
                 </ul>
             </div>
 
             <div style="margin-top: 20px;">
                 <h3 class="highlight">🖤 Anime &amp; Visual Kei Music</h3>
                 <ul class="cutesy-list">
-                    <li><span class="bold">Favorite Series:</span> I live for stylish and dark anime like <em>JoJo's Bizarre Adventure (JJBA)</em>, <em>Banana Fish</em>, and <em>Devilman Crybaby</em>.</li>
-                    <li><span class="bold">Visual Kei (VK):</span> I am a huge fan of VK music, appreciating its unique fusion of theatrical rock, gothic fashion, and expressive melodies. My personal playlist spans over 1,200 tracks and includes bands like lynch., DADAROMA, JILUKA, Versailles, DIAURA, and DazzlingBAD.</li>
+                    <li><span class="bold">Favorite Series:</span> I live for stylish and dark anime like <em>JoJo's Bizarre Adventure</em>, <em>Banana Fish</em>, and <em>Devilman</em>.</li>
+                    <li><span class="bold">Visual Kei:</span> I am a huge fan of VK music, appreciating its unique fusion of theatrical rock, gothic fashion, and expressive melodies. My personal favorite bands include DAMNED, Xaa-Xaa, Kizu, lynch., DADAROMA, JILUKA, Versailles, DIAURA, and DazzlingBAD.</li>
                 </ul>
+            </div>
+
+            <div class="scrapbook-doodle" style="bottom: -45px; left: -30px;">
+                <img src="images/doodles/cassette-tape.svg" style="opacity: 0.85;" width="80" height="80" alt="Cassette Tape" />
             </div>
         </div>
 
-        <!-- SEPARATE TOP 10 LISTS -->
+        <!-- TOP 10 LISTS -->
         <div class="card" id="top10">
+
+            <div class="scrapbook-doodle" style="top: -40px; right: -30px;">
+                <img src="images/doodles/film-spool.svg" style="opacity: 0.85;" width="90" height="90" alt="Film Spool" />
+            </div>
+
             <h2>🌸 My Top 10 Lists</h2>
             <p>To give you a better idea of the specific niches I live for, here are my separate top ten lists for anime, survival horror video games, and psychological/indie horror movies:</p>
             
+
+            <div class="scrapbook-doodle" style="top: 680px; right: -15px;">
+                <img src="images/doodles/game-controller.svg" style="opacity: 0.85;" width="85" height="85" alt="Game Controller" />
+            </div>
+
             <div style="margin-top: 20px;">
                 <h3 class="highlight">🎬 Top 10 Favorite Anime Series &amp; Movies</h3>
                 <ol class="cutesy-list">
@@ -88,19 +140,127 @@
             </div>
             
             <div style="margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
-                <h3 class="highlight">🎮 Top 10 Favorite Horror Video Games</h3>
-                <ol class="cutesy-list">
-                    <li><span class="bold">Silent Hill 2 (OG)</span> — The absolute peak of psychological horror and melancholic atmosphere.</li>
-                    <li><span class="bold">Obscure</span> — Nostalgic, co-op survival horror with a distinct high-school slasher vibe.</li>
-                    <li><span class="bold">Deadly Premonition</span> — Quirky, janky Twin Peaks-inspired gem with legendary cheesy acting.</li>
-                    <li><span class="bold">Tormented Souls</span> — Fantastic modern callback to classic fixed-camera survival horror.</li>
-                    <li><span class="bold">Silent Hill 3</span> — Terrifying industrial decay aesthetics and stellar sound design.</li>
-                    <li><span class="bold">Rule of Rose</span> — Cruel, psychological gothic narrative with incredibly eerie atmosphere.</li>
-                    <li><span class="bold">Fatal Frame II: Crimson Butterfly</span> — Haunting Japanese folklore horror and camera-based gameplay.</li>
-                    <li><span class="bold">Siren (Forbidden Siren)</span> — Highly atmospheric, challenging, multi-perspective stealth horror.</li>
-                    <li><span class="bold">Kuon</span> — Rare Heian-period Japanese survival horror by FromSoftware.</li>
-                    <li><span class="bold">Cry of Fear</span> — Gritty, psychological source-engine mod with terrifying claustrophobia.</li>
-                </ol>
+                <h3 class="highlight">🎮 My Horror Video Games Recommendation List</h3>
+                <div class="table-container" style="margin-top: 15px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Game Title</th>
+                                <th>Publisher <br/>&amp; Release</th>
+                                <th>Core Aesthetic <br/>&amp; Commentary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.1);">
+                                    Classic PS2 Era<br />(Golden Age)
+                                </td>
+                                <td class="highlight">Silent Hill 2</td>
+                                <td>Konami (2001)</td>
+                                <td>
+                                    The absolute peak of psychological horror and melancholic atmosphere. 
+                                    Anytime I see foggy weather outsider I think of this game and despite the remake
+                                    being out, I still honestly prefer the fixed-camera angle and the thrills only a PS2 game could provide.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Rule of Rose</td>
+                                <td>Sony (2006)</td>
+                                <td>
+                                    A cruel, psychological gothic narrative set in a surreal orphanage ruled by children. 
+                                    I particularly love the eerie, dream-like atmosphere of the game and the hauntingly beautiful
+                                    soundtrack it comes with.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Obscure</td>
+                                <td>Hydravision Entertainment (2004)</td>
+                                <td>
+                                    A nostalgic and cheesy early 00's relic that captures almost everything I love from the soundtrack,
+                                    to the characters and down to the atmosphere. I doubt most people will enjoy it since it has a lot of technical flaws
+                                    as a product of its time, but I'd still very much recommend.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Fatal Frame II</td>
+                                <td>Tecmo (2003)</td>
+                                <td>
+                                    Also known as <em>Crimson Butterfly</em>, this haunting J-horror classic features a camera-based 
+                                    combat system. It follows twin sisters lost in an abandoned village overrun by malevolent spirits, 
+                                    drawing on deep Japanese folklore.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Siren (Forbidden)</td>
+                                <td>Sony (2023)</td>
+                                <td>
+                                    A highly atmospheric, challenging, multi-perspective stealth horror game. 
+                                    It requires players to 'sightjack' (see through the eyes of) the undead shibito to survive 
+                                    a perpetual red rain curse in a rural village.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.15);">
+                                    Modern Retro &amp;<br />Indie Gems
+                                </td>
+                                <td class="bold">Tormented Souls</td>
+                                <td>PQube (2021)</td>
+                                <td>
+                                    A fantastic modern callback to classic fixed-camera survival horror. 
+                                    I love the limited ammo, lack of reliable save slots and zero hand-holding
+                                    the game provides, forcing the player to really dig deep to figure things out.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="highlight">Alan Wake</td>
+                                <td>Remedy Entertainment (2010)</td>
+                                <td>
+                                    This game holds a special place in my heart with its storytelling, references to old Classics
+                                    like The Twilight Zone and Twin peaks, along with the fantasic way in which it incorporated music
+                                    and horror. A must play I'd say.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">The Evil Within</td>
+                                <td>2014 / 	Tango Gameworks</td>
+                                <td>
+                                    Speaking of absurdly difficult games, I think even in its easiest difficulty this one
+                                    is harder to beat than a lot of games out there. The repeated encounters with the same dreadfully
+                                    powerful and scary bosses, claustrophic and disturbing imageries along with the soundtrack is sure to
+                                    cause nightmares.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="highlight">Fear <br/>&amp; Hunger</td>
+                                <td>Happy Paintings (2018)</td>
+                                <td>
+                                    A modern day dungeon crawler that I think changed my brain chemistry. The visuals and the sources that
+                                    inspired this game is one of my biggest inspirations for why I personally want to venture into game developement.
+                                    The theatrical and frankly unspeakable suffering and misery that this game will make you go through is not for the
+                                    faint of heart.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Deadly Premonition</td>
+                                <td>Access Games (2010)</td>
+                                <td>
+                                    A quirky, janky, Twin Peaks-inspired open-world cult classic. 
+                                    I can probably only say bad things about the game but I swear I love it. It might just
+                                    be so wrong that it is perfect.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" class="bold text-center">Overall Gaming Recommendation</td>
+                                <td class="highlight italic">
+                                    Play in a dark room with high-quality headphones to fully experience the rich soundscapes and atmospheric dread!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <div style="margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
@@ -109,19 +269,28 @@
                     <li><span class="bold">[REC] (2007)</span> — Intense, claustrophobic Spanish mockumentary that is one of the best found-footage films ever made.</li>
                     <li><span class="bold">Lake Mungo (2008)</span> — A haunting, melancholic mockumentary about grief, ghosts, and existential dread.</li>
                     <li><span class="bold">Martyrs (2008)</span> — An extremely heavy, thought-provoking French transgressive horror masterpiece on pain and transcendence.</li>
-                    <li><span class="bold">Perfect Blue (1997)</span> — An unforgettable psychological thriller exploring identity, dread, and blurred reality.</li>
                     <li><span class="bold">The Borderlands (2013)</span> — Also known as <em>Final Prayer</em>, a slow-burn British found-footage film with a deeply disturbing ending.</li>
                     <li><span class="bold">Grave Encounters (2011)</span> — A fun, claustrophobic mockumentary exploring a haunted psychiatric hospital that warps space and time.</li>
                     <li><span class="bold">Picnic (1996)</span> — Shunji Iwai's short, dark, and beautifully whimsical psychological film about three patients walking on walls.</li>
                     <li><span class="bold">Pulse (Kairo - 2001)</span> — Kiyoshi Kurosawa's ultimate depiction of internet-dread and loneliness.</li>
                     <li><span class="bold">Noroi: The Curse (2005)</span> — A sprawling, deeply unsettling found-footage J-horror mystery.</li>
-                    <li><span class="bold">Cure (1997)</span> — A hypnotic, philosophical J-horror mystery about suggestion, memory, and murder.</li>
+                    <li><span class="bold">Color Out of Space (2019)</span> — A slowburn mystery that boils into a terrifying cosmic horror experience.</li>
+                    <li><span class="bold">Perfect Blue (1997)</span> — An unforgettable psychological thriller exploring identity, dread, and blurred reality.</li>
                 </ol>
+            </div>
+
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -30px;">
+                <img src="images/doodles/gothic-eyes.svg" style="opacity: 0.85;" width="80" height="80" alt="Gothic Eyes" />
             </div>
         </div>
 
         <!-- VISUAL KEI MUSIC CORNER -->
         <div class="card" id="vk-corner">
+
+            <div class="scrapbook-doodle" style="top: -25px; right: -35px;">
+                <img src="images/doodles/guitar.svg" style="opacity: 0.85; transform: rotate(-15deg);" width="95" height="95" alt="Guitar" />
+            </div>
+
             <h2>🖤 My Visual Kei Music Corner</h2>
             <p>Visual Kei is more than just music to me; it's a major aesthetic inspiration for my game development concepts and dark, theatrical style. Here is a curated selection from <a href="https://www.youtube.com/playlist?list=PL1BtatRchq2bOOzsJ4Jvbhb9COORA7N_p">my personal playlist</a> of 1,200+ tracks:</p>
             
@@ -129,24 +298,29 @@
                 <div class="project-card" style="margin-bottom: 0;">
                     <h3 class="highlight">🎸 Heavy &amp; Modern VK</h3>
                     <ul class="cutesy-list" style="margin-left: 0; padding-left: 15px;">
-                        <li><span class="bold">JILUKA</span> — <em>S4VAGE</em> and <em>BLVCK</em> (Pioneers of modern Electro-Gothic Metalcore / EGM)</li>
-                        <li><span class="bold">DEXCORE</span> — <em>SKINDEEP</em> (Aggressive, breakdown-heavy modern VK metalcore)</li>
-                        <li><span class="bold">HAZUKI</span> — <em>七夕乃雷 -Shichiseki no rai-</em> (The powerful solo project of lynch.'s vocalist)</li>
-                        <li><span class="bold">lynch.</span> — <em>DEVIL</em> (Sleek, dark, and highly melodic alternative metal)</li>
+                        <li><span class="bold">JILUKA</span> — Pioneers of modern Electro-Gothic Metalcore</li>
+                        <li><span class="bold">DEXCORE</span> — Aggressive, breakdown-heavy modern VK metalcore</li>
+                        <li><span class="bold">Deathpair</span> Avantgarde, Destructive and unafraid to push boundaries</li>
+                        <li><span class="bold">lynch.</span> — Sleek, dark, and highly melodic alternative metal</li>
                     </ul>
                 </div>
                 
                 <div class="project-card" style="margin-bottom: 0;">
                     <h3 class="highlight">🥀 Gothic &amp; Theatrical VK</h3>
                     <ul class="cutesy-list" style="margin-left: 0; padding-left: 15px;">
-                        <li><span class="bold">Versailles</span> — <em>Philia</em> and <em>MASQUERADE</em> (Symphonic power metal with opulent, historical outfits)</li>
-                        <li><span class="bold">DADAROMA</span> — <em>夢タラレバ</em> and <em>造花とカラシニコフ</em> (Exquisite mixture of gothic themes and quirky circus-like melodies)</li>
-                        <li><span class="bold">ザアザア (Xaa-Xaa)</span> — <em>のぞきたい</em> (Melancholic, rain-themed rock with highly emotional vocals)</li>
-                        <li><span class="bold">DazzlingBAD</span> — <em>カメラオブスキュラ</em> (Underground gothic/horror-themed visual kei)</li>
+                        <li><span class="bold">Versailles</span> — Symphonic power metal with opulent, historical outfits</li>
+                        <li><span class="bold">DADAROMA</span> — Exquisite mixture of gothic themes and quirky circus-like melodies</li>
+                        <li><span class="bold">Xaa-Xaa</span> — Melancholic, rain-themed rock with highly emotional vocals</li>
+                        <li><span class="bold">DazzlingBAD</span> — Underground gothic/horror-themed visual kei</li>
                     </ul>
                 </div>
             </div>
+            
             <p class="italic text-center" style="margin-top: 15px; font-size: 0.9rem;">From classic symphonic goth-rock to modern breakdown-heavy metalcore, my playlist is a deep dive into the beautiful, dark world of Japanese rock.</p>
+
+            <div class="scrapbook-doodle" style="bottom: -20px; left: -25px;">
+                <img src="images/doodles/single-rose.svg" style="opacity: 0.85;" width="65" height="65" alt="Single Rose" />
+            </div>
         </div>
 
         <!-- FOOTER -->
@@ -165,7 +339,7 @@
             </div>
         </div>
     </div>
-    <!-- BACK TO TOP BUTTON -->
+
     <div class="scroll-top-wrapper">
         <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
     </div>

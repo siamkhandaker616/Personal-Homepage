@@ -1,8 +1,13 @@
+if (sessionStorage.getItem('skipPageFlipOnce') === 'true') {
+    document.documentElement.classList.add('no-page-flip');
+    sessionStorage.removeItem('skipPageFlipOnce');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    // --- DARK/LIGHT MODE TOGGLE ---
+
+    // --- DARK MODE TOGGLE ---
     var toggleBtn = document.getElementById('mode-toggle');
     if (toggleBtn) {
-        // Check local storage for mode preference
         var isDarkMode = localStorage.getItem('darkMode') === 'true';
         if (isDarkMode) {
             document.body.classList.add('dark-mode');
@@ -15,33 +20,24 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBtn.addEventListener('click', function() {
             var active = document.body.classList.toggle('dark-mode');
             localStorage.setItem('darkMode', active);
-            if (active) {
-                toggleBtn.innerHTML = '☀️ Light Mode';
-            } else {
-                toggleBtn.innerHTML = '🌙 Dark Mode';
-            }
+            toggleBtn.innerHTML = active ? '☀️ Light Mode' : '🌙 Dark Mode';
         });
     }
 
-    // --- FOOTER META UPDATES ---
+    // --- FOOTER META ---
     var locationEl = document.getElementById('page-location');
     var modifiedEl = document.getElementById('last-modified');
-    
+
     if (locationEl) {
         locationEl.textContent = window.location.href;
     }
-    
+
     if (modifiedEl) {
         var modDate = new Date(document.lastModified);
-        // Fallback for empty/invalid date
-        if (isNaN(modDate.getTime())) {
-            modifiedEl.textContent = document.lastModified;
-        } else {
-            modifiedEl.textContent = modDate.toLocaleString();
-        }
+        modifiedEl.textContent = isNaN(modDate.getTime()) ? document.lastModified : modDate.toLocaleString();
     }
 
-    // --- HOME PAGE SCROLL-TO-TOP SHOW/HIDE ---
+    // --- SCROLL TO TOP ---
     var scrollTopBtn = document.getElementById('scroll-to-top');
     if (scrollTopBtn) {
         window.addEventListener('scroll', function() {
@@ -54,78 +50,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- CUSTOM CUTESY MODAL NOTIFICATION ---
+    // --- MODAL ---
     var cutesyModal = document.getElementById('cutesy-modal');
     var modalTitle = document.getElementById('cutesy-modal-title');
     var modalMessage = document.getElementById('cutesy-modal-message');
     var modalCloseBtn = document.getElementById('cutesy-modal-close');
     var reloadOnClose = false;
-    
+
     function showNotification(title, message, triggerReload) {
         if (!cutesyModal || !modalTitle || !modalMessage) return;
         modalTitle.textContent = title;
         modalMessage.textContent = message;
         reloadOnClose = triggerReload || false;
-        
-        // Reset button state by default
         if (modalCloseBtn) {
             modalCloseBtn.disabled = false;
             modalCloseBtn.textContent = 'OK';
             modalCloseBtn.classList.remove('disabled-btn');
         }
-        
         cutesyModal.classList.add('show');
     }
-    
+
     if (modalCloseBtn && cutesyModal) {
         modalCloseBtn.addEventListener('click', function() {
             cutesyModal.classList.remove('show');
             if (reloadOnClose) {
-                // Clear fields
-                var nameInput = document.getElementById('input-name');
+                var nameInput    = document.getElementById('input-name');
                 var contactInput = document.getElementById('input-contact');
                 var messageInput = document.getElementById('input-message');
-                if (nameInput) nameInput.value = '';
+                if (nameInput)    nameInput.value    = '';
                 if (contactInput) contactInput.value = '';
                 if (messageInput) messageInput.value = '';
-                
-                // Refresh the page
-                setTimeout(function() {
-                    window.location.reload();
-                }, 100);
+                sessionStorage.setItem('skipPageFlipOnce', 'true');
+                setTimeout(function() { window.location.reload(); }, 100);
             }
         });
     }
 
-    // --- PLACEHOLDER POLYFILL & FORM SUBMISSION ---
-    var contactForm = document.querySelector('#contact form');
-    var nameInput = document.getElementById('input-name');
+    // --- FORM SUBMISSION ---
+    var contactForm  = document.querySelector('#contact form');
+    var nameInput    = document.getElementById('input-name');
     var contactInput = document.getElementById('input-contact');
     var messageInput = document.getElementById('input-message');
-    
+
     var placeholders = {
-        'input-name': 'Enter your name',
+        'input-name':    'Enter your name',
         'input-contact': 'Email or Phone Number',
         'input-message': 'Write your message here...'
     };
-    
+
     function setupPlaceholder(input) {
         if (!input) return;
         var placeholderText = placeholders[input.id];
-        
-        // Initial setup
         if (input.value === '' || input.value === placeholderText) {
             input.value = placeholderText;
             input.classList.add('placeholder-style');
         }
-        
         input.addEventListener('focus', function() {
             if (input.value === placeholderText) {
                 input.value = '';
                 input.classList.remove('placeholder-style');
             }
         });
-        
         input.addEventListener('blur', function() {
             if (input.value === '') {
                 input.value = placeholderText;
@@ -133,20 +118,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     setupPlaceholder(nameInput);
     setupPlaceholder(contactInput);
     setupPlaceholder(messageInput);
-    
+
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop default form redirect
-            
-            // Check if user actually entered something or left placeholders
-            var nameVal = nameInput.value;
+            e.preventDefault();
+            var nameVal    = nameInput.value;
             var contactVal = contactInput ? contactInput.value : '';
-            var msgVal = messageInput.value;
-            
+            var msgVal     = messageInput.value;
+
             if (nameVal === placeholders['input-name'] || nameVal.trim() === '') {
                 showNotification('🌸 Oops!', 'Please enter your name.', false);
                 nameInput.focus();
@@ -162,47 +145,72 @@ document.addEventListener('DOMContentLoaded', function() {
                 messageInput.focus();
                 return;
             }
-            
+
             var payload = {
-                _subject: "🌸 Message from Siam's Pastel Paradise! 🌸",
-                "Form Origin": "Siam's Pastel Paradise Website",
-                "Sender Name": nameVal,
-                "Contact Info": contactVal,
+                _subject: "🌸 Message from Siam's Scrapbook! 🌸",
+                "Form Origin":    "Siam's Scrapbook Website",
+                "Sender Name":    nameVal,
+                "Contact Info":   contactVal,
                 "Message Details": msgVal,
-                "Sent At": new Date().toLocaleString()
+                "Sent At":        new Date().toLocaleString()
             };
-            
-            // Show sending notification
+
             showNotification('🌸 Sending...', 'Sending your message to Siam...', false);
             if (modalCloseBtn) {
                 modalCloseBtn.disabled = true;
                 modalCloseBtn.textContent = 'Wait...';
                 modalCloseBtn.classList.add('disabled-btn');
             }
-            
+
             var actionUrl = contactForm.getAttribute('action') || 'https://formspree.io/f/your_formspree_id';
-            
-            // Send via AJAX fetch
+
             fetch(actionUrl, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
             .then(function(response) {
-                if (response.ok) {
-                    showNotification('🌸 Success!', 'Your message has been sent successfully to Siam! 🌸', true);
-                } else {
-                    // Fallback success for demo
-                    showNotification('🌸 Success!', 'Your message has been sent successfully (Demo Mode)! 🌸', true);
+                if (!response.ok) {
+                    throw new Error('Form submission was not accepted.');
                 }
+                showNotification('🌸 Success!', 'Your message has been sent successfully to Siam! 🌸', true);
             })
             .catch(function(error) {
-                // Fallback success for demo
-                showNotification('🌸 Success!', 'Your message has been sent successfully (Demo Mode)! 🌸', true);
+                showNotification('🌸 Not Sent!', 'Your message could not be confirmed. Please try again in a bit or contact Siam directly. 🌸', false);
             });
         });
     }
+
+    // --- PAGE FLIP TRANSITION ---
+    var wrapperEl = document.getElementById('wrapper');
+    var navLinks  = document.querySelectorAll('.nav-links a');
+
+    if (navLinks.length > 0) {
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var targetUrl = link.getAttribute('href');
+                if (targetUrl && !targetUrl.startsWith('#') && !targetUrl.startsWith('http') && !link.classList.contains('active')) {
+                    e.preventDefault();
+                    if (wrapperEl) {
+                        wrapperEl.classList.add('page-flip-exit');
+                        setTimeout(function() { window.location.href = targetUrl; }, 480);
+                    } else {
+                        window.location.href = targetUrl;
+                    }
+                }
+            });
+        });
+    }
+
+    // --- BOOKMARK RETRACTION ---
+    var bookmark = document.getElementById('bookmark-ribbon');
+    if (bookmark) {
+        var isRetracted = localStorage.getItem('bookmarkRetracted') === 'true';
+        if (isRetracted) { bookmark.classList.add('bookmark-retracted'); }
+        bookmark.addEventListener('click', function() {
+            var retracted = bookmark.classList.toggle('bookmark-retracted');
+            localStorage.setItem('bookmarkRetracted', retracted);
+        });
+    }
+
 });
