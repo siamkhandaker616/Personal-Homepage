@@ -443,3 +443,134 @@ body.dark-mode .mode-toggle-btn::after {
     background: rgba(193, 162, 69, 0.78);
     border-color: rgba(255, 216, 230, 0.26);
 }
+
+/* --- MOBILE LAYOUT --- */
+@media (max-width: 1180px), (hover: none) and (pointer: coarse) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    #wrapper {
+        width: calc(100vw - 8px);
+        max-width: none;
+        min-width: 0;
+        margin: 4px auto;
+        padding: 18px 10px 24px 10px;
+        border: 6px solid transparent;
+        border-radius: 18px 12px 16px 18px;
+        background-size:
+            22px 100%,
+            100% 100%,
+            100% 100%,
+            100% 26px,
+            100% 100%,
+            7px 7px,
+            7px 7px,
+            11px 11px;
+        background-position:
+            right 10px top 0,
+            -96px 0,
+            -96px 0,
+            0 0,
+            0 0,
+            0 0,
+            3.5px 3.5px,
+            0 0;
+    }
+
+    #wrapper::before {
+        display: block;
+        top: -4px;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        border: 1px dashed var(--stitch-color);
+        border-right: none;
+        border-radius: 14px 0 0 16px;
+    }
+
+    #wrapper::after {
+        display: none;
+    }
+
+    .binder-spine {
+        display: none;
+    }
+
+    #bookmark-ribbon {
+        display: none;
+    }
+
+    .header {
+        margin-bottom: 24px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .nav-links a {
+        padding: 3px 9px;
+        font-size: 0.9rem;
+    }
+
+    .mode-toggle-btn {
+        margin-top: 4px;
+    }
+
+    .header > .nav-container + .nav-container {
+        flex-direction: row;
+        gap: 4px 8px;
+        margin-top: 12px;
+        padding: 10px 4px 0 4px;
+        font-size: 0.84rem;
+        line-height: 1.5;
+    }
+
+    .header > .nav-container + .nav-container a {
+        display: inline-block;
+        padding: 2px 4px;
+        white-space: nowrap;
+    }
+
+    .header > .nav-container + .nav-container .bold {
+        flex-basis: 100%;
+        margin-bottom: -2px;
+    }
+
+    .header .scrapbook-doodle {
+        opacity: 0.75;
+        transform: scale(0.65);
+    }
+}
+
+@media (max-width: 420px) {
+    #wrapper {
+        width: 100vw;
+        margin: 0;
+        padding: 16px 8px 22px 8px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+        border-radius: 12px;
+    }
+
+    .header > .nav-container + .nav-container {
+        font-size: 0.8rem;
+        gap: 3px 6px;
+    }
+}
