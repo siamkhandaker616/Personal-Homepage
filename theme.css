@@ -29,13 +29,18 @@
     --polaroid-tape: rgba(229, 181, 200, 0.6);
     --border-color: #cd90c3;
     --card-bg: rgba(238, 230, 184, 0.45);
+    --card-extra: rgba(0,0,0,0.08);
     --footer-bg: rgba(245, 235, 200, 0.6);
     --bookmark-color: #a26c9e;
     --accent-color: #db4d94;
     --accent-hover: #773251;
     --shadow-color: #ffd8e6;
+    --table-header: rgba(255, 198, 216, 0.25);
+    --binder-gradient: repeating-linear-gradient(-45deg, #be9ecb, #be9ecb 3px, #e2cfea 3px, #e2cfea 6px);
+    --binder-circle: radial-gradient(circle, #08060a 30%, #2e1732 100%);
     --stitch-color: rgba(235, 182, 226, 0.6);
-    --overlay-blur: 3px;
+    --scroll-top: linear-gradient(135deg, #db4d94 0%, #ff85c1 60%, #ffc1de 100%);
+    --overlay-blur: 8px;
     --font-heading: 'Cheveuxdange', 'Fredoka', cursive, sans-serif;
     --font-body: 'Nunito', 'Fredoka', sans-serif;
     --font-disturbed: 'Disturbed';
@@ -54,12 +59,17 @@ body.dark-mode {
     --polaroid-tape: rgba(213, 207, 116, 0.6);
     --border-color: rgba(217, 169, 232, 0.4);
     --card-bg: rgba(35, 25, 40, 0.55);
+    --card-extra: rgba(255,255,255,0.15);
     --footer-bg: rgba(25, 18, 30, 0.7);
     --bookmark-color: #8c5d95;
     --accent-color: #ffb7c5;
     --accent-hover: #ffd8e6;
     --shadow-color: rgba(30, 4, 30, 0.85);
+    --table-header: rgba(140, 82, 125, 0.25);
+    --binder-gradient: repeating-linear-gradient(-45deg, #ffb7c5, #ffb7c5 3px, #ffd8e6 3px, #ffd8e6 6px);
+    --binder-circle: radial-gradient(circle, #7d84ab 30%, #d85e97 100%);
     --stitch-color: rgba(88, 76, 79, 0.788);
+    --scroll-top: linear-gradient(135deg, #e29fc0 0%, #ffb7c5 60%, #ffd8e6 100%);
 }
 
 /* --- CORE ELEMENTS --- */
@@ -94,8 +104,12 @@ h2:hover, h3:hover {
     100% { transform: rotate(1deg); }
 }
 
-header, .header, footer, .footer {
+header, .header {
     font-family: var(--font-disturbed);
+}
+
+footer, .footer {
+    font-family: var(--font-body);
 }
 
 a {

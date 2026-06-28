@@ -51,14 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- MODAL ---
-    var cutesyModal = document.getElementById('cutesy-modal');
-    var modalTitle = document.getElementById('cutesy-modal-title');
-    var modalMessage = document.getElementById('cutesy-modal-message');
-    var modalCloseBtn = document.getElementById('cutesy-modal-close');
+    var paperModal = document.getElementById('paper-modal');
+    var modalTitle = document.getElementById('paper-modal-title');
+    var modalMessage = document.getElementById('paper-modal-message');
+    var modalCloseBtn = document.getElementById('paper-modal-close');
     var reloadOnClose = false;
 
     function showNotification(title, message, triggerReload) {
-        if (!cutesyModal || !modalTitle || !modalMessage) return;
+        if (!paperModal || !modalTitle || !modalMessage) return;
         modalTitle.textContent = title;
         modalMessage.textContent = message;
         reloadOnClose = triggerReload || false;
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
             modalCloseBtn.textContent = 'OK';
             modalCloseBtn.classList.remove('disabled-btn');
         }
-        cutesyModal.classList.add('show');
+        paperModal.classList.add('show');
     }
 
-    if (modalCloseBtn && cutesyModal) {
+    if (modalCloseBtn && paperModal) {
         modalCloseBtn.addEventListener('click', function() {
-            cutesyModal.classList.remove('show');
+            paperModal.classList.remove('show');
             if (reloadOnClose) {
                 var nameInput    = document.getElementById('input-name');
                 var contactInput = document.getElementById('input-contact');
