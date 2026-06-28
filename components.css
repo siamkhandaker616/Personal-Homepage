@@ -28,19 +28,14 @@
     width: 100px;
     height: 18px;
     background-color: var(--tape-color);
-    border-left: 2px dotted rgba(0,0,0,0.08);
-    border-right: 2px dotted rgba(0,0,0,0.08);
+    border-left: 2px dotted var(--card-extra);
+    border-right: 2px dotted var(--card-extra);
     box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     z-index: 10;
 }
 
 .card:nth-of-type(odd)::before  { --tape-rotate:   3deg; }
 .card:nth-of-type(even)::before { --tape-rotate:  -4deg; }
-
-body.dark-mode .card::before {
-    border-left: 2px dotted rgba(255,255,255,0.15);
-    border-right: 2px dotted rgba(255,255,255,0.15);
-}
 
 /* --- ABOUT SECTION --- */
 .about-grid {
@@ -95,10 +90,6 @@ body.dark-mode .card::before {
     text-shadow: none;
 }
 
-body.dark-mode .quote-box {
-    border-color: rgba(217, 169, 232, 0.3);
-}
-
 .quote-author {
     display: block;
     text-align: right;
@@ -111,17 +102,17 @@ body.dark-mode .quote-box {
 }
 
 /* --- LISTS --- */
-ul.cutesy-list, ol.cutesy-list {
+ul.paper-list, ol.paper-list {
     padding-left: 20px;
 }
 
-ul.cutesy-list li {
+ul.paper-list li {
     margin-bottom: 8px;
     position: relative;
     list-style-type: none;
 }
 
-ul.cutesy-list li::before {
+ul.paper-list li::before {
     content: "🌸";
     position: absolute;
     left: -22px;
@@ -129,7 +120,7 @@ ul.cutesy-list li::before {
     font-size: 0.85rem;
 }
 
-ol.cutesy-list li {
+ol.paper-list li {
     margin-bottom: 8px;
     font-weight: bold;
 }
@@ -181,7 +172,7 @@ table {
 }
 
 th {
-    background-color: rgba(255, 198, 216, 0.1);
+    background-color: var(--table-header);
     color: var(--text-color);
     font-family: var(--font-heading);
     padding: 14px 18px;
@@ -189,10 +180,6 @@ th {
     border-right: 1px dashed var(--paper-line);
     font-size: 1.05rem;
     text-shadow: 0 1px 0px var(--shadow-color);
-}
-
-body.dark-mode th {
-    background-color: rgba(140, 82, 125, 0.1);
 }
 
 td {
@@ -206,17 +193,17 @@ td:last-child, th:last-child {
     border-right: none;
 }
 
-tr:nth-child(even)  { background-color: rgba(255, 198, 216, 0.15); }
+tr:nth-child(even)  { background-color: rgba(229, 177, 194, 0.15); }
 tr:nth-child(odd)   { background-color: transparent; }
 
 body.dark-mode tr:nth-child(even) {
-    background-color: rgba(140, 82, 125, 0.15);
+    background-color: rgba(156, 82, 136, 0.15);
 }
 
-tr:hover { background-color: rgba(255, 198, 216, 0.35) !important; transition: background-color 0.2s ease; }
+tr:hover { background-color: rgba(241, 155, 158, 0.35) !important; transition: background-color 0.2s ease; }
 
 body.dark-mode tr:hover {
-    background-color: rgba(140, 82, 125, 0.35) !important;
+    background-color: rgba(195, 121, 175, 0.35) !important;
 }
 
 /* --- CONTACT FORM --- */
@@ -240,7 +227,7 @@ body.dark-mode tr:hover {
     padding: 12px;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: rgb(139, 69, 121);
+    color: #8b4579;
     transition: all 0.3s ease;
 }
 
@@ -339,7 +326,7 @@ footer p, .footer p {
 
 /* --- POLAROID --- */
 .polaroid-frame {
-    background-color: #fffdf6;
+    background-color: rgba(233, 213, 233, 0.6);
     border: 1px solid #e2dac2;
     padding: 12px 12px 28px 12px;
     box-shadow: 3px 5px 12px rgba(0,0,0,0.12);
@@ -354,7 +341,7 @@ footer p, .footer p {
 }
 
 body.dark-mode .polaroid-frame {
-    background-color: #fcfaf2;
+    background-color: hsla(320, 68%, 88%, 0.6);
     border-color: #dcd4bd;
     box-shadow: 4px 6px 16px rgba(0, 0, 0, 0.45);
 }
@@ -363,13 +350,9 @@ body.dark-mode .polaroid-frame {
     width: 100%;
     height: 120px;
     object-fit: cover;
-    border: 1px solid #f0eade;
-    border-radius: 1px;
-}
-
-body.dark-mode .polaroid-frame img {
-    border-color: #dcd4bd;
+    border: 1px solid #dcd4bd;
     filter: brightness(0.75) contrast(1.05);
+    border-radius: 1px;
 }
 
 .polaroid-caption {
@@ -406,10 +389,10 @@ body.dark-mode .tape-polaroid::before {
     right: 30px;
     width: 58px;
     height: 58px;
-    background: linear-gradient(135deg, #db4d94 0%, #ff85c1 60%, #ffc1de 100%);
+    background: var(--scroll-top);
     border: 3px solid rgba(255, 255, 255, 0.55);
     border-radius: 50%;
-    color: #ffffff;
+    color: #3b204c;
     font-size: 1.6rem;
     font-weight: bold;
     cursor: pointer;
@@ -445,15 +428,6 @@ body.dark-mode .tape-polaroid::before {
         0 10px 28px rgba(219, 77, 148, 0.75),
         0 0 0 6px rgba(219, 77, 148, 0.2);
     animation: none !important;
-}
-
-body.dark-mode .scroll-top-btn {
-    background: linear-gradient(135deg, #ff85c1 0%, #ffb7c5 60%, #ffd8e6 100%);
-    color: #3b204c;
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow:
-        0 6px 20px rgba(255, 133, 193, 0.5),
-        0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes scrollBtnFloat {
@@ -531,7 +505,7 @@ body.dark-mode .scroll-top-btn {
 }
 
 /* --- MODAL --- */
-.cutesy-modal-backdrop {
+.paper-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -548,12 +522,12 @@ body.dark-mode .scroll-top-btn {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.cutesy-modal-backdrop.show {
+.paper-modal-backdrop.show {
     opacity: 1;
     visibility: visible;
 }
 
-.cutesy-modal-content {
+.paper-modal-content {
     background-color: var(--bg-primary);
     border: 3px solid var(--border-color);
     border-radius: 20px;
@@ -569,11 +543,11 @@ body.dark-mode .scroll-top-btn {
     text-align: center;
 }
 
-.cutesy-modal-backdrop.show .cutesy-modal-content {
+.paper-modal-backdrop.show .paper-modal-content {
     transform: scale(1);
 }
 
-.cutesy-modal-content h3 {
+.paper-modal-content h3 {
     margin-bottom: 15px;
     color: var(--text-color);
     font-size: 1.3rem;
@@ -581,14 +555,14 @@ body.dark-mode .scroll-top-btn {
     text-shadow: 0 1px 0px var(--shadow-color);
 }
 
-.cutesy-modal-content p {
+.paper-modal-content p {
     color: var(--text-color);
     font-family: var(--font-body);
     font-size: 1rem;
     margin-bottom: 20px;
 }
 
-.cutesy-modal-content button {
+.paper-modal-content button {
     min-width: 80px;
     padding: 8px 24px;
     display: flex;
@@ -598,7 +572,7 @@ body.dark-mode .scroll-top-btn {
     align-self: center;
 }
 
-.cutesy-modal-content button.disabled-btn {
+.paper-modal-content button.disabled-btn {
     background-color: #d8c2ce !important;
     border-color: #bfaab5 !important;
     color: var(--text-muted) !important;
@@ -698,10 +672,6 @@ body.dark-mode .scroll-top-btn {
         display: none;
     }
 
-    body.dark-mode .table-container::before {
-        display: none;
-    }
-
     table {
         width: max-content;
         min-width: 720px;
@@ -788,7 +758,7 @@ body.dark-mode .scroll-top-btn {
         font-size: 0.86rem;
     }
 
-    .cutesy-modal-content {
+    .paper-modal-content {
         width: calc(100% - 48px);
         padding: 22px;
     }
