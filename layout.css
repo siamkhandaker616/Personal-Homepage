@@ -304,6 +304,7 @@ header h1, .header h1 {
     margin-top: 15px;
     border-top: none;
     padding-top: 0;
+    position: relative;
 }
 
 .nav-links {
@@ -344,7 +345,9 @@ header h1, .header h1 {
 /* --- MODE TOGGLE BUTTON --- */
 .mode-toggle-btn {
     font-family: var(--font-heading);
-    position: relative;
+    position: absolute;
+    top:   -20px;
+    right: -60px;
     background:
         linear-gradient(135deg, rgba(255,255,255,0.28), transparent 42%),
         var(--card-bg);
@@ -402,12 +405,16 @@ header h1, .header h1 {
 
 
 /* --- MOBILE LAYOUT --- */
-@media (max-width: 1180px), (hover: none) and (pointer: coarse) {
+@media (max-width: 1168px), (hover: none) and (pointer: coarse) {
     html,
     body {
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 1.8rem;
     }
 
     #wrapper {
@@ -487,7 +494,9 @@ header h1, .header h1 {
     }
 
     .mode-toggle-btn {
-        margin-top: 4px;
+        position: static;
+        margin-left: auto;
+        display: block;
     }
 
     .header > .nav-container + .nav-container {
