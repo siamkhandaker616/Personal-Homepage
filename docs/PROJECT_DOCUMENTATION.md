@@ -16,10 +16,7 @@ The project is built with plain XHTML-style HTML, CSS, and JavaScript. It does n
   hobbies.html
   experiences.html
   projects.html
-  theme.css
-  layout.css
-  components.css
-  doodles.css
+  style.css
   script.js
   README.md
   docs/
@@ -28,15 +25,12 @@ The project is built with plain XHTML-style HTML, CSS, and JavaScript. It does n
     Cheveuxdange.ttf
     Disturbed-zrRGD.ttf
   images/
-    bg-light.png
-    bg-dark.png
-    pressed-petal.png
-    profile.png
+    *.png
     doodles/
       *.svg
 ```
 
-The four HTML files are the website pages. The CSS is split by responsibility so the design is easier to maintain. `script.js` provides interactivity used across pages.
+The four HTML files are the website pages. `style.css` is responsible for all the customization. `script.js` provides interactivity used across pages.
 
 ## 3. Pages
 
@@ -120,9 +114,11 @@ The visual style is mostly CSS-driven. Gradients, shadows, pseudo-elements, bord
 
 ## 6. CSS File Responsibilities
 
-### `theme.css`
+### `style.css`
 
-This file controls global theme values.
+This section is divided in fours types of styling:
+
+#### Theme - controls global theme values.
 
 Main responsibilities:
 
@@ -135,9 +131,7 @@ Main responsibilities:
 
 Most colors are stored as CSS variables. This makes dark mode easier because JavaScript only needs to toggle `body.dark-mode`; CSS variables handle the rest.
 
-### `layout.css`
-
-This file controls the overall notebook layout.
+#### Layout - controls the overall notebook layout.
 
 Main responsibilities:
 
@@ -152,9 +146,7 @@ Main responsibilities:
 
 The binder effect is decorative but central to the site's identity. The right-side pseudo-element overlaps near the binder so the paper looks connected rather than detached.
 
-### `components.css`
-
-This file controls reusable content components.
+#### Components - controls reusable content components.
 
 Main responsibilities:
 
@@ -174,9 +166,7 @@ Main responsibilities:
 
 The table styles include borders, striped rows, hover states, and horizontal scrolling through `.table-container { overflow-x: auto; }`. This keeps wide tables usable on smaller screens.
 
-### `doodles.css`
-
-This file controls extra decorative scrapbook elements.
+#### Doodles - controls extra decorative scrapbook elements.
 
 Main responsibilities:
 
@@ -234,10 +224,10 @@ How it works:
 
 The homepage includes a modal with:
 
-- `#cutesy-modal`
-- `#cutesy-modal-title`
-- `#cutesy-modal-message`
-- `#cutesy-modal-close`
+- `#paper-modal`
+- `#paper-modal-title`
+- `#paper-modal-message`
+- `#paper-modal-close`
 
 The function `showNotification(title, message, triggerReload)` updates the modal text and displays it. It is used for form validation, sending status, and success messages.
 
