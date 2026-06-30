@@ -23,7 +23,7 @@ Date: 30/06/2026
 ------------------------------------------------------------
 [✓] Learning/understanding concepts
 [✓] Debugging my code
-[ ] Generating code snippets
+[✓] Generating code snippets
 [ ] Writing text content
 [ ] Design/styling ideas
 [✓] Image generation
