@@ -32,7 +32,8 @@ Date: 30/06/2026
 ------------------------------------------------------------
 3. DESCRIPTION OF AI USE
 ------------------------------------------------------------
-Briefly describe what you used AI for and how: AI assistance was used for this documentation file and for image-hunting/moodboard guidance while selecting replacement visual assets. The website's final content, personal details, styling choices, and submitted project files remain curated and reviewed by me.
+Briefly describe what you used AI for and how: AI assistance was used for this documentation file and for image-hunting/moodboard guidance while selecting replacement visual assets.
+The website's final content, personal details, styling choices, and submitted project files remain curated and reviewed by me.
 
 
 
