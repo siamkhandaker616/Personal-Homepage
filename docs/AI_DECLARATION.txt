@@ -14,7 +14,7 @@ Date: 30/06/2026
 [ ] ChatGPT
 [ ] GitHub Copilot
 [✓] Google Gemini
-[✓ ] Claude
+[✓] Claude
 [ ] Cursor
 [ ] Other: ________________
 
