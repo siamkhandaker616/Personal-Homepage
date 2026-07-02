@@ -1,0 +1,459 @@
+/* --- A2 SITE OVERRIDES --- */
+
+@font-face {
+    font-family: "Blackcraft";
+    src: url("./fonts/Blackcraft.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body.a2 {
+    --a2-bookmark-color: #c88eb0;
+    background-color: #ad7da7;
+}
+
+body.a2 .bookmark-a2 {
+    background-color: var(--a2-bookmark-color);
+}
+
+.a2-nav-links {
+    flex-wrap: wrap;
+}
+
+/* Scrapbook tilt + hover straighten (match homepage charm) */
+body.a2 .card {
+    transform: rotate(var(--a2-card-tilt, -1deg));
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+body.a2 .card:nth-of-type(even) {
+    --a2-card-tilt: 1deg;
+}
+
+body.a2 .card:hover {
+    transform: translateY(-2px) rotate(0deg);
+}
+
+body.a2 .fortune-box {
+    transform: rotate(-1.5deg);
+    transition: transform 0.22s ease;
+}
+
+body.a2 .fortune-box:hover {
+    transform: rotate(0deg) scale(1.01);
+}
+
+body.a2 .palette-chip {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+body.a2 .stopwatch-display {
+    font-family: "Blackcraft";
+    transform: rotate(-1deg);
+    display: inline-block;
+}
+
+body.a2 .sketch-btn-wrap {
+    transform: rotate(var(--sketch-tilt, -2deg));
+    transition: transform 0.22s ease;
+}
+
+body.a2 .sketch-btn-wrap:nth-child(2) {
+    --sketch-tilt: 1.5deg;
+}
+
+body.a2 .sketch-btn-wrap:nth-child(3) {
+    --sketch-tilt: -1deg;
+}
+
+body.a2 .sketch-btn-wrap:hover {
+    transform: rotate(0deg) translateY(-2px);
+}
+
+body.a2 .sketch-btn:hover {
+    transform: none;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+body.a2 .header h1 {
+    transform: rotate(-0.5deg);
+}
+
+/* --- PALETTE THEMES --- */
+body.a2[palette="light-pink"] {
+    --paper-bg: #fde8f0;
+    --modal-bg: rgba(253, 232, 240, 0.65);
+    --paper-line: #e8b8cc;
+    --margin-line: #f0a0b8;
+    --stacked-page-color: #f8dce8;
+    --text-color: #4a2040;
+    --text-muted: #8a5078;
+    --border-color: #e090b0;
+    --card-bg: rgba(255, 220, 235, 0.55);
+    --accent-color: #de63a1;
+    --accent-hover: #8a2858;
+    --highlight-color: #b83878;
+    --tape-color: rgba(211, 211, 84, 0.65);
+    --footer-bg: rgba(255, 235, 245, 0.7);
+}
+
+body.a2[palette="baby-blue"] {
+    --paper-bg: #dceef8;
+    --modal-bg: rgba(220, 238, 248, 0.65);
+    --paper-line: #a8c8dc;
+    --margin-line: #7eb0d0;
+    --stacked-page-color: #cce4f4;
+    --text-color: #1a3050;
+    --text-muted: #4a6888;
+    --border-color: #7eb8dc;
+    --card-bg: rgba(200, 230, 250, 0.55);
+    --accent-color: #4e91cd;
+    --accent-hover: #1a4068;
+    --highlight-color: #3a78a8;
+    --tape-color: rgba(220, 132, 134, 0.65);
+    --footer-bg: rgba(210, 235, 250, 0.7);
+    --cover-edge-color: #529f5f;
+}
+
+body.a2[palette="gothic-purple"] {
+    --paper-bg: #2a1838;
+    --modal-bg: rgba(42, 24, 56, 0.65);
+    --paper-line: rgba(180, 140, 200, 0.12);
+    --margin-line: rgba(200, 120, 160, 0.3);
+    --stacked-page-color: #352045;
+    --text-color: #e8d0f0;
+    --text-muted: #b898c8;
+    --border-color: rgba(180, 140, 210, 0.45);
+    --card-bg: rgba(50, 30, 65, 0.6);
+    --accent-color: #d080c0;
+    --accent-hover: #f0c0e8;
+    --highlight-color: #c060a8;
+    --tape-color: rgba(225, 225, 225, 0.65);
+    --footer-bg: rgba(35, 20, 48, 0.75);
+    --cover-edge-color: #9f8c52;
+}
+
+body.a2[palette="warm-orange"] {
+    --paper-bg: #fde8c8;
+    --modal-bg: rgba(253, 232, 200, 0.65);
+    --paper-line: #e8c090;
+    --margin-line: #e89860;
+    --stacked-page-color: #f8dcc0;
+    --text-color: #5c3018;
+    --text-muted: #8a5840;
+    --border-color: #e08850;
+    --card-bg: rgba(255, 220, 180, 0.55);
+    --accent-color: #e77548;
+    --accent-hover: #8a3010;
+    --highlight-color: #d06028;
+    --tape-color: rgba(144, 239, 178, 0.65);
+    --footer-bg: rgba(255, 235, 210, 0.7);
+    --cover-edge-color: rgba(0, 0, 0, 0.88);
+}
+
+/* --- FORTUNE --- */
+.fortune-section {
+    margin-top: 10px;
+}
+
+.fortune-section::before {
+    background-color: var(--tape-color);
+}
+
+.fortune-box {
+    background: var(--fortune-bg, var(--card-bg));
+    color: var(--fortune-text, var(--text-color));
+    border: 2px dashed var(--fortune-border, var(--border-color));
+    border-radius: 6px;
+    padding: 28px 30px;
+    margin: 30px auto;
+    max-width: 620px;
+    font-family: var(--font-heading);
+    font-size: var(--fortune-size, 1.35rem);
+    font-style: italic;
+    text-align: center;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.fortune-above-footer {
+    font-family: 'Cheveuxdange', cursive, sans-serif;
+    font-size:1.25rem;
+    margin-bottom: 30px;
+}
+
+.palette-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin: 10px 0;
+}
+
+.palette-chip {
+    padding: 10px 18px;
+    border: 2px dashed;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transform: rotate(var(--chip-rotate, 0deg));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.palette-chip:nth-child(1) { --chip-rotate: -2deg; }
+.palette-chip:nth-child(2) { --chip-rotate: 1.5deg; }
+.palette-chip:nth-child(3) { --chip-rotate: -1deg; }
+.palette-chip:nth-child(4) { --chip-rotate: 2deg; }
+
+.palette-chip:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+.palette-chip.active {
+    box-shadow: 0 0 0 2px var(--accent-color);
+    transform: rotate(0deg) scale(1.04);
+}
+
+.chip-light-pink {
+    background: #fde0ec;
+    color: #4a2040;
+    border-color: #e090b0;
+}
+
+.chip-baby-blue {
+    background: #b8dcf0;
+    color: #1a3050;
+    border-color: #5a98c0;
+}
+
+.chip-gothic-purple {
+    background: #3a2050;
+    color: #e8d0f0;
+    border-color: #9070a8;
+}
+
+.chip-warm-orange {
+    background: #f8c898;
+    color: #5c3018;
+    border-color: #d07040;
+}
+
+/* --- STOPWATCH --- */
+.stopwatch-card {
+    text-align: center;
+    padding: 35px 25px;
+}
+
+.stopwatch-display {
+    font-family: var(--font-disturbed);
+    font-size: 6rem;
+    color: var(--accent-color);
+    margin: 20px 0 30px 0;
+    letter-spacing: 5px;
+}
+
+.stopwatch-controls {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 32px;
+}
+
+.sketch-btn-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.sketch-btn {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sketch-btn:hover {
+    transform: scale(1.08);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.sketch-btn img {
+    width: 52px;
+    height: 52px;
+    display: block;
+}
+
+.sketch-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.sketch-btn-label {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: lowercase;
+}
+
+/* --- TODO --- */
+.todo-section {
+    font-family: 'Cheveuxdange', cursive, sans-serif;
+}
+
+.todo-cards-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.todo-card {
+    flex: 1 1 280px;
+    max-width: 380px;
+    min-height: 200px;
+}
+
+.todo-card h3 {
+    font-family: 'Cheveuxdange', cursive, sans-serif;
+    margin-top: 0;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--border-color);
+    font-size: 1.05rem;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+    accent-color: var(--accent-color);
+}
+
+.todo-text {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-delete {
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: 'Cheveuxdange', cursive, sans-serif;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    cursor: pointer;
+    transform: rotate(2deg);
+}
+
+.todo-delete:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.todo-add-btn {
+    margin-top: 15px;
+}
+
+/* --- MODALS --- */
+.a2-modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.a2-modal-backdrop.show {
+    display: flex;
+}
+
+.a2-modal-content {
+    background: var(--modal-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 10px;
+    padding: 28px 32px;
+    max-width: 420px;
+    width: 90%;
+    transform: rotate(-1deg);
+    box-shadow: 6px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.a2-modal-content h3 {
+    font-family: var(--font-heading);
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.a2-modal-content label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.a2-modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed var(--border-color);
+    border-radius: 6px;
+    background: var(--paper-bg);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+.a2-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+    .stopwatch-display {
+        font-size: 3rem;
+    }
+
+    .todo-cards-wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .todo-card {
+        max-width: 100%;
+    }
+}

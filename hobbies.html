@@ -8,26 +8,45 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-    <div id="pullout-sidebar" class="postit-sidebar">
-        <button type="button" id="postit-sidebar-toggle" class="postit-sidebar-tab" title="Open quick navigation">
-            <span class="postit-tab-text">menu</span>
-        </button>
-        <div class="postit-sidebar-content">
-            <span class="postit-sparkle postit-sparkle-one">✧</span>
-            <span class="postit-sparkle postit-sparkle-two">✿</span>
-            <p class="postit-kicker">quick flip</p>
-            <h2>Page scraps</h2>
-            <ul class="postit-sidebar-links">
-                <li><a href="index.html" class="active"><span>⌂</span> Home</a></li>
-                <li><a href="hobbies.html"><span>✿</span> Hobbies</a></li>
-                <li><a href="experiences.html"><span>✦</span> Experiences</a></li>
-                <li><a href="projects.html"><span>▣</span> Projects</a></li>
-            </ul>
-            <p class="postit-note">tug the tab to fold this note back in</p>
-        </div>
-    </div>
-
     <div id="wrapper">
+
+        <div class="postit-rail">
+            <div id="pullout-sidebar-menu" class="postit-sidebar postit-sidebar-menu">
+                <button type="button" id="postit-sidebar-menu-toggle" class="postit-sidebar-tab" title="Open quick navigation">
+                    <span class="postit-tab-text" data-closed-text="menu" data-open-text="fold">menu</span>
+                </button>
+                <div class="postit-sidebar-content">
+                    <span class="postit-sparkle postit-sparkle-one">✧</span>
+                    <span class="postit-sparkle postit-sparkle-two">✿</span>
+                    <p class="postit-kicker">quick flip</p>
+                    <h2>Page scraps</h2>
+                    <ul class="postit-sidebar-links">
+                        <li><a href="index.html"><span>⌂</span> Home</a></li>
+                        <li><a href="hobbies.html" class="active"><span>✿</span> Hobbies</a></li>
+                        <li><a href="experiences.html"><span>✦</span> Experiences</a></li>
+                        <li><a href="projects.html"><span>▣</span> Projects</a></li>
+                    </ul>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
+            <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2 postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
+                    <span class="postit-tab-text" data-closed-text="A2" data-open-text="fold">A2</span>
+                </button>
+                <div class="postit-sidebar-content postit-sidebar-content-a2">
+                    <span class="postit-sparkle postit-sparkle-one">✧</span>
+                    <span class="postit-sparkle postit-sparkle-two">✿</span>
+                    <p class="postit-kicker">assignment 2</p>
+                    <h2>JS tasks</h2>
+                    <ul class="postit-sidebar-links">
+                        <li><a href="Assignment 2/fortune.html"><span>☽</span> Fortune</a></li>
+                        <li><a href="Assignment 2/stopwatch.html"><span>⏱</span> Stopwatch</a></li>
+                        <li><a href="Assignment 2/todo.html"><span>☑</span> To-Do</a></li>
+                    </ul>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
+        </div>
 
         <div class="binder-spine">
             <span class="binder-ring"></span>
