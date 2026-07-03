@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- DARK MODE TOGGLE ---
     var toggleBtn = document.getElementById('mode-toggle');
-    if (toggleBtn) {
+    var isA2Site = document.body.classList.contains('a2-site');
+    if (isA2Site) {
+        document.body.classList.remove('dark-mode');
+    }
+    if (toggleBtn && !isA2Site) {
         var isDarkMode = localStorage.getItem('darkMode') === 'true';
         if (isDarkMode) {
             document.body.classList.add('dark-mode');
@@ -185,6 +189,61 @@ document.addEventListener('DOMContentLoaded', function() {
     var wrapperEl = document.getElementById('wrapper');
     var navLinks  = document.querySelectorAll('.nav-links a, .postit-sidebar-links a');
 
+    function killWrapperTransform() {
+        if (!wrapperEl) return;
+        wrapperEl.classList.add('wrapper-animation-killed');
+    }
+
+    function positionRail() {
+        var sidebars = document.querySelectorAll('.postit-sidebar');
+        var wrapper = document.getElementById('wrapper');
+        if (!sidebars.length || !wrapper) return;
+        var isMobile = window.matchMedia('(max-width: 767px), (hover: none) and (pointer: coarse)').matches;
+        if (isMobile) {
+            for (var i = 0; i < sidebars.length; i++) {
+                sidebars[i].style.left = '';
+            }
+            return;
+        }
+        var wrapperRect = wrapper.getBoundingClientRect();
+        var left = (wrapperRect.left + 15) + 'px';
+        for (var i = 0; i < sidebars.length; i++) {
+            sidebars[i].style.left = left;
+        }
+    }
+
+    function markWrapperReady() {
+        if (wrapperEl) {
+            wrapperEl.classList.add('page-ready');
+            killWrapperTransform();
+            positionRail();
+        }
+    }
+
+    function setupRail() {
+        if (wrapperEl && document.documentElement.classList.contains('no-page-flip')) {
+            killWrapperTransform();
+            positionRail();
+            markWrapperReady();
+        } else if (wrapperEl) {
+            wrapperEl.addEventListener('animationend', function(e) {
+                if (e.animationName === 'pageFlipEnter') {
+                    markWrapperReady();
+                }
+            });
+        }
+        // Re-position after everything is painted
+        window.addEventListener('load', positionRail);
+        window.addEventListener('resize', positionRail);
+        // Account for layout shifts after fonts/images
+        if (window.ResizeObserver) {
+            var ro = new ResizeObserver(function() { positionRail(); });
+            ro.observe(document.body);
+        }
+    }
+
+    setupRail();
+
     if (navLinks.length > 0) {
         navLinks.forEach(function(link) {
             link.addEventListener('click', function(e) {
@@ -192,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (targetUrl && !targetUrl.startsWith('#') && !targetUrl.startsWith('http') && !link.classList.contains('active')) {
                     e.preventDefault();
                     if (wrapperEl) {
+                        wrapperEl.classList.remove('page-ready', 'wrapper-animation-killed');
                         wrapperEl.classList.add('page-flip-exit');
                         setTimeout(function() { window.location.href = targetUrl; }, 480);
                     } else {
@@ -214,37 +274,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // --- PULL-OUT POST-IT SIDEBAR ---
-    var postitSidebar = document.getElementById('pullout-sidebar');
-    var postitToggle = document.getElementById('postit-sidebar-toggle');
+    // --- PULL-OUT POST-IT SIDEBARS ---
+    var postitZIndexCounter = 100;
 
-    function updatePostitSidebarLabel(isOpen) {
-        if (!postitToggle) return;
-        postitToggle.setAttribute('title', isOpen ? 'Close quick navigation' : 'Open quick navigation');
-        postitToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        var textEl = postitToggle.querySelector('.postit-tab-text');
-        if (textEl) {
-            textEl.textContent = isOpen ? 'fold' : 'menu';
+    function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel, tabOpenText, tabClosedText) {
+        if (!sidebarEl || !toggleEl) return;
+
+        function updateLabel(isOpen) {
+            toggleEl.setAttribute('title', isOpen ? openLabel : closedLabel);
+            toggleEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            var textEl = toggleEl.querySelector('.postit-tab-text');
+            if (textEl && tabOpenText && tabClosedText) {
+                textEl.textContent = isOpen ? tabOpenText : tabClosedText;
+            }
         }
-    }
 
-    if (postitSidebar && postitToggle) {
-        postitSidebar.classList.remove('open');
-        updatePostitSidebarLabel(false);
+        sidebarEl.classList.remove('open');
+        updateLabel(false);
 
-        postitToggle.addEventListener('click', function() {
-            var open = postitSidebar.classList.toggle('open');
-            updatePostitSidebarLabel(open);
+        toggleEl.addEventListener('click', function() {
+            var open = sidebarEl.classList.toggle('open');
+            updateLabel(open);
+            if (open) {
+                postitZIndexCounter++;
+                sidebarEl.style.zIndex = postitZIndexCounter;
+            } else {
+                sidebarEl.style.zIndex = '';
+            }
         });
     }
 
-    window.addEventListener("DOMContentLoaded", () => {
-        const sidebar = document.querySelector(".postit-sidebar");
-    
-        setTimeout(() => {
-            sidebar.classList.add("show");
-        }, 1500);
-    });
+    initPostitSidebar(
+        document.getElementById('pullout-sidebar-menu'),
+        document.getElementById('postit-sidebar-menu-toggle'),
+        'Close quick navigation',
+        'Open quick navigation',
+        'fold',
+        'menu'
+    );
 
+    initPostitSidebar(
+        document.getElementById('pullout-sidebar-a2'),
+        document.getElementById('postit-sidebar-a2-toggle'),
+        'Close assignment navigation',
+        'Open assignment navigation',
+        'fold',
+        'A2'
+    );
+
+    var postitSidebars = document.querySelectorAll('.postit-sidebar');
+    if (postitSidebars.length > 0) {
+        setTimeout(function() {
+            for (var i = 0; i < postitSidebars.length; i++) {
+                postitSidebars[i].classList.add('show');
+            }
+        }, 500);
+    }
+
+    window.showNotification = showNotification;
 
 });
