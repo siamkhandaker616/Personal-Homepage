@@ -189,23 +189,56 @@ document.addEventListener('DOMContentLoaded', function() {
     var wrapperEl = document.getElementById('wrapper');
     var navLinks  = document.querySelectorAll('.nav-links a, .postit-sidebar-links a');
 
+    function killWrapperTransform() {
+        if (!wrapperEl) return;
+        wrapperEl.classList.add('wrapper-animation-killed');
+    }
+
+    function positionRail() {
+        var rail = document.querySelector('.postit-rail');
+        var wrapper = document.getElementById('wrapper');
+        if (!rail || !wrapper) return;
+        var isMobile = window.matchMedia('(max-width: 767px), (hover: none) and (pointer: coarse)').matches;
+        if (isMobile) {
+            rail.style.left = '';
+            return;
+        }
+        var wrapperRect = wrapper.getBoundingClientRect();
+        var borderLeft = 40;
+        rail.style.left = (wrapperRect.left + borderLeft - 5) + 'px';
+    }
+
     function markWrapperReady() {
         if (wrapperEl) {
             wrapperEl.classList.add('page-ready');
+            killWrapperTransform();
+            positionRail();
         }
     }
 
-    if (wrapperEl) {
-        if (document.documentElement.classList.contains('no-page-flip')) {
+    function setupRail() {
+        if (wrapperEl && document.documentElement.classList.contains('no-page-flip')) {
+            killWrapperTransform();
+            positionRail();
             markWrapperReady();
-        } else {
+        } else if (wrapperEl) {
             wrapperEl.addEventListener('animationend', function(e) {
                 if (e.animationName === 'pageFlipEnter') {
                     markWrapperReady();
                 }
             });
         }
+        // Re-position after everything is painted
+        window.addEventListener('load', positionRail);
+        window.addEventListener('resize', positionRail);
+        // Account for layout shifts after fonts/images
+        if (window.ResizeObserver) {
+            var ro = new ResizeObserver(function() { positionRail(); });
+            ro.observe(document.body);
+        }
     }
+
+    setupRail();
 
     if (navLinks.length > 0) {
         navLinks.forEach(function(link) {
@@ -214,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (targetUrl && !targetUrl.startsWith('#') && !targetUrl.startsWith('http') && !link.classList.contains('active')) {
                     e.preventDefault();
                     if (wrapperEl) {
-                        wrapperEl.classList.remove('page-ready');
+                        wrapperEl.classList.remove('page-ready', 'wrapper-animation-killed');
                         wrapperEl.classList.add('page-flip-exit');
                         setTimeout(function() { window.location.href = targetUrl; }, 480);
                     } else {
@@ -275,13 +308,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('postit-sidebar-a2-toggle'),
         'Close assignment navigation',
         'Open assignment navigation'
-    );
-
-    initPostitSidebar(
-        document.getElementById('pullout-sidebar-hp'),
-        document.getElementById('postit-sidebar-hp-toggle'),
-        'Close homepage navigation',
-        'Open homepage navigation'
     );
 
     var postitSidebars = document.querySelectorAll('.postit-sidebar');

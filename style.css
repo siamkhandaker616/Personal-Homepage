@@ -45,7 +45,7 @@
     --postit-border: #c9827a;
     --postit-shadow: rgba(82, 4, 82, 0.24);
     --postit-tab: rgba(255, 176, 103, 0.75);
-    --postit-tab-a2: rgba(155, 220, 155, 0.8);
+    --postit-tab-a2: rgba(155, 200, 165, 0.8);
     --postit-tab-text: #5a2b45;
     --overlay-blur: 8px;
     --font-heading: 'Cheveuxdange', 'Fredoka', cursive, sans-serif;
@@ -84,7 +84,7 @@ body.dark-mode {
     --postit-border: rgba(255, 202, 133, 0.55);
     --postit-shadow: rgba(0, 0, 0, 0.48);
     --postit-tab: rgba(199, 137, 71, 0.75);
-    --postit-tab-a2: rgba(109, 154, 109, 0.75);
+    --postit-tab-a2: rgba(115, 155, 125, 0.75);
     --postit-tab-text: #ffe6a9;
 }
 
@@ -251,9 +251,14 @@ a:hover {
     animation: pageFlipExit 0.5s ease-in-out forwards;
 }
 
+#wrapper.wrapper-animation-killed {
+    animation: none;
+    transform: none;
+}
+
 html.no-page-flip #wrapper {
     animation: none;
-    transform: perspective(1500px) rotateY(0deg);
+    transform: none;
     opacity: 1;
 }
 
@@ -263,7 +268,7 @@ html.no-page-flip #wrapper {
         opacity: 0;
     }
     100% {
-        transform: perspective(1500px) rotateY(0deg);
+        transform: none;
         opacity: 1;
     }
 }
@@ -332,7 +337,7 @@ html.no-page-flip #wrapper {
         
     background-color: var(--cover-edge-color);
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.25);
-    z-index: -10;
+    z-index: 1;
     transform: perspective(1500px) rotateY(18deg);
     transform-origin: left center;
 }
@@ -576,6 +581,7 @@ h1 img {
     filter: drop-shadow(7px 9px 14px var(--postit-shadow));
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition:
         transform 0.48s cubic-bezier(0.22, 1, 0.36, 1),
         filter 0.3s ease,
@@ -583,17 +589,21 @@ h1 img {
         visibility 0.4s ease;
 }
 
-#pullout-sidebar-a2 {
+.postit-sidebar.open {
+    pointer-events: auto;
+}
+
+#pullout-sidebar-menu {
     top: 0;
     left: 0;
 }
 
-#pullout-sidebar-hp {
-    top: 80px;
+#pullout-sidebar-a2 {
+    top: 130px;
     left: 0;
 }
 
-.postit-sidebar-content-a2 {
+.postit-sidebar-content.postit-sidebar-content-a2 {
     background-color: var(--postit-bg-a2);
     background-image:
         linear-gradient(var(--postit-line) 1px, transparent 1px),
@@ -601,7 +611,7 @@ h1 img {
         radial-gradient(rgba(0,0,0,0.12) 1px, transparent 1px);
 }
 
-.postit-sidebar-tab-a2 {
+.postit-sidebar-tab.postit-sidebar-tab-a2 {
     background:
         linear-gradient(
             135deg,
@@ -610,8 +620,6 @@ h1 img {
         ),
         var(--postit-tab-a2);
 }
-
-
 
 .postit-rail {
     position: fixed;
@@ -626,6 +634,7 @@ h1 img {
 }
 
 .postit-sidebar.open {
+    z-index: 45;
     transform: translateX(-180px) rotate(-3deg);
 }
 
@@ -682,11 +691,25 @@ h1 img {
     letter-spacing: 1px;
     text-transform: lowercase;
     cursor: pointer;
+    pointer-events: auto;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.18);
-    transform: rotate(2deg);
+    transform: rotate(var(--tab-rotate, 2deg));
     transition: transform 0.22s ease, left 0.48s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
     text-shadow: 0 1px 0 rgba(255,255,255,0.28);
     z-index: 5;
+}
+
+#pullout-sidebar-menu .postit-sidebar-tab {
+    --tab-rotate: -4deg;
+}
+
+.postit-sidebar-a2 .postit-sidebar-tab {
+    --tab-rotate: 6deg;
+}
+
+#pullout-sidebar-menu.open .postit-sidebar-tab,
+#pullout-sidebar-a2.open .postit-sidebar-tab {
+    transform: rotate(4deg);
 }
 
 .postit-sidebar-tab::before {
@@ -714,7 +737,7 @@ h1 img {
 
 .postit-sidebar-tab:hover,
 .postit-sidebar.open .postit-sidebar-tab:hover {
-    transform: translateY(-2px) rotate(-1deg);
+    transform: translateY(-2px) rotate(-(var(--tab-rotate)));
     box-shadow: 6px 7px 12px rgba(0,0,0,0.22);
 }
 

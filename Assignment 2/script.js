@@ -38,7 +38,10 @@ function normalizePaletteName(name) {
 function setA2Palette(name) {
     name = normalizePaletteName(name);
     document.body.setAttribute('palette', name);
-    localStorage.setItem('a2Palette', name);
+    try {
+        localStorage.setItem('a2Palette', name);
+        localStorage.setItem('a2PaletteTime', String(Date.now()));
+    } catch (e) {}
 
     var chips = document.querySelectorAll('.palette-chip');
     for (var i = 0; i < chips.length; i++) {
@@ -75,17 +78,27 @@ function swapIcons(name) {
         if (!leftIcon && !rightIcon) return;
     }
 
-    var prefix = name;
-    leftIcon.src = "images/icons/" + prefix + "-emoji.png";
-    rightIcon.src = "images/icons/" + prefix + "-emoji.png";
-    resetIcon.src = 'images/icons/' + prefix + '-reset.svg';
-    playIcon.src = 'images/icons/' + prefix + '-play.svg';
-    stopIcon.src = 'images/icons/' + prefix + '-stop.svg';
+    var pngPrefix = (name === 'default') ? 'warm-orange' : name;
+    var svgPrefix = (name === 'default') ? 'light-pink' : name;
+    leftIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
+    rightIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
+    resetIcon.src = 'images/icons/' + svgPrefix + '-reset.svg';
+    playIcon.src = 'images/icons/' + svgPrefix + '-play.svg';
+    stopIcon.src = 'images/icons/' + svgPrefix + '-stop.svg';
 }
 
 function initA2Palette() {
     if (!document.body.classList.contains('a2')) return;
-    var saved = normalizePaletteName(localStorage.getItem('a2Palette') || 'light-pink');
+    var saved = 'default';
+    try {
+        var stored = localStorage.getItem('a2Palette');
+        var time = localStorage.getItem('a2PaletteTime');
+        var now = Date.now();
+        if (stored && time && (now - parseInt(time, 10)) < 2 * 60 * 60 * 1000) {
+            saved = normalizePaletteName(stored);
+        }
+        localStorage.setItem('a2PaletteTime', String(now));
+    } catch (e) {}
     setA2Palette(saved);
 }
 
