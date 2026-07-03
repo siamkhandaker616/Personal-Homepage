@@ -1022,8 +1022,8 @@ body.dark-mode .postit-sidebar-content {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:nth-of-type(odd)  { --card-rotate: -1deg; }
-.card:nth-of-type(even) { --card-rotate:  1deg; }
+.card:nth-of-type(odd)  { --card-rotate: 1deg; }
+.card:nth-of-type(even) { --card-rotate: -1deg; }
 
 .card:hover {
     transform: translateY(-2px) rotate(0deg);
@@ -1045,8 +1045,8 @@ body.dark-mode .postit-sidebar-content {
     z-index: 10;
 }
 
-.card:nth-of-type(odd)::before  { --tape-rotate:   3deg; }
-.card:nth-of-type(even)::before { --tape-rotate:  -4deg; }
+.card:nth-of-type(odd)::before  { --tape-rotate:  -4deg; }
+.card:nth-of-type(even)::before { --tape-rotate:   3deg; }
 
 /* --- ABOUT SECTION --- */
 .about-grid {
