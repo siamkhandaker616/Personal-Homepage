@@ -395,6 +395,10 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
     margin: 0;
 }
 
+.todo-placeholder {
+    display: none;
+}
+
 .todo-item {
     display: flex;
     align-items: flex-start;
