@@ -317,14 +317,17 @@ function showA2Modal(title, message, showInput, onConfirm) {
 
     confirmBtn.onclick = function() {
         backdrop.classList.remove('show');
+        document.body.classList.remove('modal-active');
         if (onConfirm) onConfirm(inputEl.value);
     };
 
     cancelBtn.onclick = function() {
         backdrop.classList.remove('show');
+        document.body.classList.remove('modal-active');
     };
 
     backdrop.classList.add('show');
+    document.body.classList.add('modal-active');
 }
 
 // Shows a warning when the user tries to exceed the 10-task limit
@@ -402,7 +405,7 @@ function renderTodos() {
 
 // Adds a new todo after trimming whitespace; rejects if at the 10-task cap
 function addTodo(text) {
-    var trimmed = text.replace(/^\s+|\s+$/g, '');
+    var trimmed = text.trim().toLowerCase();
     if (!trimmed) return;
 
     if (a2Todos.length >= TODO_MAX) {

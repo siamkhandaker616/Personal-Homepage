@@ -19,6 +19,7 @@
     --paper-bg: #f8e599;
     --paper-line: #d8c278;
     --margin-line: #ff9999;
+    --modal-bg: rgba(248, 229, 153, 0.65);
     --stacked-page-color: #ecdca5;
     --cover-edge-color: #2e1732;
     --text-color: #3b204c;
@@ -41,13 +42,14 @@
     --scroll-top: linear-gradient(135deg, #db4d94 0%, #ff85c1 60%, #ffc1de 100%);
     --postit-bg: rgba(255, 185, 211, 0.85);
     --postit-bg-a2: rgba(168, 200, 220, 0.85);
+    --postit-bg-a3: rgba(208, 163, 231, 0.85);
     --postit-line: rgba(174, 111, 61, 0.22);
     --postit-border: #c9827a;
     --postit-shadow: rgba(82, 4, 82, 0.24);
-    --postit-tab: rgba(255, 176, 103, 0.75);
-    --postit-tab-a2: rgba(171, 224, 160, 0.8);
+    --postit-tab: rgba(255, 176, 103, 0.8);
+    --postit-tab-a2: rgba(129, 210, 134, 0.8);
+    --postit-tab-a3: rgba(237, 85, 141, 0.8);
     --postit-tab-text: #5a2b45;
-    --overlay-blur: 8px;
     --font-heading: 'Cheveuxdange', 'Fredoka', cursive, sans-serif;
     --font-body: 'Nunito', 'Fredoka', sans-serif;
     --font-disturbed: 'Disturbed';
@@ -78,13 +80,15 @@ body.dark-mode {
     --binder-circle: radial-gradient(circle, #7d84ab 30%, #d85e97 100%);
     --stitch-color: rgba(88, 76, 79, 0.788);
     --scroll-top: linear-gradient(135deg, #e29fc0 0%, #ffb7c5 60%, #ffd8e6 100%);
-    --postit-bg: rgba(162, 70, 228, 0.782);
+    --postit-bg: rgba(162, 70, 228, 0.8);
     --postit-bg-a2: rgba(113, 149, 177, 0.8);
+    --postit-bg-a3: rgba(115, 84, 131, 0.8);
     --postit-line: rgba(255, 211, 123, 0.12);
     --postit-border: rgba(255, 202, 133, 0.55);
     --postit-shadow: rgba(0, 0, 0, 0.48);
     --postit-tab: rgba(199, 137, 71, 0.75);
     --postit-tab-a2: rgba(115, 155, 125, 0.75);
+    --postit-tab-a3: rgba(207, 81, 127, 0.75);
     --postit-tab-text: #ffe6a9;
 }
 
@@ -153,14 +157,14 @@ a:hover {
 /* --- LAYOUT --- */
 #page-wrapper {
     position: relative;
-    max-width: 1180px;
+    max-width: 1080px;
     margin: 40px auto;
 }
 
 #wrapper {
-    max-width: 1180px;
+    max-width: 1080px;
     margin: 0;
-    padding: 80px 230px 80px 170px;
+    padding: 80px 200px 80px 145px;
     box-sizing: border-box;
     position: relative;
     z-index: 5;
@@ -286,7 +290,7 @@ html.no-page-flip #wrapper {
     content: "";
     position: absolute;
     top: -25px;
-    left: calc(100% - 2px);
+    left: 100%;
     right: auto;
     width: 182px;
     height: calc(100% + 45px);
@@ -596,12 +600,25 @@ h1 img {
 }
 
 .postit-sidebar:nth-child(2) {
-    top: 310px;
+    top: 275px;
+    left: -5px;
+}
+
+.postit-sidebar:nth-child(3) {
+    top: 400px;
     left: -5px;
 }
 
 .postit-sidebar-content.postit-sidebar-content-a2 {
     background-color: var(--postit-bg-a2);
+    background-image:
+        linear-gradient(var(--postit-line) 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.12) 1px, transparent 1px);
+}
+
+.postit-sidebar-content.postit-sidebar-content-a3 {
+    background-color: var(--postit-bg-a3);
     background-image:
         linear-gradient(var(--postit-line) 1px, transparent 1px),
         radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
@@ -616,6 +633,16 @@ h1 img {
             transparent 48%
         ),
         var(--postit-tab-a2);
+}
+
+.postit-sidebar-tab.postit-sidebar-tab-a3 {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.28),
+            transparent 48%
+        ),
+        var(--postit-tab-a3);
 }
 
 .postit-sidebar.show {
@@ -696,8 +723,13 @@ h1 img {
     --tab-rotate: 6deg;
 }
 
+.postit-sidebar-a3 .postit-sidebar-tab {
+    --tab-rotate: -2deg;
+}
+
 #pullout-sidebar-menu.open .postit-sidebar-tab,
-#pullout-sidebar-a2.open .postit-sidebar-tab {
+#pullout-sidebar-a2.open .postit-sidebar-tab,
+#pullout-sidebar-a3.open .postit-sidebar-tab {
     transform: rotate(4deg);
 }
 
@@ -1017,7 +1049,7 @@ body.dark-mode .postit-sidebar-content {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:nth-of-type(odd)  { --card-rotate: 1deg; }
+.card:nth-of-type(odd)  { --card-rotate:  1deg; }
 .card:nth-of-type(even) { --card-rotate: -1deg; }
 
 .card:hover {
@@ -1283,7 +1315,7 @@ footer, .footer {
     text-align: center;
     margin-top: 30px;
     font-size: 0.88rem;
-    backdrop-filter: blur(var(--overlay-blur));
+    backdrop-filter: blur(2px);
     box-shadow: 0 -4px 20px rgba(82, 4, 82, 0.05);
 }
 
@@ -1473,7 +1505,7 @@ body.dark-mode .tape-polaroid::before {
     box-shadow: 0 6px 16px rgba(82, 4, 82, 0.18);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     pointer-events: none;
-    backdrop-filter: blur(var(--overlay-blur));
+    backdrop-filter: blur(8px);
     text-shadow: none;
     line-height: 1.4;
 }
@@ -1511,6 +1543,10 @@ body.dark-mode .tape-polaroid::before {
 }
 
 /* --- MODAL --- */
+.modal-active #page-wrapper {
+    filter: blur(2px);
+}
+
 .paper-modal-backdrop {
     position: fixed;
     top: 0;
