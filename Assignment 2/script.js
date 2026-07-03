@@ -25,6 +25,7 @@ var A2_PALETTE_FORTUNE = {
     }
 };
 
+// Falls back to 'default' if the name isn't one of the known palette keys
 function normalizePaletteName(name) {
     if (name === 'default') {
         return 'default';
@@ -35,6 +36,7 @@ function normalizePaletteName(name) {
     return name;
 }
 
+// Applies the selected palette: swaps the body class, persists to localStorage, and updates UI
 function setA2Palette(name) {
     name = normalizePaletteName(name);
     var body = document.body;
@@ -44,7 +46,6 @@ function setA2Palette(name) {
     }
     try {
         localStorage.setItem('a2Palette', name);
-        localStorage.setItem('a2PaletteTime', String(Date.now()));
     } catch (e) {}
 
     var chips = document.querySelectorAll('.palette-chip');
@@ -60,6 +61,7 @@ function setA2Palette(name) {
     swapIcons(name);
 }
 
+// Applies palette-specific background, text, and border to the fortune box
 function applyFortunePalette(name) {
     var box = document.getElementById('fortune-box');
     if (!box) return;
@@ -80,6 +82,7 @@ function applyFortunePalette(name) {
     box.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
 }
 
+// Swaps PNG emoji and SVG control icons to match the current palette
 function swapIcons(name) {
     var pngPrefix = (name === 'default') ? 'warm-orange' : name;
     var svgPrefix = (name === 'default') ? 'light-pink' : name;
@@ -99,17 +102,15 @@ function swapIcons(name) {
     if (stopIcon) stopIcon.src = 'images/icons/' + svgPrefix + '-stop.svg';
 }
 
+// Restores the previously saved palette from localStorage
 function initA2Palette() {
     if (!document.body.classList.contains('a2')) return;
     var saved = 'default';
     try {
         var stored = localStorage.getItem('a2Palette');
-        var time = localStorage.getItem('a2PaletteTime');
-        var now = Date.now();
-        if (stored && time && (now - parseInt(time, 10)) < 2 * 60 * 60 * 1000) {
+        if (stored) {
             saved = normalizePaletteName(stored);
         }
-        localStorage.setItem('a2PaletteTime', String(now));
     } catch (e) {}
     setA2Palette(saved);
 }
@@ -139,6 +140,7 @@ var fortunes = [
     "Your next revelation will be sponsored by caffeine and existential dread.",
 ];
 
+// Picks a random fortune from the list and displays it in the fortune box
 function displayRandomFortune() {
     var box = document.getElementById('fortune-text');
     if (!box) return;
@@ -146,6 +148,7 @@ function displayRandomFortune() {
     box.textContent = '"' + fortunes[index] + '"';
 }
 
+// Initialises the fortune page: shows a random fortune and wires up palette chip buttons
 function initFortunePage() {
     displayRandomFortune();
 
@@ -181,6 +184,7 @@ var SW_TICK_MS = 1000;
 var SW_STEP = 3;
 var SW_MAX = 30;
 
+// Updates the stopwatch display with the current elapsed seconds
 function renderStopwatch() {
     var display = document.getElementById('stopwatch-display');
     if (display) {
@@ -188,6 +192,7 @@ function renderStopwatch() {
     }
 }
 
+// Stops the interval timer and updates button disabled states
 function stopStopwatch() {
     swRunning = false;
     if (swTimerId !== null) {
@@ -200,6 +205,7 @@ function stopStopwatch() {
     if (stopBtn) stopBtn.disabled = true;
 }
 
+// Starts the stopwatch: increments by SW_STEP each second until SW_MAX is reached
 function startStopwatch() {
     if (swRunning || swElapsed >= SW_MAX) return;
     swRunning = true;
@@ -220,6 +226,7 @@ function startStopwatch() {
     }, SW_TICK_MS);
 }
 
+// Resets elapsed time to zero, stops the timer, and re-enables the play button
 function resetStopwatch() {
     stopStopwatch();
     swElapsed = 0;
@@ -228,6 +235,7 @@ function resetStopwatch() {
     if (playBtn) playBtn.disabled = false;
 }
 
+// Initialises the stopwatch page: renders the initial state and wires up button handlers
 function initStopwatchPage() {
     renderStopwatch();
 
@@ -261,6 +269,7 @@ var TODO_PER_CARD = 5;
 var a2Todos = [];
 var todoIdCounter = 1;
 
+// Loads the todo array from localStorage and syncs the ID counter
 function loadTodos() {
     var raw = localStorage.getItem(TODO_STORAGE_KEY);
     if (raw) {
@@ -277,10 +286,12 @@ function loadTodos() {
     }
 }
 
+// Persists the current todo array to localStorage as JSON
 function saveTodos() {
     localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(a2Todos));
 }
 
+// Shows a reusable modal with an optional text input; fires onConfirm with the input value
 function showA2Modal(title, message, showInput, onConfirm) {
     var backdrop = document.getElementById('a2-task-modal');
     var titleEl = document.getElementById('a2-task-modal-title');
@@ -316,6 +327,7 @@ function showA2Modal(title, message, showInput, onConfirm) {
     backdrop.classList.add('show');
 }
 
+// Shows a warning when the user tries to exceed the 10-task limit
 function showPlateFullModal() {
     if (window.showNotification) {
         window.showNotification(
@@ -333,6 +345,7 @@ function showPlateFullModal() {
     }
 }
 
+// Builds a single todo <li> with checkbox, text, and delete button, wired to the item's ID
 function renderTodoItem(item) {
     var li = document.createElement('li');
     li.className = 'todo-item';
@@ -363,6 +376,7 @@ function renderTodoItem(item) {
     return li;
 }
 
+// Re-renders all todos across both cards, showing the overflow card only when needed
 function renderTodos() {
     var list1 = document.getElementById('todo-list-1');
     var list2 = document.getElementById('todo-list-2');
@@ -386,6 +400,7 @@ function renderTodos() {
     }
 }
 
+// Adds a new todo after trimming whitespace; rejects if at the 10-task cap
 function addTodo(text) {
     var trimmed = text.replace(/^\s+|\s+$/g, '');
     if (!trimmed) return;
@@ -405,6 +420,7 @@ function addTodo(text) {
     renderTodos();
 }
 
+// Toggles a todo's completed state by ID, then saves and re-renders
 function toggleTodoComplete(id) {
     for (var i = 0; i < a2Todos.length; i++) {
         if (a2Todos[i].id === id) {
@@ -416,6 +432,7 @@ function toggleTodoComplete(id) {
     renderTodos();
 }
 
+// Removes a todo by ID, then saves and re-renders
 function deleteTodo(id) {
     var next = [];
     for (var i = 0; i < a2Todos.length; i++) {
@@ -428,6 +445,7 @@ function deleteTodo(id) {
     renderTodos();
 }
 
+// Initialises the todo page: loads saved todos, renders them, wires up add button and Enter key
 function initTodoPage() {
     loadTodos();
     renderTodos();

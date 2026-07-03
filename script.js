@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (var i = 0; i < postitSidebars.length; i++) {
                 postitSidebars[i].classList.add('show');
             }
-        }, 1500);
+        }, 500);
     }
 
     window.showNotification = showNotification;
