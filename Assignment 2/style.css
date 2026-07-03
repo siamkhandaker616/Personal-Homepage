@@ -26,6 +26,22 @@ body.a2 .card:hover {
     box-shadow: 3px 8px 18px rgba(82, 4, 82, 0.08);
 }
 
+body.a2 .fortune-tip {
+    text-align: right;
+}
+
+body.a2 .fortune-tip-text {
+    color: var(--text-muted);
+}
+
+body.a2 .fortune-tip {
+    text-align: right;
+}
+
+body.a2 .fortune-tip-text {
+    color: var(--text-muted);
+}
+
 body.a2 .fortune-box {
     transform: rotate(-1.5deg);
     transition: transform 0.22s ease;
@@ -72,7 +88,7 @@ body.a2 .header h1 {
 }
 
 /* --- PALETTE THEMES --- */
-body.a2[palette="light-pink"] {
+body.a2.palette-light-pink {
     --paper-bg: #fde8f0;
     --modal-bg: rgba(253, 232, 240, 0.65);
     --paper-line: #e8b8cc;
@@ -94,7 +110,7 @@ body.a2[palette="light-pink"] {
     --postit-tab-text: #5a2b45;
 }
 
-body.a2[palette="baby-blue"] {
+body.a2.palette-baby-blue {
     --paper-bg: #dceef8;
     --modal-bg: rgba(220, 238, 248, 0.65);
     --paper-line: #a8c8dc;
@@ -117,7 +133,7 @@ body.a2[palette="baby-blue"] {
     --postit-tab-text: #2a2050;
 }
 
-body.a2[palette="gothic-purple"] {
+body.a2.palette-gothic-purple {
     --paper-bg: #2a1838;
     --modal-bg: rgba(42, 24, 56, 0.65);
     --paper-line: rgba(180, 140, 200, 0.35);
@@ -140,7 +156,7 @@ body.a2[palette="gothic-purple"] {
     --postit-tab-text: #ffe6a9;
 }
 
-body.a2[palette="warm-orange"] {
+body.a2.palette-warm-orange {
     --paper-bg: #fde8c8;
     --modal-bg: rgba(253, 232, 200, 0.65);
     --paper-line: #e8c090;

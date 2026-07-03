@@ -37,7 +37,11 @@ function normalizePaletteName(name) {
 
 function setA2Palette(name) {
     name = normalizePaletteName(name);
-    document.body.setAttribute('palette', name);
+    var body = document.body;
+    body.className = body.className.replace(/\bpalette-\S+/g, '').replace(/\s{2,}/g, ' ').trim();
+    if (name !== 'default') {
+        body.classList.add('palette-' + name);
+    }
     try {
         localStorage.setItem('a2Palette', name);
         localStorage.setItem('a2PaletteTime', String(Date.now()));
@@ -45,7 +49,7 @@ function setA2Palette(name) {
 
     var chips = document.querySelectorAll('.palette-chip');
     for (var i = 0; i < chips.length; i++) {
-        if (chips[i].getAttribute('data-palette') === name) {
+        if (chips[i].getAttribute('title') === name) {
             chips[i].classList.add('active');
         } else {
             chips[i].classList.remove('active');
@@ -148,7 +152,7 @@ function initFortunePage() {
     var chips = document.querySelectorAll('.palette-chip');
     for (var i = 0; i < chips.length; i++) {
         chips[i].addEventListener('click', function() {
-            var palette = this.getAttribute('data-palette');
+            var palette = this.getAttribute('title');
             setA2Palette(palette);
         });
     }
@@ -162,7 +166,7 @@ function initFortunePage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.body.getAttribute('data-a2-page') === 'fortune') {
+    if (document.body.classList.contains('a2-page-fortune')) {
         initFortunePage();
     }
 });
@@ -244,7 +248,7 @@ function initStopwatchPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.body.getAttribute('data-a2-page') === 'stopwatch') {
+    if (document.body.classList.contains('a2-page-stopwatch')) {
         initStopwatchPage();
     }
 });
@@ -332,7 +336,6 @@ function showPlateFullModal() {
 function renderTodoItem(item) {
     var li = document.createElement('li');
     li.className = 'todo-item';
-    li.setAttribute('data-id', String(item.id));
 
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -454,7 +457,7 @@ function initTodoPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.body.getAttribute('data-a2-page') === 'todo') {
+    if (document.body.classList.contains('a2-page-todo')) {
         initTodoPage();
     }
 });

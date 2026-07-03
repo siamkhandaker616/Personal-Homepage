@@ -271,19 +271,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- PULL-OUT POST-IT SIDEBARS ---
-    function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel) {
+    function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel, tabOpenText, tabClosedText) {
         if (!sidebarEl || !toggleEl) return;
 
         function updateLabel(isOpen) {
             toggleEl.setAttribute('title', isOpen ? openLabel : closedLabel);
             toggleEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             var textEl = toggleEl.querySelector('.postit-tab-text');
-            if (textEl) {
-                var closedText = textEl.getAttribute('data-closed-text');
-                var openText = textEl.getAttribute('data-open-text');
-                if (closedText && openText) {
-                    textEl.textContent = isOpen ? openText : closedText;
-                }
+            if (textEl && tabOpenText && tabClosedText) {
+                textEl.textContent = isOpen ? tabOpenText : tabClosedText;
             }
         }
 
@@ -300,14 +296,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('pullout-sidebar-menu'),
         document.getElementById('postit-sidebar-menu-toggle'),
         'Close quick navigation',
-        'Open quick navigation'
+        'Open quick navigation',
+        'fold',
+        'menu'
     );
 
     initPostitSidebar(
         document.getElementById('pullout-sidebar-a2'),
         document.getElementById('postit-sidebar-a2-toggle'),
         'Close assignment navigation',
-        'Open assignment navigation'
+        'Open assignment navigation',
+        'fold',
+        'A2'
     );
 
     var postitSidebars = document.querySelectorAll('.postit-sidebar');
