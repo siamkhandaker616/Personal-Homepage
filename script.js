@@ -195,17 +195,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function positionRail() {
-        var rail = document.querySelector('.postit-rail');
+        var sidebars = document.querySelectorAll('.postit-sidebar');
         var wrapper = document.getElementById('wrapper');
-        if (!rail || !wrapper) return;
+        if (!sidebars.length || !wrapper) return;
         var isMobile = window.matchMedia('(max-width: 767px), (hover: none) and (pointer: coarse)').matches;
         if (isMobile) {
-            rail.style.left = '';
+            for (var i = 0; i < sidebars.length; i++) {
+                sidebars[i].style.left = '';
+            }
             return;
         }
         var wrapperRect = wrapper.getBoundingClientRect();
-        var borderLeft = 40;
-        rail.style.left = (wrapperRect.left + borderLeft - 5) + 'px';
+        var left = (wrapperRect.left + 15) + 'px';
+        for (var i = 0; i < sidebars.length; i++) {
+            sidebars[i].style.left = left;
+        }
     }
 
     function markWrapperReady() {
@@ -271,6 +275,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- PULL-OUT POST-IT SIDEBARS ---
+    var postitZIndexCounter = 100;
+
     function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel, tabOpenText, tabClosedText) {
         if (!sidebarEl || !toggleEl) return;
 
@@ -289,6 +295,12 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleEl.addEventListener('click', function() {
             var open = sidebarEl.classList.toggle('open');
             updateLabel(open);
+            if (open) {
+                postitZIndexCounter++;
+                sidebarEl.style.zIndex = postitZIndexCounter;
+            } else {
+                sidebarEl.style.zIndex = '';
+            }
         });
     }
 
