@@ -58,8 +58,16 @@ function setA2Palette(name) {
 
 function applyFortunePalette(name) {
     var box = document.getElementById('fortune-box');
-    var css = getComputedStyle(document.body);
     if (!box) return;
+    if (name === 'default') {
+        box.style.background = '';
+        box.style.color = '';
+        box.style.borderColor = '';
+        box.style.fontSize = '1.25rem';
+        box.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
+        return;
+    }
+    var css = getComputedStyle(document.body);
     var style = A2_PALETTE_FORTUNE[name] || A2_PALETTE_FORTUNE['light-pink'];
     box.style.background = style.bg;
     box.style.color = css.getPropertyValue('--text-color').trim();;
@@ -69,22 +77,22 @@ function applyFortunePalette(name) {
 }
 
 function swapIcons(name) {
-    var leftIcon = document.getElementById("icon-left");
-    var rightIcon = document.getElementById("icon-right");
-    var resetIcon = document.getElementById('sw-reset-icon');
-    var playIcon = document.getElementById('sw-play-icon');
-    var stopIcon = document.getElementById('sw-stop-icon');
-    if (!resetIcon) {
-        if (!leftIcon && !rightIcon) return;
-    }
-
     var pngPrefix = (name === 'default') ? 'warm-orange' : name;
     var svgPrefix = (name === 'default') ? 'light-pink' : name;
-    leftIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
-    rightIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
-    resetIcon.src = 'images/icons/' + svgPrefix + '-reset.svg';
-    playIcon.src = 'images/icons/' + svgPrefix + '-play.svg';
-    stopIcon.src = 'images/icons/' + svgPrefix + '-stop.svg';
+
+    var leftIcon = document.getElementById("icon-left");
+    var rightIcon = document.getElementById("icon-right");
+    if (leftIcon) leftIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
+    if (rightIcon) rightIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
+
+    var fortuneReset = document.getElementById('fortune-reset-icon');
+    var swReset = document.getElementById('sw-reset-icon');
+    var playIcon = document.getElementById('sw-play-icon');
+    var stopIcon = document.getElementById('sw-stop-icon');
+    if (fortuneReset) fortuneReset.src = 'images/icons/' + svgPrefix + '-reset.svg';
+    if (swReset) swReset.src = 'images/icons/' + svgPrefix + '-reset.svg';
+    if (playIcon) playIcon.src = 'images/icons/' + svgPrefix + '-play.svg';
+    if (stopIcon) stopIcon.src = 'images/icons/' + svgPrefix + '-stop.svg';
 }
 
 function initA2Palette() {
@@ -142,6 +150,13 @@ function initFortunePage() {
         chips[i].addEventListener('click', function() {
             var palette = this.getAttribute('data-palette');
             setA2Palette(palette);
+        });
+    }
+
+    var resetBtn = document.getElementById('fortune-reset-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            setA2Palette('default');
         });
     }
 }

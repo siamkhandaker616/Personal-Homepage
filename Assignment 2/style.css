@@ -256,6 +256,39 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
     border-color: #d07040;
 }
 
+.fortune-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fortune-heading h2 {
+    margin: 0;
+}
+
+.fortune-reset-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    margin-left: auto;
+}
+
+.fortune-reset-btn:hover {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1.1);
+}
+
+.fortune-reset-btn img {
+    width: 22px;
+    height: auto;
+    display: block;
+}
+
 /* --- STOPWATCH --- */
 .stopwatch-card {
     text-align: center;
