@@ -104,6 +104,7 @@ body.a2.palette-light-pink {
     --accent-hover: #8a2858;
     --highlight-color: #b83878;
     --tape-color: rgba(211, 211, 84, 0.65);
+    --stitch-color: rgba(243, 186, 210, 0.5);
     --footer-bg: rgba(255, 235, 245, 0.7);
     --postit-tab: rgba(155, 200, 165, 0.8);
     --postit-tab-a2: rgba(230, 130, 170, 0.8);
@@ -127,6 +128,7 @@ body.a2.palette-baby-blue {
     --accent-hover: #1a4068;
     --highlight-color: #3a78a8;
     --tape-color: rgba(220, 132, 134, 0.65);
+    --stitch-color: rgba(186, 214, 243, 0.5);
     --footer-bg: rgba(210, 235, 250, 0.7);
     --cover-edge-color: #529f5f;
     --postit-tab: rgba(249, 232, 154, 0.8);
@@ -151,8 +153,9 @@ body.a2.palette-gothic-purple {
     --accent-hover: #f0c0e8;
     --highlight-color: #c060a8;
     --tape-color: rgba(225, 225, 225, 0.65);
+    --stitch-color: rgba(145, 90, 148, 0.5);
     --footer-bg: rgba(35, 20, 48, 0.75);
-    --cover-edge-color: #9f8c52;
+    --cover-edge-color: #ceba80;
     --postit-tab: rgba(180, 100, 180, 0.75);
     --postit-tab-a2: rgba(100, 155, 145, 0.75);
     --postit-tab-a3: rgba(36, 36, 144, 0.75);
@@ -175,6 +178,7 @@ body.a2.palette-warm-orange {
     --highlight-color: #d06028;
     --tape-color: rgba(144, 239, 178, 0.65);
     --footer-bg: rgba(255, 235, 210, 0.7);
+    --stitch-color: rgba(241, 224, 167, 0.5);
     --cover-edge-color: rgba(0, 0, 0, 0.88);
     --postit-tab: rgba(230, 150, 90, 0.8);
     --postit-tab-a2: rgba(140, 190, 140, 0.8);
@@ -556,5 +560,10 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
 
     .todo-card {
         max-width: 100%;
+    }
+
+    .postit-sidebar,
+    .postit-sidebar.open {
+        display: none;
     }
 }

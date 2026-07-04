@@ -137,7 +137,7 @@ Main responsibilities:
 
 - Styles `#wrapper`, the main notebook page container
 - Builds the lined paper effect with layered CSS gradients
-- Builds the right-side paper extension with `#wrapper::after`
+- Builds the right-side paper extension with `#wrapper-stack`
 - Adds stitching with `#wrapper::before`
 - Creates the binder spine and binder rings
 - Styles the bookmark ribbon
