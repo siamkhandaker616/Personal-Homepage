@@ -72,11 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
             modalCloseBtn.classList.remove('disabled-btn');
         }
         paperModal.classList.add('show');
+        document.body.classList.add('modal-active');
     }
 
     if (modalCloseBtn && paperModal) {
         modalCloseBtn.addEventListener('click', function() {
             paperModal.classList.remove('show');
+            document.body.classList.remove('modal-active');
             if (reloadOnClose) {
                 var nameInput    = document.getElementById('input-name');
                 var contactInput = document.getElementById('input-contact');
@@ -320,6 +322,15 @@ document.addEventListener('DOMContentLoaded', function() {
         'Open assignment navigation',
         'fold',
         'A2'
+    );
+
+    initPostitSidebar(
+        document.getElementById('pullout-sidebar-a3'),
+        document.getElementById('postit-sidebar-a3-toggle'),
+        'Close assignment 3',
+        'Open assignment 3',
+        'fold',
+        'A3'
     );
 
     var postitSidebars = document.querySelectorAll('.postit-sidebar');
