@@ -1,8 +1,14 @@
 /* --- A2 SITE OVERRIDES --- */
+@font-face {
+    font-family: "Tottenham";
+    src: url("./fonts/Tottenham.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 
 @font-face {
-    font-family: "Blackcraft";
-    src: url("./fonts/Blackcraft.ttf") format("truetype");
+    font-family: "Just Note";
+    src: url("./fonts/JustNote.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -56,7 +62,8 @@ body.a2 .palette-chip {
 }
 
 body.a2 .stopwatch-display {
-    font-family: "Blackcraft";
+    font-family: "Just Note";
+    font-size: 7.4rem;
     transform: rotate(-1deg);
     display: inline-block;
 }
@@ -83,8 +90,16 @@ body.a2 .sketch-btn:hover {
     background: rgba(0, 0, 0, 0.04);
 }
 
+body.a2 .header {
+    transform: translateX(8px);
+}
+
 body.a2 .header h1 {
     transform: rotate(-0.5deg);
+}
+
+header h1, .header h1 {
+    font-size: 2.2rem;
 }
 
 /* --- PALETTE THEMES --- */
@@ -95,7 +110,7 @@ body.a2.palette-light-pink {
     --margin-line: rgba(126, 177, 208, 0.75);
     --a2-bookmark-color: #dc89b9;
     --stacked-page-color: #f8dce8;
-    --text-color: #391831;
+    --text-color: #6c305d;
     --text-muted: #8a5078;
     --shadow-color: #f099b9;
     --border-color: #e090b0;
@@ -110,6 +125,8 @@ body.a2.palette-light-pink {
     --postit-tab-a2: rgba(230, 130, 170, 0.8);
     --postit-tab-a3: rgba(130, 147, 230, 0.8);
     --postit-tab-text: #5a2b45;
+    --fortune-font: 'Tottenham';
+    --fortune-size: 1.6rem;
 }
 
 body.a2.palette-baby-blue {
@@ -119,7 +136,7 @@ body.a2.palette-baby-blue {
     --margin-line: #f0a0b8;
     --a2-bookmark-color: #8e93c8;
     --stacked-page-color: #cce4f4;
-    --text-color: #1a3050;
+    --text-color: #10213a;
     --text-muted: #4a6888;
     --shadow-color: #9bc5f3;
     --border-color: #7eb8dc;
@@ -135,6 +152,8 @@ body.a2.palette-baby-blue {
     --postit-tab-a2: rgba(149, 227, 166, 0.8);
     --postit-tab-a3: rgba(226, 125, 162, 0.8);
     --postit-tab-text: #2a2050;
+    --fortune-font: 'Just Note';
+    --fortune-size: 2rem;
 }
 
 body.a2.palette-gothic-purple {
@@ -160,6 +179,8 @@ body.a2.palette-gothic-purple {
     --postit-tab-a2: rgba(100, 155, 145, 0.75);
     --postit-tab-a3: rgba(36, 36, 144, 0.75);
     --postit-tab-text: #ffe6a9;
+    --fortune-font: 'Cheveuxdange';
+    --fortune-size: 1.4rem;
 }
 
 body.a2.palette-warm-orange {
@@ -184,6 +205,8 @@ body.a2.palette-warm-orange {
     --postit-tab-a2: rgba(140, 190, 140, 0.8);
     --postit-tab-a3: rgba(85, 201, 237, 0.8);
     --postit-tab-text: #4a2010;
+    --fortune-font: 'Handodle';
+    --fortune-size: 1.5rem;
 }
 
 body.a2 #bookmark-ribbon.bookmark-a2 {
@@ -208,7 +231,6 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
     padding: 25px 30px;
     margin: 30px -40px 30px auto;
     max-width: 620px;
-    font-family: var(--font-heading);
     font-size: var(--fortune-size, 1.35rem);
     font-style: italic;
     text-align: center;
@@ -216,9 +238,13 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
 }
 
 .fortune {
-    font-family: 'Cheveuxdange', cursive, sans-serif;
-    font-size:1.25rem;
+    font-size: 1.25rem;
     margin-bottom: 30px;
+}
+
+#fortune-text {
+    font-family: var(--fortune-font);
+    font-size: var(--fortune-size);
 }
 
 .palette-chips {
@@ -231,11 +257,11 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
 }
 
 .palette-chip {
-    padding: 10px 18px;
+    padding: 7px 14px;
     border: 2px dashed;
     border-radius: 8px;
     font-family: var(--font-heading);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transform: rotate(var(--chip-rotate, 0deg));
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -548,7 +574,53 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
     justify-content: space-between;
 }
 
+/* --- DECORATIVE DOODLES --- */
+
+.doodle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 15;
+    opacity: 1;
+}
+
+.doodle img,
+.doodle svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.doodle-tiny { width: 50px; }
+.doodle-small { width: 70px; }
+.doodle-medium { width: 90px; }
+.doodle-large { width: 110px; }
+
+.doodle-tl { top: -18px; left: -18px; }
+.doodle-tr { top: -18px; right: -18px; }
+.doodle-bl { bottom: -18px; left: -18px; }
+.doodle-br { bottom: -18px; right: -18px; }
+.doodle-top { top: -22px; left: 50%; transform: translateX(-50%); }
+.doodle-bottom { bottom: -22px; left: 50%; transform: translateX(-50%); }
+
+body.a2.palette-light-pink .doodle {
+    filter: drop-shadow(0 2px 6px rgba(224, 92, 141, 0.5));
+}
+
+body.a2.palette-baby-blue .doodle {
+    filter: drop-shadow(0 2px 6px rgba(54, 120, 190, 0.65));
+}
+
+body.a2.palette-gothic-purple .doodle {
+    filter: drop-shadow(0 2px 6px rgba(253, 221, 246, 0.3));
+}
+
+body.a2.palette-warm-orange .doodle {
+    filter: drop-shadow(0 2px 6px rgba(223, 182, 33, 0.65));
+}
+
 @media (max-width: 767px) {
+    .doodle { display: none; }
+
     .stopwatch-display {
         font-size: 3rem;
     }

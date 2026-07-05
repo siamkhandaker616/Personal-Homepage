@@ -100,6 +100,16 @@ function swapIcons(name) {
     if (swReset) swReset.src = 'images/icons/' + svgPrefix + '-reset.svg';
     if (playIcon) playIcon.src = 'images/icons/' + svgPrefix + '-play.svg';
     if (stopIcon) stopIcon.src = 'images/icons/' + svgPrefix + '-stop.svg';
+
+    var doodlePrefix = (name === 'default') ? 'warm-orange' : svgPrefix;
+    var doodleIds = ['doodle-cookie', 'doodle-scorpio', 'doodle-stars-tr', 'doodle-stars-bl', 'doodle-stopwatch', 'doodle-hourglass', 'doodle-checkmark-1', 'doodle-checkmark-2', 'doodle-clipboard'];
+    var doodleFiles = ['fortune-cookie', 'scorpio', 'fortune-stars', 'fortune-stars', 'stopwatch', 'hourglass', 'checkmark', 'checkmark', 'clipboard'];
+    for (var i = 0; i < doodleIds.length; i++) {
+        var el = document.getElementById(doodleIds[i]);
+        if (el) {
+            el.src = 'images/doodles/' + doodlePrefix + '-' + doodleFiles[i] + '.svg';
+        }
+    }
 }
 
 // Restores the previously saved palette from localStorage
@@ -332,20 +342,11 @@ function showA2Modal(title, message, showInput, onConfirm) {
 
 // Shows a warning when the user tries to exceed the 10-task limit
 function showPlateFullModal() {
-    if (window.showNotification) {
-        window.showNotification(
-            'Enough on your plate!',
-            'You already have enough on your plate — why not finish and remove some tasks before adding more?',
-            false
-        );
-    } else {
-        showA2Modal(
-            'Enough on your plate!',
-            'You already have enough on your plate — why not finish and remove some tasks before adding more?',
-            false,
-            null
-        );
-    }
+    window.showNotification(
+        'Enough on your plate!',
+        'You already have enough on your plate ~ why not finish and remove some tasks before adding more?',
+        false
+    );
 }
 
 // Builds a single todo <li> with checkbox, text, and delete button, wired to the item's ID

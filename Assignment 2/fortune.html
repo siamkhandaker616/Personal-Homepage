@@ -3,13 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookies, Chores &amp; Chronos — Fortune Generator</title>
+    <title>Cookies, Chronos &amp; Chores — Fortune Generator</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="../script.js"></script>
-    <script type="text/javascript" src="script.js"></script>
 </head>
 <body class="a2 a2-page-fortune">
+<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.classList.add('palette-'+p)}catch(e){}</script>
         <div class="postit-rail">
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
@@ -62,6 +61,7 @@
 
 <div id="page-wrapper">
     <div class="cover"></div>
+    <div id="blank-page"></div>
     <div id="wrapper">
     <div class="wrapper-content">
 
@@ -78,7 +78,7 @@
         <div class="header">
             <h1>
                 <span><img id="icon-left" src="images/icons/light-pink-emoji.png" alt="" /></span>
-                Cookies, Chores &amp; Chronos
+                Cookies, Chronos &amp; Chores
                 <span><img id="icon-right" src="images/icons/light-pink-emoji.png" alt="" /></span>
             </h1>
             <p class="italic">CSE 391 — Assignment 2</p>
@@ -94,17 +94,29 @@
 
         <div class="fortune">
             <div class="fortune-heading">
-                <h2>&#9789; find your fortune</h2>
+                <h3>&#9789; find your fortune</h3>
                 <button type="button" id="fortune-reset-btn" class="fortune-reset-btn" title="Reset to default theme">
                     <img id="fortune-reset-icon" src="images/icons/light-pink-reset.svg" alt="Reset" />
                 </button>
             </div>
-            <div id="fortune-box" class="fortune-box">
+            <div id="fortune-box" class="fortune-box" style="position: relative;">
+                <div class="doodle" style="top: -25px; left: -35px; width: 85px;">
+                    <img id="doodle-cookie" src="images/doodles/light-pink-fortune-cookie.svg" alt="" />
+                </div>
                 <p id="fortune-text">Drawing a fortune...</p>
+                <div class="doodle" style="bottom: -25px; right: -30px; width: 110px;">
+                    <img id="doodle-scorpio" src="images/doodles/light-pink-scorpio.svg" alt="" />
+                </div>
             </div>
         </div>
 
-        <div class="card fortune-section">
+        <div class="card fortune-section" style="position: relative;">
+            <div class="doodle doodle-tr doodle-tiny">
+                    <img id="doodle-stars-tr" src="images/doodles/light-pink-fortune-stars.svg" alt="" />
+            </div>
+            <div class="doodle doodle-bl doodle-tiny">
+                    <img id="doodle-stars-bl" src="images/doodles/light-pink-fortune-stars.svg" alt="" />
+            </div>
             <h6 class="fortune-tip"><span class="fortune-tip-text">tip: click on any of the colors to change the palette</span></h6>
             <div class="palette-chips">
                 <button type="button" class="palette-chip chip-light-pink" title="light-pink">PINK</button>
@@ -130,12 +142,7 @@
         <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
     </div>
 
-    <div id="paper-modal" class="paper-modal-backdrop">
-        <div class="paper-modal-content">
-            <h3 id="paper-modal-title">Notice</h3>
-            <p id="paper-modal-message">Message</p>
-            <button type="button" id="paper-modal-close" class="mode-toggle-btn">OK</button>
-        </div>
-    </div>
+    <script type="text/javascript" src="../script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

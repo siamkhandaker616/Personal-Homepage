@@ -8,14 +8,21 @@
 
 @font-face {
     font-family: "Disturbed";
-    src: url("./fonts/Disturbed-zrRGD.ttf") format("truetype");
+    src: url("./fonts/Disturbed.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Handodle";
+    src: url("./fonts/Handodle.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 /* --- VARIABLES --- */
 :root {
-    --bg-image: url('images/bg-light.png');
+    --bg-image: url('https://i.ibb.co/nScbpgk/bg-light.png');
     --paper-bg: #f8e599;
     --paper-line: #d8c278;
     --margin-line: #ff9999;
@@ -46,9 +53,9 @@
     --postit-line: rgba(174, 111, 61, 0.22);
     --postit-border: #c9827a;
     --postit-shadow: rgba(82, 4, 82, 0.24);
-    --postit-tab: rgba(255, 176, 103, 0.8);
-    --postit-tab-a2: rgba(129, 210, 134, 0.8);
-    --postit-tab-a3: rgba(237, 85, 141, 0.8);
+    --postit-tab: rgba(255, 176, 103, 0.9);
+    --postit-tab-a2: rgba(129, 210, 134, 0.9);
+    --postit-tab-a3: rgba(237, 85, 141, 0.9);
     --postit-tab-text: #5a2b45;
     --font-heading: 'Cheveuxdange', 'Fredoka', cursive, sans-serif;
     --font-body: 'Nunito', 'Fredoka', sans-serif;
@@ -56,7 +63,7 @@
 }
 
 body.dark-mode {
-    --bg-image: url('images/bg-dark.png');
+    --bg-image: url('https://i.ibb.co/YB0KJ81P/bg-dark.png');
     --paper-bg: #19161c;
     --paper-line: rgba(255, 204, 213, 0.08);
     --margin-line: rgba(255, 153, 153, 0.25);
@@ -86,9 +93,9 @@ body.dark-mode {
     --postit-line: rgba(255, 211, 123, 0.12);
     --postit-border: rgba(255, 202, 133, 0.55);
     --postit-shadow: rgba(0, 0, 0, 0.48);
-    --postit-tab: rgba(199, 137, 71, 0.75);
-    --postit-tab-a2: rgba(115, 155, 125, 0.75);
-    --postit-tab-a3: rgba(207, 81, 127, 0.75);
+    --postit-tab: rgba(199, 137, 71, 0.8);
+    --postit-tab-a2: rgba(115, 155, 125, 0.8);
+    --postit-tab-a3: rgba(207, 81, 127, 0.8);
     --postit-tab-text: #ffe6a9;
 }
 
@@ -340,6 +347,36 @@ html.no-page-flip #wrapper {
     z-index: 1;
     transform: perspective(1500px) rotateY(18deg);
     transform-origin: left center;
+}
+
+/* --- BLANK BACK PAGE --- */
+#blank-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    box-sizing: border-box;
+    padding: 80px 200px 80px 145px;
+    background-image:
+        linear-gradient(90deg, transparent 110px, var(--margin-line) 110px, var(--margin-line) 112px, transparent 112px),
+        linear-gradient(90deg, transparent 114px, var(--margin-line) 114px, var(--margin-line) 116px, transparent 116px),
+        linear-gradient(var(--paper-line) 1px, transparent 1px),
+        linear-gradient(var(--paper-bg), var(--paper-bg));
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 28px,
+        100% 100%;
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        repeat,
+        no-repeat;
+    border-left: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    pointer-events: none;
 }
 
 /* --- BINDER SPINE --- */
@@ -1415,8 +1452,8 @@ body.dark-mode .tape-polaroid::before {
 
 .paper-modal-content p {
     color: var(--text-color);
-    font-family: var(--font-body);
-    font-size: 1rem;
+    font-family: "Handodle";;
+    font-size: 1.1rem;
     margin-bottom: 20px;
 }
 
@@ -1820,6 +1857,10 @@ body.dark-mode .chi-cat-doodle::after {
     }
 
     .postit-sidebar {
+        display: none;
+    }
+
+    #blank-page {
         display: none;
     }
 
