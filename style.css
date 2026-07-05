@@ -286,14 +286,12 @@ html.no-page-flip #wrapper {
     }
 }
 
-#wrapper::after {
-    content: "";
+#wrapper-stack {
     position: absolute;
     top: -25px;
+    bottom: -20px;
     left: 100%;
-    right: auto;
     width: 182px;
-    height: calc(100% + 45px);
     box-sizing: border-box; 
     border: 24px solid transparent;
     border-left: none;
@@ -344,18 +342,12 @@ html.no-page-flip #wrapper {
     transform-origin: left center;
 }
 
-@media (max-width: 1180px) {
-    #wrapper::after {
-        display: none;
-    }
-}
-
 /* --- BINDER SPINE --- */
 .binder-spine {
     position: absolute;
     top: -70px;
     bottom: -70px;
-    right: -226px;
+    right: -198px;
     left: auto;
     width: 48px;
     height: auto;
@@ -409,9 +401,9 @@ html.no-page-flip #wrapper {
 #bookmark-ribbon {
     position: absolute;
     top: -85px;
-    left: -8px;
+    left: -10px;
     right: auto;
-    width: 60px;
+    width: 62px;
     height: 250px;
     background-color: var(--bookmark-color);
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2), inset 1px 0 0 rgba(255,255,255,0.25);
@@ -860,182 +852,6 @@ body.dark-mode .postit-sidebar-content {
 }
 
 /* --- MOBILE LAYOUT --- */
-@media (max-width: 767px), (hover: none) and (pointer: coarse) {
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    #wrapper {
-        width: calc(100vw - 8px);
-        max-width: none;
-        min-width: 0;
-        margin: 4px auto;
-        padding: 24px 16px 30px 16px;
-        background-size:
-            22px 100%,
-            100% 100%,
-            100% 100%,
-            100% 26px,
-            100% 100%;
-        background-position:
-            right 10px top 0,
-            -96px 0,
-            -96px 0,
-            0 0,
-            0 0;
-    }
-
-    .cover {
-        top: -6px;
-        left: -6px;
-        right: -6px;
-        bottom: -6px;
-        border-width: 6px;
-        border-radius: 18px 12px 16px 18px;
-    }
-
-    #page-wrapper::before {
-        top: 2px;
-        bottom: 2px;
-        left: 2px;
-        right: 2px;
-        border: 1px dashed var(--stitch-color);
-        border-right: none;
-        border-radius: 14px 0 0 16px;
-    }
-
-    #wrapper::after {
-        display: none;
-    }
-
-    .binder-spine {
-        display: none;
-    }
-
-
-    .postit-sidebar {
-        position: fixed;
-        top: 132px;
-        left: 72px;
-        width: 205px;
-        min-height: 245px;
-        transform: translateX(0) rotate(-2deg);
-        z-index: 9500;
-    }
-
-    .postit-sidebar.open {
-        transform: translateX(0) rotate(-1.5deg);
-    }
-
-    .postit-sidebar-content {
-        min-height: 230px;
-        padding: 24px 18px 18px 18px;
-    }
-
-    .postit-sidebar-tab {
-        top: 66px;
-        left: -64px;
-        right: auto;
-        width: 88px;
-        height: 54px;
-        padding: 0 24px 0 12px;
-    }
-
-    .postit-sidebar.open .postit-sidebar-tab {
-        left: -52px;
-    }
-
-    #bookmark-ribbon {
-        display: none;
-    }
-
-    .header {
-        margin-bottom: 24px;
-    }
-
-    .header h1 {
-        font-size: 2rem;
-        line-height: 1.1;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .nav-links {
-        justify-content: center;
-        gap: 6px;
-    }
-
-    .nav-links a {
-        padding: 3px 9px;
-        font-size: 0.9rem;
-    }
-
-    .mode-toggle-btn {
-        position: static;
-        margin-left: auto;
-        display: block;
-    }
-
-    .header > .nav-container + .nav-container {
-        flex-direction: row;
-        gap: 4px 8px;
-        margin-top: 12px;
-        padding: 10px 4px 0 4px;
-        font-size: 0.84rem;
-        line-height: 1.5;
-    }
-
-    .header > .nav-container + .nav-container a {
-        display: inline-block;
-        padding: 2px 4px;
-        white-space: nowrap;
-    }
-
-    .header > .nav-container + .nav-container .bold {
-        flex-basis: 100%;
-        margin-bottom: -2px;
-    }
-
-    .header .scrapbook-doodle {
-        opacity: 0.75;
-        transform: scale(0.65);
-    }
-}
-
-@media (max-width: 420px) {
-    #wrapper {
-        width: 100vw;
-        margin: 0;
-        padding: 20px 12px 26px 12px;
-    }
-
-    .cover {
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        border-width: 4px;
-        border-radius: 12px;
-    }
-
-    .header > .nav-container + .nav-container {
-        font-size: 0.8rem;
-        gap: 3px 6px;
-    }
-}
-
-
 /* --- CARDS --- */
 .card {
     background-color: var(--card-bg);
@@ -1637,30 +1453,133 @@ body.dark-mode .tape-polaroid::before {
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2rem;
-    }
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    .about-grid {
-        flex-direction: column;
-        text-align: center;
-    }
-    .scroll-top-btn {
-        bottom: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        font-size: 1.4rem;
-    }
+/* --- EXTRA SCRAPBOOK COLLAGE ELEMENTS --- */
+.pressed-petal {
+    width: 35px;
+    height: 45px;
+    background: radial-gradient(circle at 30% 30%, rgba(206, 147, 216, 0.75) 0%, rgba(136, 14, 79, 0.5) 100%);
+    border-radius: 50% 10% 50% 50%;
+    transform: rotate(-35deg);
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.15);
+    position: absolute;
+    pointer-events: none;
+    z-index: 15;
 }
 
+.pressed-petal::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    width: 2px;
+    height: 80%;
+    background-color: rgba(106, 27, 154, 0.35);
+    transform: rotate(10deg);
+    border-radius: 50%;
+}
+
+.scrapbook-doodle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* --- CAT INTERACTIVE DOODLE --- */
+.chi-cat-doodle {
+    pointer-events: auto;
+    cursor: pointer;
+    width: 105px;
+    height: 105px;
+    z-index: 20;
+    background-image: url("https://i.ibb.co.com/C3bf1F39/chi-happy.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+    animation: chiFloat 2.8s ease-in-out infinite;
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+                filter 0.2s ease;
+}
+
+.chi-cat-doodle:hover {
+    background-image: url("https://i.ibb.co.com/DD0Vz06K/chi-neutral.png");
+    transform: scale(0.8) translateY(-4px);
+    animation: none;
+    filter: drop-shadow(0 6px 14px rgba(219, 77, 148, 0.45));
+}
+
+.chi-cat-doodle:active {
+    background-image: url("https://i.ibb.co.com/LB0PD4v/chi-angry.png");
+    transform: scale(0.9) translateY(4px);
+    animation: chiShake 0.35s ease-in-out;
+    filter: drop-shadow(0 2px 6px rgba(219, 77, 148, 0.6));
+}
+
+.chi-cat-doodle::after {
+    content: ">:( leave me alone!!";
+    position: absolute;
+    bottom: 108%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    white-space: nowrap;
+    background-color: #fff0f5;
+    color: #3b204c;
+    border: 2px dashed #db4d94;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 30;
+    box-shadow: 0 3px 10px rgba(82, 4, 82, 0.2);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.chi-cat-doodle:active::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+body.dark-mode .chi-cat-doodle::after {
+    background-color: #2a1830;
+    color: #ffd8e6;
+    border-color: #ffb7c5;
+}
+
+.card:has(.chi-cat-doodle) {
+    overflow: visible;
+}
+
+@keyframes chiFloat {
+    0%,  100% { transform: translateY(0px);  }
+    50%        { transform: translateY(-7px); }
+}
+
+@keyframes chiShake {
+    0%   { transform: scale(0.9) translateX(0);    }
+    20%  { transform: scale(0.9) translateX(-5px); }
+    40%  { transform: scale(0.9) translateX(5px);  }
+    60%  { transform: scale(0.9) translateX(-4px); }
+    80%  { transform: scale(0.9) translateX(4px);  }
+    100% { transform: scale(0.9) translateX(0);    }
+}
+
+
+
+
+
+/* --- RESPONSIVE / MOBILE STYLES --- */
+
 @media (max-width: 1180px), (hover: none) and (pointer: coarse) {
+    #wrapper-stack {
+        display: none;
+    }
+
     .card {
+
         width: 100%;
         max-width: 100%;
         min-width: 0;
@@ -1783,145 +1702,7 @@ body.dark-mode .tape-polaroid::before {
         height: 42px;
         font-size: 1.25rem;
     }
-}
 
-@media (max-width: 420px) {
-    .card {
-        padding: 16px 8px;
-    }
-
-    table {
-        min-width: 680px;
-    }
-
-    th,
-    td {
-        padding: 9px 10px;
-        font-size: 0.86rem;
-    }
-
-    .paper-modal-content {
-        width: calc(100% - 48px);
-        padding: 22px;
-    }
-}
-
-
-/* --- EXTRA SCRAPBOOK COLLAGE ELEMENTS --- */
-.pressed-petal {
-    width: 35px;
-    height: 45px;
-    background: radial-gradient(circle at 30% 30%, rgba(206, 147, 216, 0.75) 0%, rgba(136, 14, 79, 0.5) 100%);
-    border-radius: 50% 10% 50% 50%;
-    transform: rotate(-35deg);
-    box-shadow: 1px 2px 4px rgba(0,0,0,0.15);
-    position: absolute;
-    pointer-events: none;
-    z-index: 15;
-}
-
-.pressed-petal::after {
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 45%;
-    width: 2px;
-    height: 80%;
-    background-color: rgba(106, 27, 154, 0.35);
-    transform: rotate(10deg);
-    border-radius: 50%;
-}
-
-.scrapbook-doodle {
-    position: absolute;
-    pointer-events: none;
-    z-index: 15;
-}
-
-/* --- CAT INTERACTIVE DOODLE --- */
-.chi-cat-doodle {
-    pointer-events: auto;
-    cursor: pointer;
-    width: 105px;
-    height: 105px;
-    z-index: 20;
-    background-image: url("https://i.ibb.co.com/C3bf1F39/chi-happy.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
-    animation: chiFloat 2.8s ease-in-out infinite;
-    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
-                filter 0.2s ease;
-}
-
-.chi-cat-doodle:hover {
-    background-image: url("https://i.ibb.co.com/DD0Vz06K/chi-neutral.png");
-    transform: scale(0.8) translateY(-4px);
-    animation: none;
-    filter: drop-shadow(0 6px 14px rgba(219, 77, 148, 0.45));
-}
-
-.chi-cat-doodle:active {
-    background-image: url("https://i.ibb.co.com/LB0PD4v/chi-angry.png");
-    transform: scale(0.9) translateY(4px);
-    animation: chiShake 0.35s ease-in-out;
-    filter: drop-shadow(0 2px 6px rgba(219, 77, 148, 0.6));
-}
-
-.chi-cat-doodle::after {
-    content: ">:( leave me alone!!";
-    position: absolute;
-    bottom: 108%;
-    left: 50%;
-    transform: translateX(-50%) scale(0.8);
-    white-space: nowrap;
-    background-color: #fff0f5;
-    color: #3b204c;
-    border: 2px dashed #db4d94;
-    border-radius: 12px;
-    padding: 5px 10px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.72rem;
-    font-weight: bold;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 30;
-    box-shadow: 0 3px 10px rgba(82, 4, 82, 0.2);
-    transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.chi-cat-doodle:active::after {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-}
-
-body.dark-mode .chi-cat-doodle::after {
-    background-color: #2a1830;
-    color: #ffd8e6;
-    border-color: #ffb7c5;
-}
-
-.card:has(.chi-cat-doodle) {
-    overflow: visible;
-}
-
-@keyframes chiFloat {
-    0%,  100% { transform: translateY(0px);  }
-    50%        { transform: translateY(-7px); }
-}
-
-@keyframes chiShake {
-    0%   { transform: scale(0.9) translateX(0);    }
-    20%  { transform: scale(0.9) translateX(-5px); }
-    40%  { transform: scale(0.9) translateX(5px);  }
-    60%  { transform: scale(0.9) translateX(-4px); }
-    80%  { transform: scale(0.9) translateX(4px);  }
-    100% { transform: scale(0.9) translateX(0);    }
-}
-
-@media (max-width: 1180px), (hover: none) and (pointer: coarse) {
     .card > .scrapbook-doodle {
         display: block;
         opacity: 0.58;
@@ -1979,4 +1760,188 @@ body.dark-mode .chi-cat-doodle::after {
         margin: 0;
     }
 }
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #wrapper {
+        width: calc(100vw - 8px);
+        max-width: none;
+        min-width: 0;
+        margin: 4px auto;
+        padding: 24px 16px 30px 16px;
+        background-size:
+            22px 100%,
+            100% 100%,
+            100% 100%,
+            100% 26px,
+            100% 100%;
+        background-position:
+            right 10px top 0,
+            -96px 0,
+            -96px 0,
+            0 0,
+            0 0;
+    }
+
+    .cover {
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border-width: 6px;
+        border-radius: 18px 12px 16px 18px;
+    }
+
+    #page-wrapper::before {
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        right: 2px;
+        border: 1px dashed var(--stitch-color);
+        border-right: none;
+        border-radius: 14px 0 0 16px;
+    }
+
+    #wrapper-stack {
+        display: none;
+    }
+
+    .binder-spine {
+        display: none;
+    }
+
+    .postit-sidebar {
+        display: none;
+    }
+
+    #bookmark-ribbon {
+        display: none;
+    }
+
+    .header {
+        margin-bottom: 24px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .nav-links a {
+        padding: 3px 9px;
+        font-size: 0.9rem;
+    }
+
+    .mode-toggle-btn {
+        position: static;
+        margin-left: auto;
+        display: block;
+    }
+
+    .header > .nav-container + .nav-container {
+        flex-direction: row;
+        gap: 4px 8px;
+        margin-top: 12px;
+        padding: 10px 4px 0 4px;
+        font-size: 0.84rem;
+        line-height: 1.5;
+    }
+
+    .header > .nav-container + .nav-container a {
+        display: inline-block;
+        padding: 2px 4px;
+        white-space: nowrap;
+    }
+
+    .header > .nav-container + .nav-container .bold {
+        flex-basis: 100%;
+        margin-bottom: -2px;
+    }
+
+    .header .scrapbook-doodle {
+        opacity: 0.75;
+        transform: scale(0.65);
+    }
+}
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .about-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .scroll-top-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 420px) {
+    #wrapper {
+        width: 100vw;
+        margin: 0;
+        padding: 20px 12px 26px 12px;
+    }
+
+    .cover {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-width: 4px;
+        border-radius: 12px;
+    }
+
+    .header > .nav-container + .nav-container {
+        font-size: 0.8rem;
+        gap: 3px 6px;
+    }
+
+    .card {
+        padding: 16px 8px;
+    }
+
+    table {
+        min-width: 680px;
+    }
+
+    th,
+    td {
+        padding: 9px 10px;
+        font-size: 0.86rem;
+    }
+
+    .paper-modal-content {
+        width: calc(100% - 48px);
+        padding: 22px;
+    }
+}
