@@ -171,7 +171,7 @@ a:hover {
 #wrapper {
     max-width: 1080px;
     margin: 0;
-    padding: 80px 200px 80px 145px;
+    padding: 80px 160px 80px 145px;
     box-sizing: border-box;
     position: relative;
     z-index: 5;
@@ -384,7 +384,7 @@ html.no-page-flip #wrapper {
     position: absolute;
     top: -70px;
     bottom: -70px;
-    right: -198px;
+    right: -160px;
     left: auto;
     width: 48px;
     height: auto;
