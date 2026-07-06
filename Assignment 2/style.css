@@ -14,6 +14,7 @@
 }
 
 body.a2 {
+    background-image: var(--bg-image);
     --a2-bookmark-color: #c88eb0;
 }
 
@@ -53,6 +54,8 @@ body.a2 .stopwatch-display {
     font-size: 7.4rem;
     transform: rotate(-1deg);
     display: inline-block;
+    margin: 20px 0 30px 0;
+    letter-spacing: 5px;
 }
 
 body.a2 .sketch-btn-wrap {
@@ -91,6 +94,7 @@ header h1, .header h1 {
 
 /* --- PALETTE THEMES --- */
 body.a2.palette-light-pink {
+    --bg-image: url('https://i.ibb.co/F4NrmBFH/bg-pink.png');
     --paper-bg: #fde8f0;
     --modal-bg: rgba(253, 232, 240, 0.65);
     --paper-line: #e8b8cc;
@@ -117,6 +121,7 @@ body.a2.palette-light-pink {
 }
 
 body.a2.palette-baby-blue {
+    --bg-image: url('https://i.ibb.co/VcmP30fq/bg-blue.png');
     --paper-bg: #dceef8;
     --modal-bg: rgba(220, 238, 248, 0.65);
     --paper-line: #a8c8dc;
@@ -144,11 +149,12 @@ body.a2.palette-baby-blue {
 }
 
 body.a2.palette-gothic-purple {
+    --bg-image: url('https://i.ibb.co/YB0KJ81P/bg-dark.png');
     --paper-bg: #2a1838;
     --modal-bg: rgba(42, 24, 56, 0.65);
     --paper-line: rgba(180, 140, 200, 0.35);
     --margin-line: rgba(232, 153, 96, 0.5);
-    --a2-bookmark-color: #c88eac;
+    --a2-bookmark-color: #9b5e80;
     --stacked-page-color: #352045;
     --text-color: #e8d0f0;
     --text-muted: #b898c8;
@@ -171,6 +177,7 @@ body.a2.palette-gothic-purple {
 }
 
 body.a2.palette-warm-orange {
+    --bg-image: url('https://i.ibb.co/hF2Nw23x/bg-orange.png');
     --paper-bg: #fde8c8;
     --modal-bg: rgba(253, 232, 200, 0.65);
     --paper-line: #e8c090;
@@ -325,14 +332,6 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
 .stopwatch-card {
     text-align: center;
     padding: 35px 25px;
-}
-
-.stopwatch-display {
-    font-family: var(--font-disturbed);
-    font-size: 6rem;
-    color: var(--accent-color);
-    margin: 20px 0 30px 0;
-    letter-spacing: 5px;
 }
 
 .stopwatch-controls {
@@ -569,6 +568,8 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
     pointer-events: none;
     z-index: 15;
     opacity: 1;
+    --doodle-shadow: drop-shadow(0 0 0 transparent);
+    filter: var(--doodle-shadow);
 }
 
 .doodle img,
@@ -578,32 +579,34 @@ body.a2 #bookmark-ribbon.bookmark-a2 {
     height: auto;
 }
 
-.doodle-tiny { width: 50px; }
-.doodle-small { width: 70px; }
-.doodle-medium { width: 90px; }
-.doodle-large { width: 110px; }
+.doodle-cookie { top: -25px; left: -35px; width: 85px; }
+.doodle-scorpio { bottom: -25px; right: -30px; width: 110px; }
+.doodle-stars-tr { top: -18px; right: -18px; width: 50px; }
+.doodle-stars-bl { bottom: -18px; left: -18px; width: 50px; }
+.doodle-stopwatch { top: -30px; right: -30px; width: 90px; transform: rotate(10deg); }
+.doodle-hourglass { bottom: -20px; left: -30px; width: 70px; transform: rotate(-12deg); opacity: 0.7; }
+.doodle-clipboard { top: -30px; right: -30px; width: 90px; transform: rotate(-30deg); }
+.doodle-checkmark { top: -18px; left: -18px; width: 70px; }
 
-.doodle-tl { top: -18px; left: -18px; }
-.doodle-tr { top: -18px; right: -18px; }
-.doodle-bl { bottom: -18px; left: -18px; }
-.doodle-br { bottom: -18px; right: -18px; }
-.doodle-top { top: -22px; left: 50%; transform: translateX(-50%); }
-.doodle-bottom { bottom: -22px; left: 50%; transform: translateX(-50%); }
+.doodle-stars-tr,
+.doodle-stars-bl {
+    filter: saturate(1.6) contrast(1.6) var(--doodle-shadow);
+}
 
 body.a2.palette-light-pink .doodle {
-    filter: drop-shadow(0 2px 6px rgba(224, 92, 141, 0.5));
+    --doodle-shadow: drop-shadow(0 2px 6px rgba(224, 92, 141, 0.5));
 }
 
 body.a2.palette-baby-blue .doodle {
-    filter: drop-shadow(0 2px 6px rgba(54, 120, 190, 0.65));
+    --doodle-shadow: drop-shadow(0 2px 6px rgba(54, 120, 190, 0.5));
 }
 
 body.a2.palette-gothic-purple .doodle {
-    filter: drop-shadow(0 2px 6px rgba(253, 221, 246, 0.3));
+    --doodle-shadow: drop-shadow(0 2px 6px rgba(253, 221, 246, 0.3));
 }
 
 body.a2.palette-warm-orange .doodle {
-    filter: drop-shadow(0 2px 6px rgba(223, 182, 33, 0.65));
+    --doodle-shadow: drop-shadow(0 2px 6px rgba(254, 238, 174, 0.35));
 }
 
 @media (max-width: 767px) {

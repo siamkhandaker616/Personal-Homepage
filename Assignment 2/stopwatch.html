@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body class="a2 a2-page-stopwatch">
-<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.classList.add('palette-'+p)}catch(e){}</script>
+<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.className+=' palette-'+p}catch(e){}</script>
         <div class="postit-rail">
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
@@ -92,10 +92,10 @@
         </div>
 
         <div class="card stopwatch-card" style="position: relative;">
-            <div class="doodle" style="top: -30px; right: -30px; width: 90px; transform: rotate(10deg); opacity: 1.2;">
+            <div class="doodle doodle-stopwatch">
                 <img id="doodle-stopwatch" src="images/doodles/light-pink-stopwatch.svg" alt="" />
             </div>
-            <div class="doodle" style="bottom: -20px; left: -30px; width: 70px; transform: rotate(-12deg); opacity: 0.7;">
+            <div class="doodle doodle-hourglass">
                 <img id="doodle-hourglass" src="images/doodles/light-pink-hourglass.svg" alt="" />
             </div>
             <h3>&#9201; Stopwatch</h3>

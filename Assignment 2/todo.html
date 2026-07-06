@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body class="a2 a2-page-todo">
-<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.classList.add('palette-'+p)}catch(e){}</script>
+<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.className+=' palette-'+p}catch(e){}</script>
         <div class="postit-rail">
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
@@ -92,7 +92,7 @@
         </div>
 
         <div class="card todo-section" style="position: relative; transform: rotate(1deg);">
-            <div class="doodle" style="top: -30px; right: -30px; width: 90px; transform: rotate(-30deg);">
+            <div class="doodle doodle-clipboard">
                 <img id="doodle-clipboard" src="images/doodles/light-pink-clipboard.svg" alt="" />
             </div>
             <h3>&#9745; To-Do List</h3>
@@ -101,14 +101,14 @@
 
         <div class="todo-cards-wrap todo-section">
             <div id="todo-card-1" class="card todo-card" style="position: relative;">
-                <div class="doodle doodle-tl doodle-small">
+                <div class="doodle doodle-checkmark">
                     <img id="doodle-checkmark-1" src="images/doodles/light-pink-checkmark.svg" alt="" />
                 </div>
                 <h3>Today's scraps</h3>
                 <ul id="todo-list-1" class="todo-list"><li class="todo-placeholder"></li></ul>
             </div>
             <div id="todo-card-2" class="card todo-card" style="position: relative; display: none;">
-                <div class="doodle doodle-tl doodle-small">
+                <div class="doodle doodle-checkmark">
                     <img id="doodle-checkmark-2" src="images/doodles/light-pink-checkmark.svg" alt="" />
                 </div>
                 <h3>Overflow pile</h3>

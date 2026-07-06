@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body class="a2 a2-page-fortune">
-<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.classList.add('palette-'+p)}catch(e){}</script>
+<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.className+=' palette-'+p}catch(e){}</script>
         <div class="postit-rail">
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
@@ -100,21 +100,21 @@
                 </button>
             </div>
             <div id="fortune-box" class="fortune-box" style="position: relative;">
-                <div class="doodle" style="top: -25px; left: -35px; width: 85px;">
+                <div class="doodle doodle-cookie">
                     <img id="doodle-cookie" src="images/doodles/light-pink-fortune-cookie.svg" alt="" />
                 </div>
                 <p id="fortune-text">Drawing a fortune...</p>
-                <div class="doodle" style="bottom: -25px; right: -30px; width: 110px;">
+                <div class="doodle doodle-scorpio">
                     <img id="doodle-scorpio" src="images/doodles/light-pink-scorpio.svg" alt="" />
                 </div>
             </div>
         </div>
 
         <div class="card fortune-section" style="position: relative;">
-            <div class="doodle doodle-tr doodle-tiny">
+            <div class="doodle doodle-stars-tr">
                     <img id="doodle-stars-tr" src="images/doodles/light-pink-fortune-stars.svg" alt="" />
             </div>
-            <div class="doodle doodle-bl doodle-tiny">
+            <div class="doodle doodle-stars-bl">
                     <img id="doodle-stars-bl" src="images/doodles/light-pink-fortune-stars.svg" alt="" />
             </div>
             <h6 class="fortune-tip"><span class="fortune-tip-text">tip: click on any of the colors to change the palette</span></h6>

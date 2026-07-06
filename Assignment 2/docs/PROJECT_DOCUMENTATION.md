@@ -115,7 +115,7 @@ Important visual ideas:
 - SVG control icons (play, stop, reset) and emoji PNGs swap per palette, reinforcing the theme visually.
 - A bookmark ribbon with a tucked-hanging animation sits on the right side.
 - The stopwatch display uses Blackcraft, a distressed/grunge custom font loaded via `@font-face`.
-- SVG doodles themed to each page's purpose decorate the notebook (hourglass, fortune cookie, tarot card, scorpio, etc.).
+- SVG doodles themed to each page's purpose (cookie, scorpio, stars, stopwatch, hourglass, clipboard, checkmark) decorate the notebook, positioned via semantic classes rather than inline styles.
 
 The visual style is CSS-driven: gradients, shadows, pseudo-elements, borders, keyframe animations, and layered backgrounds create the notebook illusion.
 
@@ -177,7 +177,7 @@ The A2 pages also inherit the following features from the main `script.js`:
 
 ## 7. JavaScript Architecture
 
-All A2-specific JavaScript is in `Assignment 2/script.js` (486 lines). The global `script.js` (~324 lines) provides shared UI infrastructure.
+All A2-specific JavaScript is in `Assignment 2/script.js` (493 lines). The global `script.js` (~350 lines) provides shared UI infrastructure.
 
 Key patterns:
 
@@ -199,7 +199,7 @@ Local images include:
 - Play SVG icons (4 palette variants): `images/icons/{palette}-play.svg`
 - Stop SVG icons (4 palette variants): `images/icons/{palette}-stop.svg`
 - Reset SVG icons (4 palette variants): `images/icons/{palette}-reset.svg`
-- Decorative SVG doodles in `images/doodles/`: checkmark, clipboard, fortune-cookie, fortune-stars, hourglass, pencil, scorpio, stopwatch, tarot-card
+- Decorative SVG doodles in `images/doodles/` (28 files, 7 designs × 4 palettes): checkmark, clipboard, fortune-cookie, fortune-stars, hourglass, scorpio, stopwatch
 
 Fonts:
 
@@ -240,7 +240,7 @@ Provides the base notebook layout:
 - Dark mode variable overrides in `body.dark-mode`
 - Responsive media queries at 1180px, 767px, 600px, 420px
 
-### A2-specific `style.css` (~556 lines)
+### A2-specific `style.css` (~633 lines)
 
 Provides A2-specific styling:
 
@@ -265,7 +265,9 @@ Provides A2-specific styling:
 - `.todo-add-btn` — absolute positioned below the card
 - `.a2-modal-backdrop`, `.a2-modal-content` — modal styling with rotation
 - `.a2-modal-actions` — button layout
-- Four palette theme classes (`body.a2.palette-light-pink`, etc.) with 20+ CSS variables each
+- `.doodle` — base position and filter via `--doodle-shadow` custom property
+- `.doodle-cookie`, `.doodle-scorpio`, `.doodle-stars-tr`, `.doodle-stars-bl`, `.doodle-stopwatch`, `.doodle-hourglass`, `.doodle-clipboard`, `.doodle-checkmark` — per-doodle positioning, sizing, rotation, and additional filter effects (stars get `saturate(2) contrast(1.8)`)
+- Four palette theme classes (`body.a2.palette-light-pink`, etc.) with 20+ CSS variables each, including `--doodle-shadow` for palette-coordinated drop shadows on doodles
 
 ## 11. Notes
 
@@ -273,7 +275,7 @@ Provides A2-specific styling:
 - The bookmark and palette states use `localStorage`, so they persist per browser/device only. The palette can be reset to default using the reset button on the fortune page.
 - The palette icon swapping requires 4 sets of emoji PNGs (light-pink, baby-blue, gothic-purple, warm-orange) and 4 sets of SVG icons (play, stop, reset) to exist in `images/icons/`.
 - Default palette uses warm-orange emoji PNGs and light-pink SVG icons. This is intentional for visual harmony.
-- The project is highly decorative, so some positions are controlled with inline styles for precise scrapbook placement.
+- Doodle positions, sizes, and rotations are defined in CSS as per-doodle classes, keeping the HTML clean of inline placement styles.
 - The project does not use a backend server. All three pages are static HTML with client-side JavaScript.
 
 ## 12. How to Run

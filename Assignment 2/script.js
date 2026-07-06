@@ -1,8 +1,8 @@
 /* Assignment 2 shared logic — palette persistence and icon swapping */
 
-var A2_PALETTES = ['light-pink', 'baby-blue', 'gothic-purple', 'warm-orange'];
+var A2_PALETTES = ['light-pink', 'baby-blue', 'gothic-purple', 'warm-orange']; // 4 palette keys
 
-var A2_PALETTE_FORTUNE = {
+var A2_PALETTE_FORTUNE = { // fortune box bg/text/border per palette
     'light-pink': {
         bg: 'rgba(255, 220, 235, 0.75)',
         text: '#4a2040',
@@ -86,7 +86,7 @@ function applyFortunePalette(name) {
     var css = getComputedStyle(document.body);
     var style = A2_PALETTE_FORTUNE[name] || A2_PALETTE_FORTUNE['light-pink'];
     box.style.background = style.bg;
-    box.style.color = css.getPropertyValue('--text-color').trim();;
+    box.style.color = css.getPropertyValue('--text-color').trim();
     box.style.borderColor = css.getPropertyValue('--border-color').trim();
 }
 
@@ -130,7 +130,8 @@ function initA2Palette() {
             saved = normalizePaletteName(stored);
         }
     } catch (e) {}
-    setA2Palette(saved);
+    applyFortunePalette(saved);
+    swapIcons(saved);
 }
 
 initA2Palette();
@@ -193,12 +194,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Stopwatch — 10s run, +3 displayed each second, stops at 30 */
 
-var swElapsed = 0;
-var swTimerId = null;
-var swRunning = false;
-var SW_TICK_MS = 1000;
-var SW_STEP = 3;
-var SW_MAX = 30;
+var swElapsed = 0;        // current count, resets on stop
+var swTimerId = null;     // interval ID for clearing
+var swRunning = false;    // guard against double-start
+var SW_TICK_MS = 1000;    // 1 tick per second
+var SW_STEP = 3;          // +3 each tick
+var SW_MAX = 30;          // stops here
 
 // Updates the stopwatch display with the current elapsed seconds
 function renderStopwatch() {
@@ -279,11 +280,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* To-Do List — taped cards, modal add, localStorage, 10 task max */
 
-var TODO_STORAGE_KEY = 'a2Todos';
-var TODO_MAX = 10;
-var TODO_PER_CARD = 5;
-var a2Todos = [];
-var todoIdCounter = 1;
+var TODO_STORAGE_KEY = 'a2Todos'; // localStorage key
+var TODO_MAX = 10;                // hard cap
+var TODO_PER_CARD = 5;            // items before overflow
+var a2Todos = [];                 // in-memory task list
+var todoIdCounter = 1;            // auto-incrementing IDs
 
 // Loads the todo array from localStorage and syncs the ID counter
 function loadTodos() {

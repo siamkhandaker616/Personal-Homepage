@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var modalCloseBtn = document.getElementById('paper-modal-close');
     var reloadOnClose = false;
 
+    // Shows the paper notification overlay with a title and message
     function showNotification(title, message, triggerReload) {
         if (!paperModal || !modalTitle || !modalMessage) return;
         modalTitle.textContent = title;
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'input-message': 'Write your message here...'
     };
 
+    // Fills form fields with placeholder text until focused
     function setupPlaceholder(input) {
         if (!input) return;
         var placeholderText = placeholders[input.id];
@@ -187,11 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var wrapperEl = document.getElementById('wrapper');
     var navLinks  = document.querySelectorAll('.nav-links a, .postit-sidebar-links a');
 
+    // Prevents the page flip animation from replaying
     function killWrapperTransform() {
         if (!wrapperEl) return;
         wrapperEl.classList.add('wrapper-animation-killed');
     }
 
+    // Aligns the post-it sidebars to the wrapper's left edge
     function positionRail() {
         var sidebars = document.querySelectorAll('.postit-sidebar');
         var wrapper = document.getElementById('wrapper');
@@ -210,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Flags the page as ready and locks the wrapper transform
     function markWrapperReady() {
         if (wrapperEl) {
             wrapperEl.classList.add('page-ready');
@@ -218,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Sets up the sidebar rail positioning and page-flip animation end handler
     function setupRail() {
         if (wrapperEl && document.documentElement.classList.contains('no-page-flip')) {
             killWrapperTransform();
@@ -275,6 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- PULL-OUT POST-IT SIDEBARS ---
     var postitZIndexCounter = 100;
 
+    // Wires up a post-it toggle button to slide its sidebar open/closed
     function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel, tabOpenText, tabClosedText) {
         if (!sidebarEl || !toggleEl) return;
 
@@ -338,6 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 
-    window.showNotification = showNotification;
+    window.showNotification = showNotification; // exposed for A2 pages
 
 });
