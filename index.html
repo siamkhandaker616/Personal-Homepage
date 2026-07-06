@@ -41,15 +41,12 @@
             font-size: 0.75rem;
         }
     </style>
-    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-    <div id="wrapper">
-
         <div class="postit-rail">
             <div id="pullout-sidebar-menu" class="postit-sidebar postit-sidebar-menu">
                 <button type="button" id="postit-sidebar-menu-toggle" class="postit-sidebar-tab" title="Open quick navigation">
-                    <span class="postit-tab-text" data-closed-text="menu" data-open-text="fold">menu</span>
+                    <span class="postit-tab-text">menu</span>
                 </button>
                 <div class="postit-sidebar-content">
                     <span class="postit-sparkle postit-sparkle-one">✧</span>
@@ -67,7 +64,7 @@
             </div>
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2 postit-sidebar-secondary">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
-                    <span class="postit-tab-text" data-closed-text="A2" data-open-text="fold">A2</span>
+                    <span class="postit-tab-text">A2</span>
                 </button>
                 <div class="postit-sidebar-content postit-sidebar-content-a2">
                     <span class="postit-sparkle postit-sparkle-one">✧</span>
@@ -82,7 +79,26 @@
                     <p class="postit-note">tug the tab to fold this note back in</p>
                 </div>
             </div>
+            <div id="pullout-sidebar-a3" class="postit-sidebar postit-sidebar-a3 postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-a3-toggle" class="postit-sidebar-tab postit-sidebar-tab-a3" title="Open assignment 3">
+                    <span class="postit-tab-text">A3</span>
+                </button>
+                <div class="postit-sidebar-content postit-sidebar-content-a3">
+                    <span class="postit-sparkle postit-sparkle-one">✧</span>
+                    <span class="postit-sparkle postit-sparkle-two">✿</span>
+                    <p class="postit-kicker">assignment 3</p>
+                    <h2>TBD</h2>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
         </div>
+
+<div id="page-wrapper">
+    <div class="cover"></div>
+    <div id="blank-page"></div>
+    <div id="wrapper">
+    <div class="wrapper-content">
+
 
         <div class="binder-spine">
             <span class="binder-ring"></span>
@@ -279,6 +295,9 @@
             </div>
         </div>
     </div>
+    </div>
+    <div id="wrapper-stack"></div>
+</div>
 
     <div class="scroll-top-wrapper">
         <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
@@ -291,5 +310,6 @@
             <button type="button" id="paper-modal-close" class="mode-toggle-btn" style= "position:static;">OK</button>
         </div>
     </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

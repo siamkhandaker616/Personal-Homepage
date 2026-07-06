@@ -72,11 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
             modalCloseBtn.classList.remove('disabled-btn');
         }
         paperModal.classList.add('show');
+        document.body.classList.add('modal-active');
     }
 
     if (modalCloseBtn && paperModal) {
         modalCloseBtn.addEventListener('click', function() {
             paperModal.classList.remove('show');
+            document.body.classList.remove('modal-active');
             if (reloadOnClose) {
                 var nameInput    = document.getElementById('input-name');
                 var contactInput = document.getElementById('input-contact');
@@ -189,23 +191,60 @@ document.addEventListener('DOMContentLoaded', function() {
     var wrapperEl = document.getElementById('wrapper');
     var navLinks  = document.querySelectorAll('.nav-links a, .postit-sidebar-links a');
 
-    function markWrapperReady() {
-        if (wrapperEl) {
-            wrapperEl.classList.add('page-ready');
+    function killWrapperTransform() {
+        if (!wrapperEl) return;
+        wrapperEl.classList.add('wrapper-animation-killed');
+    }
+
+    function positionRail() {
+        var sidebars = document.querySelectorAll('.postit-sidebar');
+        var wrapper = document.getElementById('wrapper');
+        if (!sidebars.length || !wrapper) return;
+        var isMobile = window.matchMedia('(max-width: 767px), (hover: none) and (pointer: coarse)').matches;
+        if (isMobile) {
+            for (var i = 0; i < sidebars.length; i++) {
+                sidebars[i].style.left = '';
+            }
+            return;
+        }
+        var wrapperRect = wrapper.getBoundingClientRect();
+        var left = (wrapperRect.left + 15) + 'px';
+        for (var i = 0; i < sidebars.length; i++) {
+            sidebars[i].style.left = left;
         }
     }
 
-    if (wrapperEl) {
-        if (document.documentElement.classList.contains('no-page-flip')) {
+    function markWrapperReady() {
+        if (wrapperEl) {
+            wrapperEl.classList.add('page-ready');
+            killWrapperTransform();
+            positionRail();
+        }
+    }
+
+    function setupRail() {
+        if (wrapperEl && document.documentElement.classList.contains('no-page-flip')) {
+            killWrapperTransform();
+            positionRail();
             markWrapperReady();
-        } else {
+        } else if (wrapperEl) {
             wrapperEl.addEventListener('animationend', function(e) {
                 if (e.animationName === 'pageFlipEnter') {
                     markWrapperReady();
                 }
             });
         }
+        // Re-position after everything is painted
+        window.addEventListener('load', positionRail);
+        window.addEventListener('resize', positionRail);
+        // Account for layout shifts after fonts/images
+        if (window.ResizeObserver) {
+            var ro = new ResizeObserver(function() { positionRail(); });
+            ro.observe(document.body);
+        }
     }
+
+    setupRail();
 
     if (navLinks.length > 0) {
         navLinks.forEach(function(link) {
@@ -214,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (targetUrl && !targetUrl.startsWith('#') && !targetUrl.startsWith('http') && !link.classList.contains('active')) {
                     e.preventDefault();
                     if (wrapperEl) {
-                        wrapperEl.classList.remove('page-ready');
+                        wrapperEl.classList.remove('page-ready', 'wrapper-animation-killed');
                         wrapperEl.classList.add('page-flip-exit');
                         setTimeout(function() { window.location.href = targetUrl; }, 480);
                     } else {
@@ -238,19 +277,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- PULL-OUT POST-IT SIDEBARS ---
-    function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel) {
+    var postitZIndexCounter = 100;
+
+    function initPostitSidebar(sidebarEl, toggleEl, openLabel, closedLabel, tabOpenText, tabClosedText) {
         if (!sidebarEl || !toggleEl) return;
 
         function updateLabel(isOpen) {
             toggleEl.setAttribute('title', isOpen ? openLabel : closedLabel);
             toggleEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             var textEl = toggleEl.querySelector('.postit-tab-text');
-            if (textEl) {
-                var closedText = textEl.getAttribute('data-closed-text');
-                var openText = textEl.getAttribute('data-open-text');
-                if (closedText && openText) {
-                    textEl.textContent = isOpen ? openText : closedText;
-                }
+            if (textEl && tabOpenText && tabClosedText) {
+                textEl.textContent = isOpen ? tabOpenText : tabClosedText;
             }
         }
 
@@ -260,6 +297,12 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleEl.addEventListener('click', function() {
             var open = sidebarEl.classList.toggle('open');
             updateLabel(open);
+            if (open) {
+                postitZIndexCounter++;
+                sidebarEl.style.zIndex = postitZIndexCounter;
+            } else {
+                sidebarEl.style.zIndex = '';
+            }
         });
     }
 
@@ -267,21 +310,27 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('pullout-sidebar-menu'),
         document.getElementById('postit-sidebar-menu-toggle'),
         'Close quick navigation',
-        'Open quick navigation'
+        'Open quick navigation',
+        'fold',
+        'menu'
     );
 
     initPostitSidebar(
         document.getElementById('pullout-sidebar-a2'),
         document.getElementById('postit-sidebar-a2-toggle'),
         'Close assignment navigation',
-        'Open assignment navigation'
+        'Open assignment navigation',
+        'fold',
+        'A2'
     );
 
     initPostitSidebar(
-        document.getElementById('pullout-sidebar-hp'),
-        document.getElementById('postit-sidebar-hp-toggle'),
-        'Close homepage navigation',
-        'Open homepage navigation'
+        document.getElementById('pullout-sidebar-a3'),
+        document.getElementById('postit-sidebar-a3-toggle'),
+        'Close assignment 3',
+        'Open assignment 3',
+        'fold',
+        'A3'
     );
 
     var postitSidebars = document.querySelectorAll('.postit-sidebar');
@@ -290,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (var i = 0; i < postitSidebars.length; i++) {
                 postitSidebars[i].classList.add('show');
             }
-        }, 1500);
+        }, 500);
     }
 
     window.showNotification = showNotification;

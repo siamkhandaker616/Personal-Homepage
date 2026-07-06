@@ -25,6 +25,7 @@ var A2_PALETTE_FORTUNE = {
     }
 };
 
+// Falls back to 'default' if the name isn't one of the known palette keys
 function normalizePaletteName(name) {
     if (name === 'default') {
         return 'default';
@@ -35,14 +36,21 @@ function normalizePaletteName(name) {
     return name;
 }
 
+// Applies the selected palette: swaps the body class, persists to localStorage, and updates UI
 function setA2Palette(name) {
     name = normalizePaletteName(name);
-    document.body.setAttribute('palette', name);
-    localStorage.setItem('a2Palette', name);
+    var body = document.body;
+    body.className = body.className.replace(/\bpalette-\S+/g, '').replace(/\s{2,}/g, ' ').trim();
+    if (name !== 'default') {
+        body.classList.add('palette-' + name);
+    }
+    try {
+        localStorage.setItem('a2Palette', name);
+    } catch (e) {}
 
     var chips = document.querySelectorAll('.palette-chip');
     for (var i = 0; i < chips.length; i++) {
-        if (chips[i].getAttribute('data-palette') === name) {
+        if (chips[i].getAttribute('title') === name) {
             chips[i].classList.add('active');
         } else {
             chips[i].classList.remove('active');
@@ -53,10 +61,19 @@ function setA2Palette(name) {
     swapIcons(name);
 }
 
+// Applies palette-specific background, text, and border to the fortune box
 function applyFortunePalette(name) {
     var box = document.getElementById('fortune-box');
-    var css = getComputedStyle(document.body);
     if (!box) return;
+    if (name === 'default') {
+        box.style.background = '';
+        box.style.color = '';
+        box.style.borderColor = '';
+        box.style.fontSize = '1.25rem';
+        box.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
+        return;
+    }
+    var css = getComputedStyle(document.body);
     var style = A2_PALETTE_FORTUNE[name] || A2_PALETTE_FORTUNE['light-pink'];
     box.style.background = style.bg;
     box.style.color = css.getPropertyValue('--text-color').trim();;
@@ -65,27 +82,46 @@ function applyFortunePalette(name) {
     box.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
 }
 
+// Swaps PNG emoji and SVG control icons to match the current palette
 function swapIcons(name) {
+    var pngPrefix = (name === 'default') ? 'warm-orange' : name;
+    var svgPrefix = (name === 'default') ? 'light-pink' : name;
+
     var leftIcon = document.getElementById("icon-left");
     var rightIcon = document.getElementById("icon-right");
-    var resetIcon = document.getElementById('sw-reset-icon');
+    if (leftIcon) leftIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
+    if (rightIcon) rightIcon.src = "images/icons/" + pngPrefix + "-emoji.png";
+
+    var fortuneReset = document.getElementById('fortune-reset-icon');
+    var swReset = document.getElementById('sw-reset-icon');
     var playIcon = document.getElementById('sw-play-icon');
     var stopIcon = document.getElementById('sw-stop-icon');
-    if (!resetIcon) {
-        if (!leftIcon && !rightIcon) return;
-    }
+    if (fortuneReset) fortuneReset.src = 'images/icons/' + svgPrefix + '-reset.svg';
+    if (swReset) swReset.src = 'images/icons/' + svgPrefix + '-reset.svg';
+    if (playIcon) playIcon.src = 'images/icons/' + svgPrefix + '-play.svg';
+    if (stopIcon) stopIcon.src = 'images/icons/' + svgPrefix + '-stop.svg';
 
-    var prefix = name;
-    leftIcon.src = "images/icons/" + prefix + "-emoji.png";
-    rightIcon.src = "images/icons/" + prefix + "-emoji.png";
-    resetIcon.src = 'images/icons/' + prefix + '-reset.svg';
-    playIcon.src = 'images/icons/' + prefix + '-play.svg';
-    stopIcon.src = 'images/icons/' + prefix + '-stop.svg';
+    var doodlePrefix = (name === 'default') ? 'warm-orange' : svgPrefix;
+    var doodleIds = ['doodle-cookie', 'doodle-scorpio', 'doodle-stars-tr', 'doodle-stars-bl', 'doodle-stopwatch', 'doodle-hourglass', 'doodle-checkmark-1', 'doodle-checkmark-2', 'doodle-clipboard'];
+    var doodleFiles = ['fortune-cookie', 'scorpio', 'fortune-stars', 'fortune-stars', 'stopwatch', 'hourglass', 'checkmark', 'checkmark', 'clipboard'];
+    for (var i = 0; i < doodleIds.length; i++) {
+        var el = document.getElementById(doodleIds[i]);
+        if (el) {
+            el.src = 'images/doodles/' + doodlePrefix + '-' + doodleFiles[i] + '.svg';
+        }
+    }
 }
 
+// Restores the previously saved palette from localStorage
 function initA2Palette() {
     if (!document.body.classList.contains('a2')) return;
-    var saved = normalizePaletteName(localStorage.getItem('a2Palette') || 'light-pink');
+    var saved = 'default';
+    try {
+        var stored = localStorage.getItem('a2Palette');
+        if (stored) {
+            saved = normalizePaletteName(stored);
+        }
+    } catch (e) {}
     setA2Palette(saved);
 }
 
@@ -114,6 +150,7 @@ var fortunes = [
     "Your next revelation will be sponsored by caffeine and existential dread.",
 ];
 
+// Picks a random fortune from the list and displays it in the fortune box
 function displayRandomFortune() {
     var box = document.getElementById('fortune-text');
     if (!box) return;
@@ -121,20 +158,28 @@ function displayRandomFortune() {
     box.textContent = '"' + fortunes[index] + '"';
 }
 
+// Initialises the fortune page: shows a random fortune and wires up palette chip buttons
 function initFortunePage() {
     displayRandomFortune();
 
     var chips = document.querySelectorAll('.palette-chip');
     for (var i = 0; i < chips.length; i++) {
         chips[i].addEventListener('click', function() {
-            var palette = this.getAttribute('data-palette');
+            var palette = this.getAttribute('title');
             setA2Palette(palette);
+        });
+    }
+
+    var resetBtn = document.getElementById('fortune-reset-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            setA2Palette('default');
         });
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.body.getAttribute('data-a2-page') === 'fortune') {
+    if (document.body.classList.contains('a2-page-fortune')) {
         initFortunePage();
     }
 });
@@ -149,6 +194,7 @@ var SW_TICK_MS = 1000;
 var SW_STEP = 3;
 var SW_MAX = 30;
 
+// Updates the stopwatch display with the current elapsed seconds
 function renderStopwatch() {
     var display = document.getElementById('stopwatch-display');
     if (display) {
@@ -156,6 +202,7 @@ function renderStopwatch() {
     }
 }
 
+// Stops the interval timer and updates button disabled states
 function stopStopwatch() {
     swRunning = false;
     if (swTimerId !== null) {
@@ -168,6 +215,7 @@ function stopStopwatch() {
     if (stopBtn) stopBtn.disabled = true;
 }
 
+// Starts the stopwatch: increments by SW_STEP each second until SW_MAX is reached
 function startStopwatch() {
     if (swRunning || swElapsed >= SW_MAX) return;
     swRunning = true;
@@ -188,6 +236,7 @@ function startStopwatch() {
     }, SW_TICK_MS);
 }
 
+// Resets elapsed time to zero, stops the timer, and re-enables the play button
 function resetStopwatch() {
     stopStopwatch();
     swElapsed = 0;
@@ -196,6 +245,7 @@ function resetStopwatch() {
     if (playBtn) playBtn.disabled = false;
 }
 
+// Initialises the stopwatch page: renders the initial state and wires up button handlers
 function initStopwatchPage() {
     renderStopwatch();
 
@@ -216,7 +266,7 @@ function initStopwatchPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.body.getAttribute('data-a2-page') === 'stopwatch') {
+    if (document.body.classList.contains('a2-page-stopwatch')) {
         initStopwatchPage();
     }
 });
@@ -229,6 +279,7 @@ var TODO_PER_CARD = 5;
 var a2Todos = [];
 var todoIdCounter = 1;
 
+// Loads the todo array from localStorage and syncs the ID counter
 function loadTodos() {
     var raw = localStorage.getItem(TODO_STORAGE_KEY);
     if (raw) {
@@ -245,10 +296,12 @@ function loadTodos() {
     }
 }
 
+// Persists the current todo array to localStorage as JSON
 function saveTodos() {
     localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(a2Todos));
 }
 
+// Shows a reusable modal with an optional text input; fires onConfirm with the input value
 function showA2Modal(title, message, showInput, onConfirm) {
     var backdrop = document.getElementById('a2-task-modal');
     var titleEl = document.getElementById('a2-task-modal-title');
@@ -274,37 +327,32 @@ function showA2Modal(title, message, showInput, onConfirm) {
 
     confirmBtn.onclick = function() {
         backdrop.classList.remove('show');
+        document.body.classList.remove('modal-active');
         if (onConfirm) onConfirm(inputEl.value);
     };
 
     cancelBtn.onclick = function() {
         backdrop.classList.remove('show');
+        document.body.classList.remove('modal-active');
     };
 
     backdrop.classList.add('show');
+    document.body.classList.add('modal-active');
 }
 
+// Shows a warning when the user tries to exceed the 10-task limit
 function showPlateFullModal() {
-    if (window.showNotification) {
-        window.showNotification(
-            'Enough on your plate!',
-            'You already have enough on your plate — why not finish and remove some tasks before adding more?',
-            false
-        );
-    } else {
-        showA2Modal(
-            'Enough on your plate!',
-            'You already have enough on your plate — why not finish and remove some tasks before adding more?',
-            false,
-            null
-        );
-    }
+    window.showNotification(
+        'Enough on your plate!',
+        'You already have enough on your plate ~ why not finish and remove some tasks before adding more?',
+        false
+    );
 }
 
+// Builds a single todo <li> with checkbox, text, and delete button, wired to the item's ID
 function renderTodoItem(item) {
     var li = document.createElement('li');
     li.className = 'todo-item';
-    li.setAttribute('data-id', String(item.id));
 
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -332,6 +380,7 @@ function renderTodoItem(item) {
     return li;
 }
 
+// Re-renders all todos across both cards, showing the overflow card only when needed
 function renderTodos() {
     var list1 = document.getElementById('todo-list-1');
     var list2 = document.getElementById('todo-list-2');
@@ -355,8 +404,9 @@ function renderTodos() {
     }
 }
 
+// Adds a new todo after trimming whitespace; rejects if at the 10-task cap
 function addTodo(text) {
-    var trimmed = text.replace(/^\s+|\s+$/g, '');
+    var trimmed = text.trim().toLowerCase();
     if (!trimmed) return;
 
     if (a2Todos.length >= TODO_MAX) {
@@ -374,6 +424,7 @@ function addTodo(text) {
     renderTodos();
 }
 
+// Toggles a todo's completed state by ID, then saves and re-renders
 function toggleTodoComplete(id) {
     for (var i = 0; i < a2Todos.length; i++) {
         if (a2Todos[i].id === id) {
@@ -385,6 +436,7 @@ function toggleTodoComplete(id) {
     renderTodos();
 }
 
+// Removes a todo by ID, then saves and re-renders
 function deleteTodo(id) {
     var next = [];
     for (var i = 0; i < a2Todos.length; i++) {
@@ -397,6 +449,7 @@ function deleteTodo(id) {
     renderTodos();
 }
 
+// Initialises the todo page: loads saved todos, renders them, wires up add button and Enter key
 function initTodoPage() {
     loadTodos();
     renderTodos();
@@ -426,7 +479,7 @@ function initTodoPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.body.getAttribute('data-a2-page') === 'todo') {
+    if (document.body.classList.contains('a2-page-todo')) {
         initTodoPage();
     }
 });

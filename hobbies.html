@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Siam's Scrapbook - Hobbies</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-    <div id="wrapper">
-
         <div class="postit-rail">
             <div id="pullout-sidebar-menu" class="postit-sidebar postit-sidebar-menu">
                 <button type="button" id="postit-sidebar-menu-toggle" class="postit-sidebar-tab" title="Open quick navigation">
-                    <span class="postit-tab-text" data-closed-text="menu" data-open-text="fold">menu</span>
+                    <span class="postit-tab-text">menu</span>
                 </button>
                 <div class="postit-sidebar-content">
                     <span class="postit-sparkle postit-sparkle-one">✧</span>
@@ -31,7 +28,7 @@
             </div>
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2 postit-sidebar-secondary">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
-                    <span class="postit-tab-text" data-closed-text="A2" data-open-text="fold">A2</span>
+                    <span class="postit-tab-text">A2</span>
                 </button>
                 <div class="postit-sidebar-content postit-sidebar-content-a2">
                     <span class="postit-sparkle postit-sparkle-one">✧</span>
@@ -46,7 +43,26 @@
                     <p class="postit-note">tug the tab to fold this note back in</p>
                 </div>
             </div>
+            <div id="pullout-sidebar-a3" class="postit-sidebar postit-sidebar-a3 postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-a3-toggle" class="postit-sidebar-tab postit-sidebar-tab-a3" title="Open assignment 3">
+                    <span class="postit-tab-text">A3</span>
+                </button>
+                <div class="postit-sidebar-content postit-sidebar-content-a3">
+                    <span class="postit-sparkle postit-sparkle-one">✧</span>
+                    <span class="postit-sparkle postit-sparkle-two">✿</span>
+                    <p class="postit-kicker">assignment 3</p>
+                    <h2>TBD</h2>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
         </div>
+
+<div id="page-wrapper">
+    <div class="cover"></div>
+    <div id="blank-page"></div>
+    <div id="wrapper">
+    <div class="wrapper-content">
+
 
         <div class="binder-spine">
             <span class="binder-ring"></span>
@@ -144,180 +160,174 @@
             </div>
         </div>
 
-        <!-- TOP 10 LISTS -->
-        <div class="card" id="top10">
-
+        <!-- TOP 10 LISTS - Anime -->
+        <div class="card" id="top10-anime">
             <div class="scrapbook-doodle" style="top: -40px; right: -30px;">
                 <img src="images/doodles/film-spool.svg" style="opacity: 0.85;" width="90" height="90" alt="Film Spool" />
             </div>
-
             <h2>🌸 My Top 10 Lists</h2>
             <p>To give you a better idea of the specific niches I live for, here are my separate top ten lists for anime, survival horror video games, and psychological/indie horror movies:</p>
-            
+            <h3 class="highlight">🎬 Top 10 Favorite Anime Series &amp; Movies</h3>
+            <ol class="paper-list">
+                <li><span class="bold">Banana Fish</span> — An absolute masterpiece street thriller with profound, deeply moving character bonds.</li>
+                <li><span class="bold">JoJo's Bizarre Adventure</span> — Stylized, theatrical action with iconic poses and musical references.</li>
+                <li><span class="bold">Devilman Crybaby</span> — A hyper-stylized, dark, tragic, and visually breathtaking modern masterpiece.</li>
+                <li><span class="bold">Serial Experiments Lain</span> — Deep cyber-psychology, digital dissociation, and dark philosophical atmosphere.</li>
+                <li><span class="bold">Jujutsu Kaisen</span> — Dynamic battles, dark occult themes, and stunning animations.</li>
+                <li><span class="bold">Perfect Blue</span> — Satoshi Kon's legendary psychological dread masterpiece mapping identity and obsession.</li>
+                <li><span class="bold">Neon Genesis Evangelion</span> — Masterful psychological struggles and iconic retro-mecha design.</li>
+                <li><span class="bold">Mononoke</span> — Avant-garde horror-fantasy with gorgeous theatrical art style.</li>
+                <li><span class="bold">Texhnolyze</span> — Gritty, bleak cyberpunk with intense existential dread.</li>
+                <li><span class="bold">Monster</span> — A dark, realistic psychological thriller about morality, guilt, and obsession.</li>
+            </ol>
+        </div>
 
-            <div class="scrapbook-doodle" style="top: 680px; right: -15px;">
+        <!-- TOP 10 LISTS - Games -->
+        <div class="card" id="top10-games">
+            <div class="scrapbook-doodle" style="top: 25px; right: -15px;">
                 <img src="images/doodles/game-controller.svg" style="opacity: 0.85;" width="85" height="85" alt="Game Controller" />
             </div>
+            <h3 class="highlight">🎮 My Horror Video Games Recommendation List</h3>
+            <div class="table-container" style="margin-top: 15px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Game Title</th>
+                            <th>Publisher <br/>&amp; Release</th>
+                            <th>Core Aesthetic <br/>&amp; Commentary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.1);">
+                                Classic PS2 Era<br />(Golden Age)
+                            </td>
+                            <td class="highlight">Silent Hill 2</td>
+                            <td>Konami (2001)</td>
+                            <td>
+                                The absolute peak of psychological horror and melancholic atmosphere.<br> 
+                                Anytime I see foggy weather outsider I think of this game and despite the remake<br>
+                                being out, I still honestly prefer the fixed-camera angle and the thrills only a PS2 game could provide.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Rule of Rose</td>
+                            <td>Sony (2006)</td>
+                            <td>
+                                A cruel, psychological gothic narrative set in a surreal orphanage ruled by children.<br> 
+                                I particularly love the eerie, dream-like atmosphere of the game and the hauntingly beautiful<br>
+                                soundtrack it comes with.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Obscure</td>
+                            <td>Hydravision Entertainment (2004)</td>
+                            <td>
+                                A nostalgic and cheesy early 00's relic that captures almost everything I love from the<br>
+                                soundtrack, to the characters and down to the atmosphere.<br>I doubt most people will enjoy it since it has
+                                a lot of<br>technical flaws as a product of its time, but I'd still very much recommend.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Fatal Frame II</td>
+                            <td>Tecmo (2003)</td>
+                            <td>
+                                Also known as <em>Crimson Butterfly</em>, this haunting J-horror classic features a camera-based<br> 
+                                combat system. It follows twin sisters lost in an abandoned village overrun by malevolent<br>
+                                spirits, drawing on deep Japanese folklore.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Siren (Forbidden)</td>
+                            <td>Sony (2023)</td>
+                            <td>
+                                A highly atmospheric, challenging, multi-perspective stealth horror game.<br> 
+                                It requires players to 'sightjack' (see through the eyes of) the undead shibito to survive <br>
+                                a perpetual red rain curse in a rural village.
+                            </td>
+                        </tr>
 
-            <div style="margin-top: 20px;">
-                <h3 class="highlight">🎬 Top 10 Favorite Anime Series &amp; Movies</h3>
-                <ol class="paper-list">
-                    <li><span class="bold">Banana Fish</span> — An absolute masterpiece street thriller with profound, deeply moving character bonds.</li>
-                    <li><span class="bold">JoJo's Bizarre Adventure</span> — Stylized, theatrical action with iconic poses and musical references.</li>
-                    <li><span class="bold">Devilman Crybaby</span> — A hyper-stylized, dark, tragic, and visually breathtaking modern masterpiece.</li>
-                    <li><span class="bold">Serial Experiments Lain</span> — Deep cyber-psychology, digital dissociation, and dark philosophical atmosphere.</li>
-                    <li><span class="bold">Jujutsu Kaisen</span> — Dynamic battles, dark occult themes, and stunning animations.</li>
-                    <li><span class="bold">Perfect Blue</span> — Satoshi Kon's legendary psychological dread masterpiece mapping identity and obsession.</li>
-                    <li><span class="bold">Neon Genesis Evangelion</span> — Masterful psychological struggles and iconic retro-mecha design.</li>
-                    <li><span class="bold">Mononoke</span> — Avant-garde horror-fantasy with gorgeous theatrical art style.</li>
-                    <li><span class="bold">Texhnolyze</span> — Gritty, bleak cyberpunk with intense existential dread.</li>
-                    <li><span class="bold">Monster</span> — A dark, realistic psychological thriller about morality, guilt, and obsession.</li>
-                </ol>
+                        <tr>
+                            <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.15);">
+                                Modern Retro &amp;<br />Indie Gems
+                            </td>
+                            <td class="bold">Tormented Souls</td>
+                            <td>PQube (2021)</td>
+                            <td>
+                                A fantastic modern callback to classic fixed-camera survival horror. 
+                                I love the<br>limited ammo, lack of reliable save slots and zero<br>hand-holding
+                                the game provides, forcing the player to really dig deep to figure things out.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="highlight">Alan Wake</td>
+                            <td>Remedy Entertainment (2010)</td>
+                            <td>
+                                This game holds a special place in my heart with its storytelling, references to old Classics<br>
+                                like The Twilight Zone and Twin peaks, along with the fantasic way in which it incorporated music
+                                and horror.<br>A must play I'd say.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">The Evil Within</td>
+                            <td>2014 / 	Tango Gameworks</td>
+                            <td>
+                                Speaking of absurdly difficult games, I think even in its easiest difficulty this one<br>
+                                is harder to beat than a lot of games' hard difficulty out there.<br>The repeated encounters with the same dreadfully
+                                powerful and scary bosses, claustrophic and disturbing<br>imageries along with the soundtrack is sure to
+                                cause nightmares.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="highlight">Fear <br/>&amp; Hunger</td>
+                            <td>Happy Paintings (2018)</td>
+                            <td>
+                                A modern day dungeon crawler that I think changed<br>my brain chemistry. The visuals and the sources that
+                                inspired<br>this game is one of my biggest inspirationsfor why I personally want to venture into game developement.<br>
+                                The theatrical and frankly<br>unspeakable suffering and misery that this game will make you go through is not for the
+                                faint of heart.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Deadly Premonition</td>
+                            <td>Access Games (2010)</td>
+                            <td>
+                                A quirky, janky, Twin Peaks-inspired open-world cult classic. 
+                                I can probably<br>only say bad things about the game but I swear I love it. It might just
+                                be so wrong<br>that it is perfect.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3" class="bold text-center">Overall Gaming Recommendation</td>
+                            <td class="highlight italic">
+                                Play in a dark room with high-quality headphones to<br>fully experiencethe rich soundscapes and atmospheric dread!
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            
-            <div style="margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
-                <h3 class="highlight">🎮 My Horror Video Games Recommendation List</h3>
-                <div class="table-container" style="margin-top: 15px;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th>Game Title</th>
-                                <th>Publisher <br/>&amp; Release</th>
-                                <th>Core Aesthetic <br/>&amp; Commentary</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.1);">
-                                    Classic PS2 Era<br />(Golden Age)
-                                </td>
-                                <td class="highlight">Silent Hill 2</td>
-                                <td>Konami (2001)</td>
-                                <td>
-                                    The absolute peak of psychological horror and melancholic atmosphere.<br> 
-                                    Anytime I see foggy weather outsider I think of this game and despite the remake<br>
-                                    being out, I still honestly prefer the fixed-camera angle and the thrills only a PS2 game could provide.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bold">Rule of Rose</td>
-                                <td>Sony (2006)</td>
-                                <td>
-                                    A cruel, psychological gothic narrative set in a surreal orphanage ruled by children.<br> 
-                                    I particularly love the eerie, dream-like atmosphere of the game and the hauntingly beautiful<br>
-                                    soundtrack it comes with.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bold">Obscure</td>
-                                <td>Hydravision Entertainment (2004)</td>
-                                <td>
-                                    A nostalgic and cheesy early 00's relic that captures almost everything I love from the<br>
-                                    soundtrack, to the characters and down to the atmosphere.<br>I doubt most people will enjoy it since it has
-                                    a lot of<br>technical flaws as a product of its time, but I'd still very much recommend.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bold">Fatal Frame II</td>
-                                <td>Tecmo (2003)</td>
-                                <td>
-                                    Also known as <em>Crimson Butterfly</em>, this haunting J-horror classic features a camera-based<br> 
-                                    combat system. It follows twin sisters lost in an abandoned village overrun by malevolent<br>
-                                    spirits, drawing on deep Japanese folklore.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bold">Siren (Forbidden)</td>
-                                <td>Sony (2023)</td>
-                                <td>
-                                    A highly atmospheric, challenging, multi-perspective stealth horror game.<br> 
-                                    It requires players to 'sightjack' (see through the eyes of) the undead shibito to survive <br>
-                                    a perpetual red rain curse in a rural village.
-                                </td>
-                            </tr>
+        </div>
 
-                            <tr>
-                                <td class="bold" rowspan="5" style="vertical-align: middle; text-align: center; background-color: rgba(255, 198, 216, 0.15);">
-                                    Modern Retro &amp;<br />Indie Gems
-                                </td>
-                                <td class="bold">Tormented Souls</td>
-                                <td>PQube (2021)</td>
-                                <td>
-                                    A fantastic modern callback to classic fixed-camera survival horror. 
-                                    I love the<br>limited ammo, lack of reliable save slots and zero<br>hand-holding
-                                    the game provides, forcing the player to really dig deep to figure things out.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="highlight">Alan Wake</td>
-                                <td>Remedy Entertainment (2010)</td>
-                                <td>
-                                    This game holds a special place in my heart with its storytelling, references to old Classics<br>
-                                    like The Twilight Zone and Twin peaks, along with the fantasic way in which it incorporated music
-                                    and horror.<br>A must play I'd say.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bold">The Evil Within</td>
-                                <td>2014 / 	Tango Gameworks</td>
-                                <td>
-                                    Speaking of absurdly difficult games, I think even in its easiest difficulty this one<br>
-                                    is harder to beat than a lot of games' hard difficulty out there.<br>The repeated encounters with the same dreadfully
-                                    powerful and scary bosses, claustrophic and disturbing<br>imageries along with the soundtrack is sure to
-                                    cause nightmares.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="highlight">Fear <br/>&amp; Hunger</td>
-                                <td>Happy Paintings (2018)</td>
-                                <td>
-                                    A modern day dungeon crawler that I think changed<br>my brain chemistry. The visuals and the sources that
-                                    inspired<br>this game is one of my biggest inspirationsfor why I personally want to venture into game developement.<br>
-                                    The theatrical and frankly<br>unspeakable suffering and misery that this game will make you go through is not for the
-                                    faint of heart.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bold">Deadly Premonition</td>
-                                <td>Access Games (2010)</td>
-                                <td>
-                                    A quirky, janky, Twin Peaks-inspired open-world cult classic. 
-                                    I can probably<br>only say bad things about the game but I swear I love it. It might just
-                                    be so wrong<br>that it is perfect.
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="3" class="bold text-center">Overall Gaming Recommendation</td>
-                                <td class="highlight italic">
-                                    Play in a dark room with high-quality headphones to<br>fully experiencethe rich soundscapes and atmospheric dread!
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <div style="margin-top: 25px; border-top: 1px dashed var(--border-color); padding-top: 20px;">
-                <h3 class="highlight">📼 Top 10 Favorite Horror &amp; Psychological Movies</h3>
-                <ol class="paper-list">
-                    <li><span class="bold">[REC] (2007)</span> — Intense, claustrophobic Spanish mockumentary that is one of the best found-footage films ever made.</li>
-                    <li><span class="bold">Lake Mungo (2008)</span> — A haunting, melancholic mockumentary about grief, ghosts, and existential dread.</li>
-                    <li><span class="bold">Martyrs (2008)</span> — An extremely heavy, thought-provoking French transgressive horror masterpiece on pain and transcendence.</li>
-                    <li><span class="bold">The Borderlands (2013)</span> — Also known as <em>Final Prayer</em>, a slow-burn British found-footage film with a deeply disturbing ending.</li>
-                    <li><span class="bold">Grave Encounters (2011)</span> — A fun, claustrophobic mockumentary exploring a haunted psychiatric hospital that warps space and time.</li>
-                    <li><span class="bold">Picnic (1996)</span> — Shunji Iwai's short, dark, and beautifully whimsical psychological film about three patients walking on walls.</li>
-                    <li><span class="bold">Pulse (Kairo - 2001)</span> — Kiyoshi Kurosawa's ultimate depiction of internet-dread and loneliness.</li>
-                    <li><span class="bold">Noroi: The Curse (2005)</span> — A sprawling, deeply unsettling found-footage J-horror mystery.</li>
-                    <li><span class="bold">Color Out of Space (2019)</span> — A slowburn mystery that boils into a terrifying cosmic horror experience.</li>
-                    <li><span class="bold">Perfect Blue (1997)</span> — An unforgettable psychological thriller exploring identity, dread, and blurred reality.</li>
-                </ol>
-            </div>
-
+        <!-- TOP 10 LISTS - Movies -->
+        <div class="card" id="top10-movies">
             <div class="scrapbook-doodle" style="bottom: -20px; left: -30px;">
                 <img src="images/doodles/gothic-eyes.svg" style="opacity: 0.85;" width="80" height="80" alt="Gothic Eyes" />
             </div>
+            <h3 class="highlight">📼 Top 10 Favorite Horror &amp; Psychological Movies</h3>
+            <ol class="paper-list">
+                <li><span class="bold">[REC] (2007)</span> — Intense, claustrophobic Spanish mockumentary that is one of the best found-footage films ever made.</li>
+                <li><span class="bold">Lake Mungo (2008)</span> — A haunting, melancholic mockumentary about grief, ghosts, and existential dread.</li>
+                <li><span class="bold">Martyrs (2008)</span> — An extremely heavy, thought-provoking French transgressive horror masterpiece on pain and transcendence.</li>
+                <li><span class="bold">The Borderlands (2013)</span> — Also known as <em>Final Prayer</em>, a slow-burn British found-footage film with a deeply disturbing ending.</li>
+                <li><span class="bold">Grave Encounters (2011)</span> — A fun, claustrophobic mockumentary exploring a haunted psychiatric hospital that warps space and time.</li>
+                <li><span class="bold">Picnic (1996)</span> — Shunji Iwai's short, dark, and beautifully whimsical psychological film about three patients walking on walls.</li>
+                <li><span class="bold">Pulse (Kairo - 2001)</span> — Kiyoshi Kurosawa's ultimate depiction of internet-dread and loneliness.</li>
+                <li><span class="bold">Noroi: The Curse (2005)</span> — A sprawling, deeply unsettling found-footage J-horror mystery.</li>
+                <li><span class="bold">Color Out of Space (2019)</span> — A slowburn mystery that boils into a terrifying cosmic horror experience.</li>
+                <li><span class="bold">Perfect Blue (1997)</span> — An unforgettable psychological thriller exploring identity, dread, and blurred reality.</li>
+            </ol>
         </div>
 
         <!-- VISUAL KEI MUSIC CORNER -->
@@ -375,9 +385,13 @@
             </div>
         </div>
     </div>
+    </div>
+    <div id="wrapper-stack"></div>
+</div>
 
     <div class="scroll-top-wrapper">
         <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
     </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

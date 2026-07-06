@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100" height="80">
+  <!-- Definitions for Gradients and Filters -->
+  <defs>
+    <!-- Background Shadow for a quirky pop -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="8" dy="12" stdDeviation="4" flood-color="#4a3b5c" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Smooth Pastel Gradients -->
+    <linearGradient id="board-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E1C7EB"/>
+      <stop offset="100%" stop-color="#DABEE5"/>
+    </linearGradient>
+    
+    <linearGradient id="clip-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C9A3D5"/>
+      <stop offset="100%" stop-color="#D081C0"/>
+    </linearGradient>
+
+    <linearGradient id="paper-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fff9fe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main Background Board (Quirky, slightly asymmetrical rounded rect) -->
+  <path d="M 180,120 
+           C 250,110 550,115 620,130 
+           C 660,140 680,180 675,250 
+           C 670,400 685,750 670,850 
+           C 660,910 610,930 400,925 
+           C 190,920 135,900 125,830 
+           C 115,700 130,350 125,220 
+           C 120,150 140,125 180,120 Z" 
+        fill="url(#board-grad)" 
+        stroke="#4a3b5c" 
+        stroke-width="8" 
+        stroke-linejoin="round"
+        filter="url(#drop-shadow)"/>
+
+  <!-- Outer Board Floral Border Doodles -->
+  <g id="board-decorations">
+    <!-- Top Left Flower Cluster -->
+    <path d="M 100,160 C 80,130 110,90 140,110 C 170,90 200,120 180,150 C 210,170 180,210 150,190 C 120,210 90,180 100,160 Z" fill="#CCADDB" stroke="#4a3b5c" stroke-width="5"/>
+    <circle cx="145" cy="150" r="15" fill="#fff59d" stroke="#4a3b5c" stroke-width="5"/>
+    
+    <!-- Top Right Sparkles & Dots -->
+    <path d="M 640,80 L 645,95 L 660,100 L 645,105 L 640,120 L 635,105 L 620,100 L 635,95 Z" fill="#fff59d"/>
+    <circle cx="680" cy="140" r="6" fill="#D081C0"/>
+    <circle cx="600" cy="80" r="4" fill="#CC96CD"/>
+
+    <!-- Bottom Right Flower -->
+    <g transform="translate(620, 840)">
+      <path d="M0,0 C-20,-30 -50,-10 -30,10 C-50,30 -20,50 0,30 C20,50 50,30 30,10 C50,-10 20,-30 0,0 Z" fill="#CF83C2" stroke="#4a3b5c" stroke-width="5"/>
+      <circle cx="0" cy="10" r="12" fill="#ffe082" stroke="#4a3b5c" stroke-width="5"/>
+    </g>
+    
+    <!-- Bottom Left Leaves -->
+    <path d="M 90,820 C 70,850 80,890 120,880 C 130,850 110,810 90,820 Z" fill="#81c784" stroke="#4a3b5c" stroke-width="5"/>
+    <path d="M 120,880 C 140,900 170,880 160,850 C 140,840 110,850 120,880 Z" fill="#a5d6a7" stroke="#4a3b5c" stroke-width="5"/>
+  </g>
+
+  <!-- The Paper Layer -->
+  <path d="M 185,260 
+           C 220,255 580,255 615,260 
+           C 630,265 635,280 635,320 
+           C 640,450 630,720 635,820 
+           C 635,850 610,865 400,865 
+           C 190,865 170,850 170,820 
+           C 175,720 165,450 170,320 
+           C 170,280 175,265 185,260 Z" 
+        fill="url(#paper-grad)" 
+        stroke="#4a3b5c" 
+        stroke-width="6"/>
+
+  <!-- Paper Details (Quirky Lilac Lines) -->
+  <g stroke="#e1bee7" stroke-width="3" stroke-dasharray="5,5">
+    <line x1="210" y1="360" x2="590" y2="360" />
+    <line x1="210" y1="430" x2="590" y2="430" />
+    <line x1="210" y1="500" x2="590" y2="500" />
+    <line x1="210" y1="570" x2="590" y2="570" />
+    <line x1="210" y1="640" x2="590" y2="640" />
+    <line x1="210" y1="710" x2="590" y2="710" />
+    <line x1="210" y1="780" x2="590" y2="780" />
+  </g>
+
+  <!-- Botanical/Flower Doodles on the Paper -->
+  <g id="paper-doodles" opacity="0.85">
+    <!-- Soft pink trailing vine on the left side -->
+    <path d="M 210,400 Q 190,480 220,560 T 200,720" fill="none" stroke="#f48fb1" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="195" cy="440" r="8" fill="#C8A6D7"/>
+    <circle cx="215" cy="510" r="6" fill="#C8A6D7"/>
+    <circle cx="195" cy="600" r="9" fill="#C8A6D7"/>
+    <circle cx="210" cy="670" r="7" fill="#C8A6D7"/>
+    
+    <!-- Little whimsical flowers in the corners of the page -->
+    <g transform="translate(560, 320) scale(0.7)">
+      <circle cx="0" cy="0" r="10" fill="#D081C0"/>
+      <circle cx="-15" cy="0" r="8" fill="#CFB1DE"/>
+      <circle cx="15" cy="0" r="8" fill="#CFB1DE"/>
+      <circle cx="0" cy="-15" r="8" fill="#CFB1DE"/>
+      <circle cx="0" cy="15" r="8" fill="#CFB1DE"/>
+    </g>
+  </g>
+
+  <!-- The Clipboard Clip (Cute oversized chunky style) -->
+  <g id="clipboard-clip">
+    <!-- Clip Base Shadow/Back -->
+    <path d="M 280,160 C 320,90 480,90 520,160 C 540,190 530,220 500,220 L 300,220 C 270,220 260,190 280,160 Z" fill="#C365AC" stroke="#4a3b5c" stroke-width="6" stroke-linejoin="round"/>
+    
+    <!-- Main Clip Body -->
+    <path d="M 290,170 C 330,110 470,110 510,170 C 525,195 510,230 470,230 L 330,230 C 290,230 275,195 290,170 Z" fill="url(#clip-grad)" stroke="#4a3b5c" stroke-width="6" stroke-linejoin="round"/>
+    
+    <!-- Clip Fastener/Hole -->
+    <circle cx="400" cy="145" r="20" fill="#E1C7EB" stroke="#4a3b5c" stroke-width="6"/>
+    
+    <!-- Decorative Clip Engraving (Simple whimsical stars/lines) -->
+    <path d="M 350,200 L 370,200 M 430,200 L 450,200" stroke="#4a3b5c" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="400,185 403,193 411,193 405,198 407,206 400,201 393,206 395,198 389,193 397,193" fill="#fff59d"/>
+  </g>
+</svg>

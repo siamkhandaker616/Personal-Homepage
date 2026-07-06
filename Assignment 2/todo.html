@@ -3,19 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookies, Chores &amp; Chronos — To-Do List</title>
+    <title>Cookies, Chronos &amp; Chores — To-Do List</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="../script.js"></script>
-    <script type="text/javascript" src="script.js"></script>
 </head>
-<body class="a2" data-a2-page="todo">
-    <div id="wrapper">
-
+<body class="a2 a2-page-todo">
+<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.classList.add('palette-'+p)}catch(e){}</script>
         <div class="postit-rail">
             <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2">
                 <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
-                    <span class="postit-tab-text" data-closed-text="A2" data-open-text="fold">A2</span>
+                    <span class="postit-tab-text">A2</span>
                 </button>
                 <div class="postit-sidebar-content postit-sidebar-content-a2">
                     <span class="postit-sparkle postit-sparkle-one">&#10022;</span>
@@ -30,9 +27,9 @@
                     <p class="postit-note">tug the tab to fold this note back in</p>
                 </div>
             </div>
-            <div id="pullout-sidebar-hp" class="postit-sidebar postit-sidebar-menu postit-sidebar-secondary">
-                <button type="button" id="postit-sidebar-hp-toggle" class="postit-sidebar-tab" title="Open homepage navigation">
-                    <span class="postit-tab-text" data-closed-text="HP" data-open-text="fold">HP</span>
+            <div id="pullout-sidebar-menu" class="postit-sidebar postit-sidebar-menu postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-menu-toggle" class="postit-sidebar-tab" title="Open homepage navigation">
+                    <span class="postit-tab-text">HP</span>
                 </button>
                 <div class="postit-sidebar-content">
                     <span class="postit-sparkle postit-sparkle-one">&#10022;</span>
@@ -48,7 +45,26 @@
                     <p class="postit-note">tug the tab to fold this note back in</p>
                 </div>
             </div>
+            <div id="pullout-sidebar-a3" class="postit-sidebar postit-sidebar-a3 postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-a3-toggle" class="postit-sidebar-tab postit-sidebar-tab-a3" title="Open assignment 3">
+                    <span class="postit-tab-text">A3</span>
+                </button>
+                <div class="postit-sidebar-content postit-sidebar-content-a3">
+                    <span class="postit-sparkle postit-sparkle-one">&#10022;</span>
+                    <span class="postit-sparkle postit-sparkle-two">&#10047;</span>
+                    <p class="postit-kicker">assignment 3</p>
+                    <h2>TBD</h2>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
         </div>
+
+<div id="page-wrapper">
+    <div class="cover"></div>
+    <div id="blank-page"></div>
+    <div id="wrapper">
+    <div class="wrapper-content">
+
 
         <div class="binder-spine">
             <span class="binder-ring"></span>
@@ -62,7 +78,7 @@
         <div class="header">
             <h1>
                 <span><img id="icon-left" src="images/icons/light-pink-emoji.png" alt="" /></span>
-                Cookies, Chores &amp; Chronos
+                Cookies, Chronos &amp; Chores
                 <span><img id="icon-right" src="images/icons/light-pink-emoji.png" alt="" /></span>
             </h1>
             <p class="italic">CSE 391 — Assignment 2</p>
@@ -75,19 +91,28 @@
             </div>
         </div>
 
-        <div class="card todo-section">
-            <h2>&#9745; To-Do List</h2>
+        <div class="card todo-section" style="position: relative; transform: rotate(1deg);">
+            <div class="doodle" style="top: -30px; right: -30px; width: 90px; transform: rotate(-30deg);">
+                <img id="doodle-clipboard" src="images/doodles/light-pink-clipboard.svg" alt="" />
+            </div>
+            <h3>&#9745; To-Do List</h3>
             <button type="button" id="todo-add-btn" class="mode-toggle-btn todo-add-btn">&#10010; Add a task</button>
         </div>
 
         <div class="todo-cards-wrap todo-section">
-            <div id="todo-card-1" class="card todo-card">
+            <div id="todo-card-1" class="card todo-card" style="position: relative;">
+                <div class="doodle doodle-tl doodle-small">
+                    <img id="doodle-checkmark-1" src="images/doodles/light-pink-checkmark.svg" alt="" />
+                </div>
                 <h3>Today's scraps</h3>
-                <ul id="todo-list-1" class="todo-list"></ul>
+                <ul id="todo-list-1" class="todo-list"><li class="todo-placeholder"></li></ul>
             </div>
-            <div id="todo-card-2" class="card todo-card" style="display: none;">
+            <div id="todo-card-2" class="card todo-card" style="position: relative; display: none;">
+                <div class="doodle doodle-tl doodle-small">
+                    <img id="doodle-checkmark-2" src="images/doodles/light-pink-checkmark.svg" alt="" />
+                </div>
                 <h3>Overflow pile</h3>
-                <ul id="todo-list-2" class="todo-list"></ul>
+                <ul id="todo-list-2" class="todo-list"><li class="todo-placeholder"></li></ul>
             </div>
         </div>
 
@@ -99,6 +124,9 @@
             </div>
         </div>
     </div>
+    </div>
+    <div id="wrapper-stack"></div>
+</div>
 
     <div class="scroll-top-wrapper">
         <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
@@ -108,7 +136,7 @@
         <div class="paper-modal-content">
             <h3 id="paper-modal-title">Notice</h3>
             <p id="paper-modal-message">Message</p>
-            <button type="button" id="paper-modal-close" class="mode-toggle-btn">OK</button>
+            <button type="button" id="paper-modal-close" class="mode-toggle-btn" style="position:static;">OK</button>
         </div>
     </div>
 
@@ -126,5 +154,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="../script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
