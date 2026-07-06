@@ -1403,7 +1403,7 @@ body.dark-mode .tape-polaroid::before {
     width: 100%;
     height: 100%;
     background-color: rgba(61, 45, 68, 0.55);
-    -webkit-backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
     z-index: 2000;
     display: flex;

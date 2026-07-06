@@ -7,11 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- DARK MODE TOGGLE ---
     var toggleBtn = document.getElementById('mode-toggle');
-    var isA2Site = document.body.classList.contains('a2-site');
-    if (isA2Site) {
-        document.body.classList.remove('dark-mode');
-    }
-    if (toggleBtn && !isA2Site) {
+    if (toggleBtn) {
         var isDarkMode = localStorage.getItem('darkMode') === 'true';
         if (isDarkMode) {
             document.body.classList.add('dark-mode');

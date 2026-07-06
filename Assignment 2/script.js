@@ -61,16 +61,26 @@ function setA2Palette(name) {
     swapIcons(name);
 }
 
-// Applies palette-specific background, text, and border to the fortune box
+// Applies palette-specific font, background, text, and border to the fortune display
 function applyFortunePalette(name) {
+    var textEl = document.getElementById('fortune-text');
+    if (textEl) {
+        if (name === 'default') {
+            textEl.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
+            textEl.style.fontSize = '1.25rem';
+        } else {
+            var css = getComputedStyle(document.body);
+            textEl.style.fontFamily = css.getPropertyValue('--fortune-font').trim() || "'Cheveuxdange', cursive, sans-serif";
+            textEl.style.fontSize = css.getPropertyValue('--fortune-size').trim() || '1.25rem';
+        }
+    }
+
     var box = document.getElementById('fortune-box');
     if (!box) return;
     if (name === 'default') {
         box.style.background = '';
         box.style.color = '';
         box.style.borderColor = '';
-        box.style.fontSize = '1.25rem';
-        box.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
         return;
     }
     var css = getComputedStyle(document.body);
@@ -78,8 +88,6 @@ function applyFortunePalette(name) {
     box.style.background = style.bg;
     box.style.color = css.getPropertyValue('--text-color').trim();;
     box.style.borderColor = css.getPropertyValue('--border-color').trim();
-    box.style.fontSize = '1.25rem';
-    box.style.fontFamily = "'Cheveuxdange', cursive, sans-serif";
 }
 
 // Swaps PNG emoji and SVG control icons to match the current palette
@@ -125,9 +133,7 @@ function initA2Palette() {
     setA2Palette(saved);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    initA2Palette();
-});
+initA2Palette();
 
 /* Fortune Generator — random fortunes and palette chip buttons */
 
