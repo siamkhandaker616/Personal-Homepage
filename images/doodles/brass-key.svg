@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="80" height="80" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transform: rotate(-30deg);">
+                    <!-- Key top loop -->
+                    <circle cx="50" cy="30" r="12" style="fill: #ffe5ec;" />
+                    <circle cx="50" cy="30" r="4" style="fill: none; stroke: #3b204c; stroke-width: 1.8;" />
+                    <!-- Key shaft -->
+                    <line x1="50" y1="42" x2="50" y2="78" style="stroke-width: 3;" />
+                    <!-- Key teeth -->
+                    <path d="M 50,68 L 62,68 L 62,72 L 50,72 M 50,74 L 58,74 L 58,78 L 50,78" />
+                    <!-- Flowers around key -->
+                    <g style="transform: translate(32px, 35px) scale(0.65);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="95" height="95" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Ribbon tails -->
+                    <polygon points="40,55 30,85 45,75" style="fill: #be9ecb;" />
+                    <polygon points="60,55 70,85 55,75" style="fill: #be9ecb;" />
+                    <!-- Medallion outer circle -->
+                    <circle cx="50" cy="45" r="22" style="fill: #fffdf5;" />
+                    <circle cx="50" cy="45" r="18" style="fill: #ffd8e6;" />
+                    <!-- Star in center -->
+                    <polygon points="50,32 54,40 63,42 56,48 58,57 50,52 42,57 44,48 37,42 46,40" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    <!-- Little flower -->
+                    <g style="transform: translate(62px, 15px) scale(0.5);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

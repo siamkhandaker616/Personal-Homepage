@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies, Chronos &amp; Chores — Stopwatch</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body class="a2 a2-page-stopwatch">
+<script>try{var p=localStorage.getItem('a2Palette');if(p&&p!='default')document.body.className+=' palette-'+p}catch(e){}</script>
+        <div class="postit-rail">
+            <div id="pullout-sidebar-a2" class="postit-sidebar postit-sidebar-a2">
+                <button type="button" id="postit-sidebar-a2-toggle" class="postit-sidebar-tab postit-sidebar-tab-a2" title="Open assignment navigation">
+                    <span class="postit-tab-text">A2</span>
+                </button>
+                <div class="postit-sidebar-content postit-sidebar-content-a2">
+                    <span class="postit-sparkle postit-sparkle-one">&#10022;</span>
+                    <span class="postit-sparkle postit-sparkle-two">&#10047;</span>
+                    <p class="postit-kicker">assignment 2</p>
+                    <h2>JS tasks</h2>
+                    <ul class="postit-sidebar-links">
+                        <li><a href="fortune.html"><span>&#9789;</span> Fortune</a></li>
+                        <li><a href="stopwatch.html" class="active"><span>&#9201;</span> Stopwatch</a></li>
+                        <li><a href="todo.html"><span>&#9745;</span> To-Do</a></li>
+                    </ul>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
+            <div id="pullout-sidebar-menu" class="postit-sidebar postit-sidebar-menu postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-menu-toggle" class="postit-sidebar-tab" title="Open homepage navigation">
+                    <span class="postit-tab-text">HP</span>
+                </button>
+                <div class="postit-sidebar-content">
+                    <span class="postit-sparkle postit-sparkle-one">&#10022;</span>
+                    <span class="postit-sparkle postit-sparkle-two">&#10047;</span>
+                    <p class="postit-kicker">quick flip</p>
+                    <h2>Page scraps</h2>
+                    <ul class="postit-sidebar-links">
+                        <li><a href="../index.html"><span>&#8962;</span> Home</a></li>
+                        <li><a href="../hobbies.html"><span>&#10047;</span> Hobbies</a></li>
+                        <li><a href="../experiences.html"><span>&#10022;</span> Experiences</a></li>
+                        <li><a href="../projects.html"><span>&#9635;</span> Projects</a></li>
+                    </ul>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
+            <div id="pullout-sidebar-a3" class="postit-sidebar postit-sidebar-a3 postit-sidebar-secondary">
+                <button type="button" id="postit-sidebar-a3-toggle" class="postit-sidebar-tab postit-sidebar-tab-a3" title="Open assignment 3">
+                    <span class="postit-tab-text">A3</span>
+                </button>
+                <div class="postit-sidebar-content postit-sidebar-content-a3">
+                    <span class="postit-sparkle postit-sparkle-one">&#10022;</span>
+                    <span class="postit-sparkle postit-sparkle-two">&#10047;</span>
+                    <p class="postit-kicker">assignment 3</p>
+                    <h2>Mayhem Mobility</h2>
+                    <ul class="postit-sidebar-links">
+                        <li><a href="https://mayhem-mobility.page.gd"><span>🚗</span> Book Now</a></li>
+                        <li><a href="https://mayhem-mobility.page.gd/admin.php"><span>⚙</span> Admin</a></li>
+                    </ul>
+                    <p class="postit-note">tug the tab to fold this note back in</p>
+                </div>
+            </div>
+        </div>
+
+<div id="page-wrapper">
+    <div class="cover"></div>
+    <div id="blank-page"></div>
+    <div id="wrapper">
+    <div class="wrapper-content">
+
+
+        <div class="binder-spine">
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+            <span class="binder-ring"></span>
+        </div>
+
+        <div id="bookmark-ribbon" class="bookmark-a2"></div>
+
+        <div class="header">
+            <h1>
+                <span><img id="icon-left" src="images/icons/light-pink-emoji.png" alt="" /></span>
+                Cookies, Chronos &amp; Chores
+                <span><img id="icon-right" src="images/icons/light-pink-emoji.png" alt="" /></span>
+            </h1>
+            <p class="italic">CSE 391 — Assignment 2</p>
+            <div class="nav-container">
+                <ul class="nav-links a2-nav-links">
+                    <li><a href="fortune.html">Fortune</a></li>
+                    <li><a href="stopwatch.html" class="active">Stopwatch</a></li>
+                    <li><a href="todo.html">To-Do List</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card stopwatch-card" style="position: relative;">
+            <div class="doodle doodle-stopwatch">
+                <img id="doodle-stopwatch" src="images/doodles/light-pink-stopwatch.svg" alt="" />
+            </div>
+            <div class="doodle doodle-hourglass">
+                <img id="doodle-hourglass" src="images/doodles/light-pink-hourglass.svg" alt="" />
+            </div>
+            <h3>&#9201; Stopwatch</h3>
+            <div id="stopwatch-display" class="stopwatch-display">0s</div>
+            <div class="stopwatch-controls">
+                <div class="sketch-btn-wrap">
+                    <button type="button" id="sw-play" class="sketch-btn" title="Play">
+                        <img id="sw-play-icon" src="images/icons/light-pink-play.svg" alt="Play" />
+                    </button>
+                    <span class="sketch-btn-label">play</span>
+                </div>
+                <div class="sketch-btn-wrap">
+                    <button type="button" id="sw-stop" class="sketch-btn" title="Stop">
+                        <img id="sw-stop-icon" src="images/icons/light-pink-stop.svg" alt="Stop" />
+                    </button>
+                    <span class="sketch-btn-label">stop</span>
+                </div>
+                <div class="sketch-btn-wrap">
+                    <button type="button" id="sw-reset" class="sketch-btn" title="Reset">
+                        <img id="sw-reset-icon" src="images/icons/light-pink-reset.svg" alt="Reset" />
+                    </button>
+                    <span class="sketch-btn-label">reset</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="bold">&#169; 2026 Siam Khandaker — CSE 391 Assignment 2</p>
+            <div class="footer-meta">
+                <p><strong>Page Location:</strong> <span id="page-location">Retrieving...</span></p>
+                <p><strong>Last Modified:</strong> <span id="last-modified">Retrieving...</span></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="wrapper-stack"></div>
+</div>
+
+    <div class="scroll-top-wrapper">
+        <a href="#wrapper" id="scroll-to-top" class="scroll-top-btn">&#8593;</a>
+    </div>
+    <script type="text/javascript" src="../script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

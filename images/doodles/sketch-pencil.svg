@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="75" height="75" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transform: rotate(45deg);">
+                    <!-- Pencil shaft -->
+                    <rect x="42" y="15" width="16" height="50" style="fill: #be9ecb;" />
+                    <!-- Pencil tip -->
+                    <polygon points="42,65 50,80 58,65" style="fill: #fffdf5;" />
+                    <!-- Lead -->
+                    <polygon points="46,72 50,80 54,72" style="fill: #19161c;" />
+                    <!-- Eraser metal band -->
+                    <rect x="42" y="10" width="16" height="5" style="fill: #fffdf5;" />
+                    <rect x="42" y="5" width="16" height="5" style="fill: #ffd8e6;" />
+                    <!-- Petals drawn by pencil -->
+                    <g style="transform: translate(35px, 68px) scale(0.4);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>

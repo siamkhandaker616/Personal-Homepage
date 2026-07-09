@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="65" height="65" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Stem -->
+                    <path d="M 50,45 Q 40,75 55,85" style="stroke: #c7f9cc; stroke-width: 2;" />
+                    <!-- Leaves -->
+                    <path d="M 45,60 C 35,62 30,55 42,55 Z" style="fill: #c7f9cc;" />
+                    <path d="M 47,70 C 58,72 62,65 50,65 Z" style="fill: #c7f9cc;" />
+                    <!-- Thorny bits -->
+                    <line x1="47" y1="58" x2="42" y2="57" />
+                    <line x1="49" y1="67" x2="54" y2="68" />
+                    <!-- Rose Bud -->
+                    <path d="M 50,45 C 38,45 38,30 50,22 C 62,30 62,45 50,45 Z" style="fill: #ffccd5;" />
+                    <path d="M 50,40 C 44,40 44,32 50,26 C 56,32 56,40 50,40 Z" style="fill: #ffe5ec;" />
+                </svg>

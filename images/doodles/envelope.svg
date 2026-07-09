@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="85" height="85" xml:space="preserve" style="opacity: 0.85; fill: none; stroke: #3b204c; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;">
+                    <!-- Left Wing -->
+                    <path d="M 28,45 C 10,40 10,25 22,30 C 15,38 25,40 28,45 Z" style="fill: #ffe5ec;" />
+                    <!-- Right Wing -->
+                    <path d="M 72,45 C 90,40 90,25 78,30 C 85,38 75,40 72,45 Z" style="fill: #ffe5ec;" />
+                    <!-- Envelope Body -->
+                    <rect x="28" y="38" width="44" height="28" rx="2" style="fill: #fffdf5;" />
+                    <path d="M 28,38 L 50,52 L 72,38" />
+                    <!-- Flowery detail -->
+                    <g style="transform: translate(37px, 48px) scale(0.6);">
+                        <path d="M 25,25 C 22,17 17,17 20,24 C 15,20 12,24 19,26 C 12,29 15,34 20,29 C 22,35 27,35 25,29 C 30,34 32,29 26,26 C 32,24 30,20 25,24 Z" style="fill: #ffccd5; stroke-width: 1.5;" />
+                    </g>
+                </svg>
