@@ -1601,10 +1601,6 @@ body.dark-mode .chi-cat-doodle::after {
     100% { transform: scale(0.9) translateX(0);    }
 }
 
-
-
-
-
 /* --- RESPONSIVE / MOBILE STYLES --- */
 
 @media (max-width: 1180px), (hover: none) and (pointer: coarse) {
